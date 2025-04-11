@@ -1,0 +1,21 @@
+.allowed-users-list {
+	margin-bottom: 10px;
+}
+
+.cur-allowed-users-title-bar {
+	display: flex;
+	align-items: center;
+
+	p {
+		margin: 0;
+		flex-grow: 1;
+	}
+
+	button {
+		margin-right: 5px;
+	}
+}
+
+.mat-expansion-panel-header {
+	text-transform: uppercase;
+}

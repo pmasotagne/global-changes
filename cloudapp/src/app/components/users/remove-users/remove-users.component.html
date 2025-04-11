@@ -1,0 +1,124 @@
+<div class="remove-user-container">
+  <app-loader [loading]="loading" [processedCount]="processedCount" [totalCount]="totalRows" [statusMessage]="loaderStatusMessage"></app-loader>
+  <div class="eca-header">
+    <h1>{{ 'removeUser.title' | translate }}</h1>
+    <div class="button-container">
+      <button *ngIf="!fileValidated" mat-flat-button color="secondary" (click)="back()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+
+      <button *ngIf="fileValidated" mat-flat-button color="secondary" (click)="reload()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+      
+    </div>
+    
+  </div>
+
+  <div *ngIf="checkingUser">
+    <p translate>main.checkingPermissions</p>
+  </div>
+  
+  <!-- When permission is denied -->
+  <div *ngIf="!isModuleUserAllowed && !checkingUser">
+    <section>
+      <h1 translate>main.userIsNotAllowed</h1>
+      <p translate>main.userIsNotAllowedInfoModule</p>
+    </section>
+  </div>
+  <div *ngIf="isModuleUserAllowed && !checkingUser">
+
+    <div *ngIf="!fileValidated && count == 0" class="file-validation-container">
+
+      <div class="validation-info">
+        <p>
+          <mat-icon>info</mat-icon>
+          {{ 'removeUser.validationInfoHeader' | translate }}
+        </p>
+        <ul>
+          <li>{{ 'removeUser.validationInfoPoint1' | translate }}</li>
+          <details class="example-details">
+            <summary class="example-summary">{{ 'removeUser.validationInfoPoint2' | translate }}</summary>
+            <ul class="example-details">
+              <li><code class="small-code">{{ 'removeUser.validationInfoPoint2.1' | translate }}</code></li>
+            </ul>
+          </details>
+          <li>{{ 'removeUser.validationInfoPoint3' | translate }}</li>
+        </ul>
+      </div>
+      
+      <div class="form-group file-upload-container">
+        <div class="file-upload-wrapper">
+          <!-- Hidden file input -->
+          <input
+            type="file"
+            id="file-upload"
+            (change)="onFileSelected($event)"
+            hidden
+            #fileInput
+          />
+        </div>
+
+        <!-- File name display -->
+        <span *ngIf="selectedFile" class="file-name">
+          <br />{{ selectedFile.name }}
+        </span>
+
+        <!-- File selection button -->
+        <button mat-raised-button color="secondary" (click)="fileInput.click()">
+          <mat-icon>upload</mat-icon> {{ 'config.selectFileButton' | translate }}
+        </button>
+
+      </div>
+
+      <br>
+      
+      <!-- Validate Button -->
+      <div class="form-group file-upload-container">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          [disabled]="!selectedFile"
+          (click)="validateFile()"
+        >
+        <mat-icon>approval</mat-icon>  {{ 'createItems.validateFileButton' | translate }}
+        </button>
+      </div>
+
+      <!-- Error Message Section -->
+      <div *ngIf="validationError" class="error-message">
+        <p>
+          <mat-icon color="warn">error_outline</mat-icon>
+          {{ validationError }}
+        </p>
+      </div>
+    </div>
+
+    <form *ngIf="fileValidated">
+      <div class="form-group file-upload-container">
+        <div class="file-upload-wrapper">
+          <!-- Hidden file input -->
+          <input
+            type="file"
+            id="file-upload"
+            (change)="onFileSelected($event)"
+            hidden
+            #fileInput
+          />
+        </div>
+      
+        <!-- File name display -->
+        <span *ngIf="selectedFile" class="file-name">
+          <br />{{ selectedFile.name }}
+        </span>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group file-upload-container">
+        <button mat-raised-button color="primary" type="button" (click)="submitForm()" [disabled]="!selectedFile">{{ 'config.submitButton' | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+  

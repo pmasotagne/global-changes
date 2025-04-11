@@ -1,0 +1,179 @@
+<div class="split-field-items"> 
+    <!-- Actions and Title -->
+    <app-loader [loading]="loading" [processedCount]="processedCount" [totalCount]="totalRows"></app-loader>
+    <div class="eca-header">
+      <h1>{{ 'splitFieldItems.title' | translate }}</h1>
+      <button *ngIf="!fileValidated" mat-flat-button color="secondary" (click)="back()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+
+      <button *ngIf="fileValidated" mat-flat-button color="secondary" (click)="reload()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+    </div>
+
+    <div *ngIf="checkingUser">
+      <p translate>main.checkingPermissions</p>
+    </div>
+    
+    <!-- When permission is denied -->
+    <div *ngIf="!isModuleUserAllowed && !checkingUser">
+      <section>
+        <h1 translate>main.userIsNotAllowed</h1>
+        <p translate>main.userIsNotAllowedInfoModule</p>
+      </section>
+    </div>
+    <div *ngIf="isModuleUserAllowed && !checkingUser">
+
+      <div *ngIf="!fileValidated" class="file-validation-container">
+
+        <!-- Information Section -->
+        <div class="validation-info">
+          <p>
+            <mat-icon>info</mat-icon>
+            {{ 'splitFieldItems.validationInfoHeader' | translate }}
+          </p>
+          <ul>
+            <li>{{ 'splitFieldItems.validationInfoPoint1' | translate }}</li>
+            <details class="example-details">
+              <summary class="example-summary">{{ 'splitFieldItems.validationInfoPoint2' | translate }}</summary>
+              <ul class="example-details">
+                <li><code class="small-code">{{ 'splitFieldItems.validationInfoPoint2.1' | translate }}</code></li>
+                <hr class="line-menu">
+                <li><code class="small-code">{{ 'splitFieldItems.validationInfoPoint2.2' | translate }}</code></li>
+              </ul>
+            </details>
+            <li>{{ 'splitFieldItems.validationInfoPoint3' | translate }}</li>
+            <li>{{ 'splitFieldItems.validationInfoPoint4' | translate }}</li>
+          </ul>
+        </div>
+        
+        <div class="form-group file-upload-container">
+          <div class="file-upload-wrapper">
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-upload"
+              (change)="onFileSelected($event)"
+              hidden
+              #fileInput
+            />
+          </div>
+    
+          <!-- File name display -->
+          <span *ngIf="selectedFile" class="file-name">
+            <br />{{ selectedFile.name }}
+          </span>
+
+          <!-- File selection button -->
+          <button mat-raised-button color="secondary" (click)="fileInput.click()">
+            <mat-icon>upload</mat-icon> {{ 'config.selectFileButton' | translate }}
+          </button>
+
+        </div>
+    
+        <!-- Validate Button -->
+        <div class="form-group file-upload-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            [disabled]="!selectedFile"
+            (click)="validateFile()"
+          >
+          <mat-icon>approval</mat-icon>  {{ 'splitFieldItems.validateFileButton' | translate }}
+          </button>
+        </div>
+    
+        <div *ngIf="validationError" class="error-message">
+          <p>
+            <mat-icon color="warn">error_outline</mat-icon>
+            {{ validationError }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form *ngIf="fileValidated">
+        <div class="form-group" style="display: flex; justify-content: space-between;">
+          <div style="width: 72%">
+            <label for="field-select">{{ 'splitFieldItems.dropdownField' | translate }}</label>
+            <select id="field-select" [(ngModel)]="selectedField" name="field" required>
+              <option *ngFor="let option of fieldOptions" [value]="option.value">{{ option.label }}</option>
+            </select>
+          </div>
+          <div style="width: 26%;">
+            <label for="field-input-parts">{{ 'splitFieldItems.dropdownParts' | translate }}</label>
+            <input 
+              id="field-input-parts" 
+              type="number" 
+              [(ngModel)]="selectedFieldParts" 
+              name="parts_field" 
+              required 
+              min="2" 
+              max="5" 
+              (input)="onPartsChange()" />
+          </div>
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: column; gap: 10px;">
+          <div *ngFor="let part of selectedParts; let i = index" style="width: 100%;">
+            <div style="display: flex; gap: 20px;">
+              <div style="width:40%">
+                <label class="parts-label" for="field-part-{{i}}">{{ 'splitFieldItems.dropdownPart' | translate }} {{ i + 1 }}</label>
+                <select id="field-part-{{i}}" [(ngModel)]="selectedFields[i]" name="part_field_{{i}}" required>
+                  <option *ngFor="let option of fieldOptions" [value]="option.value">{{ option.label }}</option>
+                </select>
+              </div>
+              <div style="width:28%">
+                <label class="parts-label" for="position-part-{{i}}">{{ 'splitFieldItems.dropdownPosition' | translate }} {{ i + 1 }}</label>
+                <select id="position-part-{{i}}" [(ngModel)]="selectedPositions[i]" name="position_{{i}}" required (change)="onPositionChange(i)">
+                  <option *ngFor="let option of positionOptions" [value]="option.value">{{ option.label }}</option>
+                </select>
+              </div>
+              <div style="width:28%">
+                <label class="parts-label" for="delimiter-part-{{i}}">{{ 'splitFieldItems.dropdownDelimiter' | translate }} {{ i + 1 }}</label>
+                <select id="delimiter-part-{{i}}" [(ngModel)]="selectedDelimiters[i]" name="delimiter_{{i}}" required [disabled]="isDelimiterDisabled[i]">
+                  <option *ngFor="let option of delimiterOptions" [value]="option.value">{{ option.label }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          
+        </div> 
+    
+        <!-- Checkboxes -->
+        <div class="form-group horizontal-checkboxes">
+          <mat-checkbox [(ngModel)]="emptyField" name="emptyField">
+            {{ 'splitFieldItems.emptyField' | translate }}
+          </mat-checkbox>
+          <mat-checkbox [(ngModel)]="createResultSets" name="createResultSets">
+            {{ 'splitFieldItems.createResultSets' | translate }}
+          </mat-checkbox>
+        </div>
+    
+        <div class="form-group file-upload-container">
+          <div class="file-upload-wrapper">
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-upload"
+              (change)="onFileSelected($event)"
+              hidden
+              #fileInput
+            />
+          </div>
+        
+          <!-- File name display -->
+          <span *ngIf="selectedFile" class="file-name">
+            <br />{{ selectedFile.name }}
+          </span>
+        </div>
+    
+        <!-- Submit Button -->
+        <div class="form-group file-upload-container">
+          <button mat-raised-button color="primary" type="button" (click)="submitForm()" [disabled]="!selectedFile">{{ 'config.submitButton' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>

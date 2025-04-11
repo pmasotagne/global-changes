@@ -1,0 +1,28 @@
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    border-bottom: 1px solid #ccc;
+  
+    .dialog-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  
+    .close-button {
+      color: inherit;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+  
+    .close-button mat-icon {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .dialog-body {
+    padding: 1rem;
+  }
+  

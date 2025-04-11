@@ -1,0 +1,39 @@
+<!-- search input -->
+<mat-form-field class="full-width" appearance="fill">
+	<mat-label translate>findUser.findUserLabel</mat-label>
+	<input matInput
+		   type="text"
+		   id="searchTerm"
+		   name="searchTerm"
+		   (keydown.enter)="findUser()"
+		   [(ngModel)]="searchTerm"
+		   [disabled]='loading'>
+	<button matSuffix mat-icon-button aria-label="Search" (click)="findUser()">
+		<mat-icon>search</mat-icon>
+	</button>
+</mat-form-field>
+<!-- /search input -->
+<p *ngIf="resultCount >= 0" translate [translateParams]="{ resultCount: resultCount }">
+	findUser.resultCountLabel <span *ngIf="resultCount > pageSize" translate [translateParams]="{ pageSize: pageSize }">
+		findUser.resultCountInfo
+	</span>
+</p>
+<p class="bold" *ngIf="resultCount > 0" translate>
+	findUser.selectUserFromListInfo
+</p>
+<!-- search result list -->
+<div>
+	<mat-selection-list [multiple]="false" [(ngModel)]="userOptions" (ngModelChange)="selectUser($event)">
+		<mat-list-option class="list-option" matTooltip="{{resultEntity.primary_id}}"
+						 *ngFor="let resultEntity of resultEntites" [value]="resultEntity">
+			<div>
+				<span class="uxf-icon uxf-user leading-icon"></span>
+				{{resultEntity.last_name}}, {{resultEntity.first_name}} ({{resultEntity?.user_group?.desc.trim()}}&nbsp;)
+				<br>
+			</div>
+		</mat-list-option>
+	</mat-selection-list>
+</div>
+<!-- /search result list -->
+
+<app-loader [loading]="loading"></app-loader>

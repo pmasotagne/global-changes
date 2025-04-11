@@ -1,0 +1,86 @@
+<div class="menu-container">
+	<mat-accordion class="menu-accordion" multi>
+	  <!-- Acquisitions Section -->
+	  <mat-expansion-panel>
+		<mat-expansion-panel-header>
+		  <div class="menu-header">
+			<mat-icon>archive</mat-icon>
+		    <mat-panel-title>{{ 'main.acquisitions' | translate }}</mat-panel-title>
+		  </div>
+		</mat-expansion-panel-header>
+		<ul class="menu-list">
+		  <li><button mat-button (click)="navigateTo('/clone-POLines')"><mat-icon>content_copy</mat-icon>{{ 'main.menuAcquisitions.clonePO' | translate }}</button></li>
+		  <li><button mat-button (click)="navigateTo('/modify-po-lines')"><mat-icon>edit</mat-icon>{{ 'main.menuAcquisitions.modifyPO' | translate }}</button></li>
+		</ul>
+	  </mat-expansion-panel>
+  
+	  <!-- Items Section -->
+	  <mat-expansion-panel>
+		<mat-expansion-panel-header>
+		  <div class="menu-header">
+		    <mat-icon>inventory</mat-icon>
+		    <mat-panel-title>{{ 'main.items' | translate }}</mat-panel-title>
+		  </div>
+		</mat-expansion-panel-header>
+		<ul class="menu-list">
+		  <li><button mat-button (click)="navigateTo('/create-items')"><mat-icon>add</mat-icon>{{ 'main.menuItems.createItems' | translate }}</button></li>
+		  <li><button mat-button (click)="navigateTo('/modify-items')"><mat-icon>edit</mat-icon>{{ 'main.menuItems.modifyItems' | translate }}</button></li>
+		  <li><button mat-button (click)="navigateTo('/move-field-items')"><mat-icon>open_with</mat-icon>{{ 'main.menuItems.moveItemFields' | translate }}</button></li>
+		  <li><button mat-button (click)="navigateTo('/split-field-items')"><mat-icon>call_split</mat-icon>{{ 'main.menuItems.splitMoveItemFields' | translate }}</button></li>
+		</ul>
+	  </mat-expansion-panel>
+  
+	  <!-- Users Section -->
+	  <mat-expansion-panel>
+		<mat-expansion-panel-header>
+		  <div class="menu-header">
+		    <mat-icon>group</mat-icon>
+		    <mat-panel-title>{{ 'main.users' | translate }}</mat-panel-title>
+		  </div>
+		</mat-expansion-panel-header>
+		<ul class="menu-list">
+		  <li><button mat-button (click)="navigateTo('/remove-users')"><mat-icon>delete</mat-icon>{{ 'main.menuUsers.removeUsers' | translate }}</button></li>
+		</ul>
+	  </mat-expansion-panel>
+  
+	  <!-- Holdings Section -->
+	  <mat-expansion-panel>
+		<mat-expansion-panel-header>
+		  <div class="menu-header">
+		    <mat-icon>library_books</mat-icon>
+		    <mat-panel-title>{{ 'main.holdings' | translate }}</mat-panel-title>
+		  </div>
+		</mat-expansion-panel-header>
+		<ul class="menu-list">
+		  <li><button mat-button (click)="navigateTo('/modify-holdings')"><mat-icon>edit</mat-icon>{{ 'main.menuHoldings.modifyFields' | translate }}</button></li>
+		</ul>
+	  </mat-expansion-panel>
+	
+	   <!-- Information Section -->
+	   <mat-expansion-panel>
+		<mat-expansion-panel-header>
+		  <div class="menu-header">
+		    <mat-icon>info</mat-icon>
+		    <mat-panel-title><small>{{ 'main.information' | translate }}</small></mat-panel-title>
+		  </div>
+		</mat-expansion-panel-header>
+		<ul class="menu-list">
+		  <li><button mat-button (click)="navigateTo('/code-tables')"><mat-icon>code</mat-icon>{{ 'main.menuInformation.config-tables' | translate }}</button></li>
+		  <p class="disclaimer">
+			<strong>{{ 'disclaimer.title' | translate }}</strong>
+			<br><br>
+			{{ 'disclaimer.developedBy' | translate }} 
+			<strong>Consorci de Serveis Universitaris de Catalunya (CSUC)</strong>.  
+			
+			{{ 'disclaimer.noResponsibility' | translate }}  
+			<br><br>
+			{{ 'disclaimer.dataSent' | translate }}
+			<br><br>
+			<small>* {{ 'disclaimer.privacy' | translate }}</small>
+		  </p>
+		</ul>
+	  </mat-expansion-panel>
+	</mat-accordion>
+  </div>
+
+<app-loader [loading]="loading"></app-loader>

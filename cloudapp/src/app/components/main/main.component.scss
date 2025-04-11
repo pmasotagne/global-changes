@@ -1,0 +1,27 @@
+.username {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.roles-valid {
+  padding-left: 20px;
+}
+
+.technical-error {
+  white-space: pre-line;
+}
+.eca-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eca-actions-info {
+  flex-grow: 1;
+  text-align: left;
+  align-items: center;
+}
+
+.eca-actions-button {
+  text-align: right;
+}

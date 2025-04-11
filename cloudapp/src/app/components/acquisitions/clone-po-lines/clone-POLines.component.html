@@ -1,0 +1,79 @@
+<div class="clone-po-lines-container">
+  <div class="eca-header">
+    <h1>{{ 'POLine.title' | translate }}</h1>
+    <div class="button-container">
+      <button mat-flat-button color="secondary" (click)="back()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+      
+    </div>
+    
+  </div>
+  <!-- While checking permissions -->
+  <div *ngIf="checkingUser">
+    <p translate>main.checkingPermissions</p>
+  </div>
+
+  <!-- When permission is denied -->
+  <div *ngIf="!isModuleUserAllowed && !checkingUser">
+    <section>
+      <h1 translate>main.userIsNotAllowed</h1>
+      <p translate>main.userIsNotAllowedInfoModule</p>
+    </section>
+  </div>
+  <div *ngIf="isModuleUserAllowed && !checkingUser">
+  <div class="button-container second-row" *ngIf="!(createdNumbers.length > 0)">
+    <button mat-flat-button color="primary" [disabled]="selectedEntities.length==0" (click)="cloneSelectedEntities()">
+      Clone
+    </button>
+    <button mat-flat-button color="secondary" [disabled]="selectedEntities.length==0" (click)="selectEntities.clear()">
+      Clear
+    </button>
+  </div>
+  <br>
+  <details class="example-details">
+    <summary class="example-summary">{{ 'clonePOLines.modifyInfo' | translate }}</summary>
+    <ul class="example-details">
+      <li><code class="small-code">{{ 'clonePOLines.modifyInfo1' | translate }}</code></li>
+      <li><code class="small-code">{{ 'clonePOLines.modifyInfo2' | translate }}</code></li>
+      <li><code class="small-code">{{ 'clonePOLines.modifyInfo3' | translate }}</code></li>
+      <li><code class="small-code">{{ 'clonePOLines.modifyInfo4' | translate }}</code></li>
+      <li><code class="small-code">{{ 'clonePOLines.modifyInfo5' | translate }}</code></li>
+      <li><code class="small-code">{{ 'clonePOLines.modifyInfo6' | translate }}</code></li>
+
+    </ul>
+  </details>
+  <br>
+
+  <p *ngIf="count != 0 && createdNumbers.length === 0">{{ 'POLine.aTotal' | translate }} <strong>{{ selectedEntities.length }}</strong> {{ 'POLine.itemsSelected' | translate }}</p>
+
+  <div *ngIf="count == 0 && createdNumbers.length === 0">{{ 'POLine.navigateToList' | translate }}</div>
+  <div *ngIf="error" class="error-message">
+    <p>{{ 'POLine.searchPOLines' | translate }}</p>
+  </div>
+
+  <!-- Show selection component only if no PO Lines have been created -->
+  <eca-select-entities #selectEntities 
+    [(selected)]="selectedEntities"
+    (count)="count=$event"
+    (selectedChange)="validateFirstEntity()"
+    (initialized)="validateFirstEntity()"
+    [hidden]="createdNumbers.length > 0">
+  </eca-select-entities>
+
+  <!-- Show created PO Line numbers and reload button when available -->
+  <div *ngIf="createdNumbers.length > 0" class="created-numbers">
+    <h3>Created PO Lines:</h3>
+    <ul>
+      <li *ngFor="let number of createdNumbers">{{ number }}</li>
+    </ul>
+    <div class="button-container reload">
+      <button mat-flat-button color="primary" (click)="reloadClone()">
+        Reload list
+      </button>
+    </div>
+  </div>
+  </div>
+</div>
+
+<app-loader [loading]="loading" [processedCount]="processedCount" [totalCount]="totalRows"></app-loader>

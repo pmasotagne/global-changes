@@ -1,0 +1,50 @@
+<div id="copy-user-roles-main">
+  <!-- action buttons -->
+  <div class="eca-actions-row">
+    <div class="eca-actions-info">
+      <p *ngIf="userDetails.last_name" style="text-align: right; padding-right: 20px;">
+        <small>
+          {{ userDetails.last_name }} 
+        </small>
+        <small *ngIf="userDetails.first_name">, {{ userDetails.first_name }}</small>
+        <small *ngIf="institutionCode"> || {{ institutionCode }}</small>
+      </p>
+    </div>
+  </div>
+  <!-- /action buttons -->
+
+  <!-- checking permissions -->
+  <div *ngIf="checkingUser">
+    <section>
+      <h1 *ngIf="!permissionError" translate>main.checkingPermissions</h1>
+      <div>
+        <div *ngIf="permissionError">
+          <h1 translate>main.userIsNotAllowed</h1>
+          <pre class="technical-error">{{permissionError}}</pre>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div *ngIf="!isUserAllowed && !checkingUser">
+    <section>
+      <h1 translate>main.userIsNotAllowed</h1>
+      <div>
+        <p translate>
+          main.userIsNotAllowedInfo
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- /checking permissions -->
+  <div *ngIf="isUserAllowed && !checkingUser">
+    <section>
+      <div>
+        <menu-global-changes>
+        </menu-global-changes>
+      </div>
+    </section>
+  </div>
+
+  <app-loader [loading]="loading"></app-loader>
+</div>

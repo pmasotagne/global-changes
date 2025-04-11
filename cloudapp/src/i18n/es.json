@@ -1,0 +1,422 @@
+{
+	"clonePOLines": {
+		"modifyInfo": "Revise las modificaciones que se aplicarán a la línea de compra clonada para intentar establecer su estado a 'En revisión' (esto depende de la configuración del sistema).",
+		"modifyInfo1": "Eliminar el elemento 'number'",
+		"modifyInfo2": "Eliminar el elemento 'po_number'",
+		"modifyInfo3": "Eliminar el elemento 'status'",
+		"modifyInfo4": "Añadir el elemento 'link' vacío",
+		"modifyInfo5": "Añadir el elemento 'status_date' con la fecha actual",
+		"modifyInfo6": "Añadir el elemento 'created_date' con la fecha actual"
+	},
+	"codeTables": {
+		"backTableList": "Volver al listado",
+		"code": "Código",
+		"description": "Descripción",
+		"tableContent": "Contenido de la tabla -",
+		"title": "Tablas de configuración"
+	},
+	"config": {
+		"acquisitions": "Adquisiciones",
+		"allowAnyRole": "Sin restricciones por rol",
+		"allowByRole": "Permitir por rol",
+		"allowByUser": "Permitir por usuario",
+		"allowForAcquisitionAdministrator": "Administrador de adquisiciones",
+		"allowForCatalogAdministrator": "Administrador de catalogación",
+		"allowForCatalogManager": "Gestor de catalogación",
+		"allowForFulfillmentAdministrator": "Administrador de préstamos",
+		"allowForGeneralAdministrator": "Administrador general",
+		"allowForRepositoryAdministrator": "Administrador del repositorio",
+		"allowForRepositoryManager": "Gestor del repositorio",
+		"allowForUserAdministrator": "Administrador de usuarios",
+		"allowForUserManager": "Gestor de usuarios",
+		"allowUsage": "Gestionar uso de la aplicación",
+		"allowUsageExplanation": "Los siguientes ajustes pueden usarse para gestionar el uso de la aplicación. Si no se configura, todos los usuarios están permitidos. Un usuario explícito en la lista de permitidos siempre tendrá acceso, independientemente de los roles.",
+		"allowUsersWithRoleText": "Permitir uso para usuarios con los siguientes roles:",
+		"allowedUsers": "Usuarios permitidos:",
+		"backButton": "Atrás",
+		"confirmRemoveConfig": "¿Está seguro de que desea eliminar la configuración?",
+		"confirmUnsaved": "Hay datos no guardados, ¿desea continuar igualmente?",
+		"globalConfig": "Configuración global",
+		"holdings": "Registros de fondos",
+		"items": "Ejemplares",
+		"moduleConfig": "Configuración del módulo",
+		"moduleRestrictions": "Restricciones de módulo",
+		"moduleRestrictionsExplanation": "Las restricciones de módulo le permiten controlar el acceso a módulos específicos dentro de la aplicación. Puede restringir el acceso basándose en roles de usuario o seleccionando usuarios individualmente. Si no se establecen restricciones para un módulo, todos los usuarios tendrán acceso por defecto.",
+		"removeConfig": "Eliminar configuración",
+		"rolesAndUsersAreExclusive": "Si hay usuarios en la lista de permitidos, no se verificarán los roles",
+		"saveButton": "Guardar",
+		"searchForUser": "Buscar usuario:",
+		"selectAnotherFileButton": "Seleccionar otro archivo",
+		"selectFileButton": "Seleccionar archivo",
+		"submitButton": "Enviar",
+		"userAlreadyInList": "'{{user}}' ya está en la lista",
+		"users": "Usuarios"
+	},
+	"createItems": {
+		"title": "Crear ejemplares para registros de fondos existentes",
+		"createResultSets": "Crear conjuntos de resultados",
+		"validHeaders": "Verificar cabeceras válidas",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,fieldItem1,fieldItem2...'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
+		"validationInfoPoint4": {
+      		"text": "4. Para campos con valores controlados (campos desplegables), es necesario especificar el código de configuración, no la descripción. ",
+      		"link": "Consulte sus tablas de configuración."
+    	},
+    	"validateFileButton": "Validar archivo",
+		"error": {
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, Holding ID, Physical ID, fieldItemX...",
+			"recordsNotCreated": "Registros no creados"
+		},
+		"success": {
+			"recordsCreated": "Registros creados"
+		},
+		"warning": {
+    		"partialSuccess": "Algunos registros se crearon, pero también hubo errores"
+  		}
+	},
+	"disclaimer": {
+		"title": "Aviso legal",
+		"developedBy": "Esta aplicación en la nube ha sido desarrollada por",
+		"noResponsibility": "No nos hacemos responsables de problemas derivados de modificaciones de registros. La responsabilidad recae únicamente en el usuario que ejecuta los procesos.",
+		"dataSent": "Además, se envían ciertos datos con fines estadísticos: número de registros procesados correctamente, errores, tipo de proceso ejecutado y código de la institución (ej. 34CSUC_NETWORK) que inicia el proceso.",
+		"privacy": "No almacenamos datos personales ni información privada de usuarios."
+	},
+	"errors": {
+		"selectField": "Seleccione un campo para modificar.",
+		"selectDelimiter": "Seleccione un delimitador.",
+		"selectPosition": "Seleccione una posición.",
+		"noFile": "No se ha seleccionado ningún archivo.",
+		"fileType": "Tipo de archivo inválido. Suba un archivo .csv.",
+		"readingFile": "Error al leer el archivo.",
+		"emptyInvalid": "El archivo CSV está vacío o es inválido."
+	},
+	"field": {
+		"library": "Biblioteca",
+		"barcode": "Código de barras",
+		"committed_to_retain": "Comprometido a retener",
+		"physical_condition": "Estado físico",
+		"chronology_i": "Cronología I",
+		"chronology_j": "Cronología J",
+		"chronology_k": "Cronología K",
+		"chronology_l": "Cronología L",
+		"chronology_m": "Cronología M",
+		"year_of_issue": "Año del fascículo",
+		"description": "Descripción",
+		"enumeration_a": "Enumeración A",
+		"enumeration_b": "Enumeración B",
+		"enumeration_c": "Enumeración C",
+		"enumeration_d": "Enumeración D",
+		"enumeration_e": "Enumeración E",
+		"enumeration_f": "Enumeración F",
+		"enumeration_g": "Enumeración G",
+		"enumeration_h": "Enumeración H",
+		"is_magnetic": "Es magnético",
+		"storage_location_id": "ID de ubicación de almacenamiento",
+		"break_indicator": "Indicador de corte",
+		"location": "Ubicación permanente",
+		"retention_note": "Nota de retención",
+		"fulfillment_note": "Nota de servicios al usuario",
+		"statistics_note_1": "Nota estadística 1",
+		"statistics_note_2": "Nota estadística 2",
+		"statistics_note_3": "Nota estadística 3",
+		"internal_note_1": "Nota interna 1",
+		"internal_note_2": "Nota interna 2",
+		"internal_note_3": "Nota interna 3",
+		"public_note": "Nota pública",
+		"linking_number": "Número de enlace",
+		"inventory_number": "Número de inventario",
+		"receiving_operator": "Operador de recepciones",
+		"pages": "Páginas",
+		"pieces": "Piezas",
+		"policy": "Política de ejemplar",
+		"inventory_price": "Precio de inventario",
+		"provenance": "Procedencia",
+		"retention_reason": "Motivo de retención",
+		"alternative_call_number": "Signatura del ejemplar",
+		"type_of_unit": "Tipo de unidad",
+		"physical_material_type": "Tipo de material",
+		"pattern_type": "Tipo de patrón",
+		"process_type": "Tipo de proceso",
+		"alternative_call_number_type": "Tipo de signatura alternativa",
+		"acquisition_method": "Método de adquisición",
+		"material_type": "Tipo de material",
+		"owner": "Propietario",
+    	"receiving_note": "Nota de recepción",
+    	"reporting_code": "Código de informe",
+    	"secondary_reporting_code": "Código de informe secundario",
+    	"tertiary_reporting_code": "Código de informe terciario",
+    	"fourth_reporting_code": "Cuarto código de informe",
+    	"fifth_reporting_code": "Quinto código de informe",
+    	"vendor_note": "Nota del proveedor"
+	},
+	"findUser": {
+		"error": {
+			"findUserAlert": "No se pudo buscar el usuario. Alma respondió con estado: '{{status}}'",
+			"userDetailAlert": "No se pudieron obtener detalles del usuario {{primaryId}}. Alma respondió con estado: '{{status}}'"
+		},
+		"findUserLabel": "Buscar usuario",
+		"resultCountInfo": "(solo se muestran {{pageSize}}, refine la búsqueda, ej. nombre completo o ID principal)",
+		"resultCountLabel": "Resultados: {{resultCount}}",
+		"selectUserFromListInfo": "Seleccione un usuario de la lista:"
+	},
+	"global": {
+		"sets": {
+			"change": "Cambiar",
+			"move": "Mover",
+			"split": "Dividir",
+			"updatedRecords": "Registros actualizados",
+			"notUpdatedRecords": "Registros NO actualizados",
+			"create": "Crear ejemplares",
+			"createdRecords": "Registros creados"
+		}
+	},
+	"loader": {
+		"processing": "Procesando",
+		"of": "de",
+		"lines": "líneas",
+		"preparingResultsAndSets": "Preparando resultados y conjuntos..." 
+	},
+	"main": {
+		"checkingPermissions": "Verificando permisos...",
+		"error": {
+			"permissionCheck": "No se pudieron verificar los permisos. Alma respondió con estado: '{{status}}'",
+			"validationAlert": "No se pudo validar el usuario. Alma respondió con estado: '{{status}}'"
+		},
+		"acquisitions": "Adquisiciones",
+		"menuAcquisitions": {
+			"clonePO": "Clonar líneas de compra",
+			"modifyPO": "Modificar líneas de compra"
+		},
+		"items": "Ejemplares",
+		"menuItems": {
+			"modifyItems": "Modificar campos de ejemplar",
+			"moveItemFields": "Mover campos de ejemplar",
+			"splitMoveItemFields": "Dividir y mover campos de ejemplar",
+			"createItems": "Crear ejemplares en masa"
+		},
+		"users": "Usuarios",
+		"menuUsers": {
+			"loadData": "Cargar datos de usuario",
+			"removeUsers": "Eliminar usuarios"
+		},
+		"holdings": "Registros de fondos",
+		"menuHoldings": {
+			"modifyFields": "Modificar contenido de subcampos"
+		},
+		"information": "Información",
+		"menuInformation": {
+			"config-tables": "Tablas de códigos"
+		},
+		"resetButton": "Reiniciar",
+		"titleCloudApp": "Cambios globales",
+		"userIsNotAllowed": "Permiso denegado",
+		"userIsNotAllowedInfo": "No tiene permiso para usar esta aplicación.",
+		"userIsNotAllowedInfoModule": "No tiene permiso para usar esta función."
+	},
+	"modifyHoldings": {
+		"title": "Modificar campo de registro de fondos",
+		"createResultSets": "Crear conjuntos de resultados",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,Campo,Subcampo,original,nuevo'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
+		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
+    	"validateFileButton": "Validar archivo",
+		"information": "Información",
+		"changesExactContent": "Los cambios siempre se basarán en el contenido exacto.",
+		"apiLimitations": "No es posible crear conjuntos de resultados debido a una limitación de la API. Los identificadores de registros de fondos no pueden añadirse a los conjuntos.",
+		"error": {
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, Campo, Subcampo, texto original, texto nuevo",
+			"recordsNotUpdated": "Registros no actualizados"
+		},
+		"success": {
+			"recordsUpdated": "Registros actualizados"
+		},
+		"warning": {
+    		"partialSuccess": "Algunos registros se actualizaron, pero también hubo errores"
+  		}
+	},
+	"modifyItems": {
+		"title": "Modificar campos de ejemplar",
+		"dropdownTitle": "Campo",
+		"exactContent": "Contenido exacto",
+		"checkRequests": "Verificar solicitudes",
+		"createResultSets": "Crear conjuntos de resultados",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,ID físico,original,nuevo'",
+    	"validationInfoPoint2.2": "'Código de barras,original,nuevo'",
+			"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
+		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
+    	"validateFileButton": "Validar archivo",
+		"error": {
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, ID físico, texto original, texto nuevo",
+			"recordsNotUpdated": "Registros no actualizados"
+		},
+		"success": {
+			"recordsUpdated": "Registros actualizados"
+		},
+		"warning": {
+    		"partialSuccess": "Algunos registros se actualizaron, pero también hubo errores"
+  		}
+	},
+	"modifyPOLines": {
+		"title": "Modificar líneas de compra",
+		"dropdownTitle": "Campo",
+		"exactContent": "Contenido exacto",
+		"checkRequests": "Verificar solicitudes",
+		"createResultSets": "Crear conjuntos de resultados",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'ID PO,original,nuevo'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnes.",
+		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
+		"validationInfoPoint5": "Para cargar información en un campo vacío, no use la casilla de contenido exacto y envíe una columna vacía en el CSV.",
+    	"validateFileButton": "Validar archivo",
+		"error": {
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: ID PO, texto original, texto nuevo",
+			"recordsNotUpdated": "Registros no actualizados"
+		},
+		"success": {
+			"recordsUpdated": "Registros actualizados"
+		},
+		"warning": {
+    		"partialSuccess": "Algunos registros se actualizaron, pero también hubo errores"
+  		}
+	},
+	"moveFieldItems": {
+		"title": "Mover campos de ejemplar",
+		"dropdownOrigin": "Campo de origen",
+		"dropdownDestination": "Campo de destino",
+		"dropdownPosition": "Posición",
+		"dropdownDelimiter": "Delimitador",
+		"emptyField": "Vaciar campo de origen",
+		"checkRequests": "Verificar solicitudes",
+		"createResultSets": "Crear conjuntos de resultados",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,ID físico'",
+    	"validationInfoPoint2.2": "'Código de barras'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnes.",
+		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
+    	"validateFileButton": "Validar archivo",
+		"error": {
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, ID físico",
+			"recordsNotUpdated": "Registros no actualizados"
+		},
+		"success": {
+			"recordsUpdated": "Registros actualizados"
+		},
+		"warning": {
+    		"partialSuccess": "Algunos registros se actualizaron, pero también hubo errores"
+  		},
+		"position": {
+			"back": "Al final",
+			"front": "Al principio",
+			"overwrite": "Sobrescribir"
+		},
+		"delimiter": {
+			"point": "Punto (.)",
+			"hash": "Almohadilla (#)",
+			"at": "Arroba (@)",
+			"pipe": "Barra vertical (|)",
+			"slash": "Barra (/)",
+			"backslash": "Barra invertida (\\)",
+			"hyphen": "Guión (-)",
+			"doubleHyphen": "Doble guión (--)"
+		}
+	},
+	"POLine": {
+		"aTotal": "Se han seleccionado",
+		"itemsSelected": "elementos.",
+		"navigateToList": "Navegue a una lista.",
+		"searchPOLines": "Busque solo líneas PO. El elemento seleccionado no es una línea PO.",
+		"title": "Clonar líneas PO"
+	},
+	"removeUser": {
+		"aTotal": "Se han seleccionado",
+		"itemsSelected": "usuarios.",
+		"navigateToListorUpload": "Navegue a una lista o suba un archivo.",
+		"searchPOLines": "Busque solo usuarios. El elemento seleccionado no es un usuario.",
+		"title": "Eliminar registros de usuario",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'primary_id'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
+		"validationInfoPoint4": "4. No se permiten entradas duplicadas."
+	},
+	"resume": {
+		"title": "Resumen",
+		"itemsUpdated": "Ejemplares procesados",
+		"errors": "Errores (no procesados)",
+		"totalLinesProcessed": "Total de líneas procesadas",
+		"setId": "ID del conjunto",
+		"setIdError": "ID del conjunto de errores",
+		"close": "Cerrar",
+		"seconds": "seg",
+		"removedUsers": "Usuarios eliminados",
+		"removedUsersErrors": "Usuarios no eliminados",
+		"poLineCloned": "Líneas PO clonadas",
+		"poLineClonedErrors": "Líneas PO no clonadas"
+	},
+	"roleSelect": {
+		"deselectAll": "Desmarcar todo",
+		"rolesSelected": "Roles seleccionados",
+		"selectAll": "Seleccionar todo"
+	},
+	"SelectEntities": {
+		"CheckAll": "Marcar/Desmarcar todo"
+	},
+	"splitFieldItems": {
+		"title": "Dividir y mover campos de ejemplar",
+		"dropdownField": "Seleccionar campo",
+		"dropdownParts": "Partes",
+		"dropdownPart": "Parte",
+		"dropdownPosition": "Posición",
+		"dropdownDelimiter": "Delimitador",
+		"emptyField": "Vaciar campo de origen",
+		"checkRequests": "Verificar solicitudes",
+		"createResultSets": "Crear conjuntos de resultados",
+		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
+		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
+		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,ID físico,delimitador'",
+    	"validationInfoPoint2.2": "'Código de barras,delimitador'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
+		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
+    	"validateFileButton": "Validar archivo",
+		"error": {
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, ID físico, delimitador",
+			"recordsNotUpdated": "Registros no actualizados"
+		},
+		"success": {
+			"recordsUpdated": "Registros actualizados"
+		},
+		"warning": {
+    		"partialSuccess": "Algunos registros se actualizaron, pero también hubo errores"
+  		}
+	},
+	"validateFile": {
+		"error": {
+			"invalidFileType": "Tipo de archivo inválido. Suba un CSV.",
+			"emptyFile": "El archivo está vacío.",
+			"invalidHeaders": "Cabeceras inválidas, verifique las permitidas",
+			"invalidHeaderBarcode": "Cabecera inválida. La primera columna debe ser 'Código de barras' para archivos de 3 columnas.",
+			"invalidHeaderMMS": "Cabeceras inválidas. Las tres primeras columnas deben ser 'MMS ID', 'ID del registro de fondos' y 'ID físico' para archivos de 5 columnas.",
+			"invalidHeaderHolding": "Cabeceras inválidas. Las dos primeras columnas deben ser 'MMS ID' y 'ID del registro de fondos'.",
+			"invalidHeaderColumnCount": "Número de columnas inválido en la fila de cabecera. Se esperaban {{expected}}, pero hay {{actual}}.",
+			"mismatchedColumns": "La fila {{row}} tiene un número incorrecto de columnas. Se esperaban {{expected}}, pero hay {{actual}}.",
+			"duplicateKey": "Entrada duplicada para '{{key}}' en la fila {{row}}.",
+			"fileReadError": "Ocurrió un error al leer el archivo.",
+			"fileTooLarge": "El archivo es demasiado grande. Tamaño máximo permitido: {{maxSize}}."
+		}
+	}
+}

@@ -1,0 +1,54 @@
+<div class="code-tables-container">
+  <div class="eca-header">
+    <h1>{{ 'codeTables.title' | translate }}</h1>
+    <button mat-flat-button color="primary" (click)="back()">
+      <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+    </button>
+  </div>
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="loader">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Grouped Code Tables with Pagination -->
+  <br>
+  <div class="code-tables-list" *ngIf="!loading && !selectedTableName && groupedTables.length">
+    <div *ngFor="let group of groupedTables">
+      <h3>{{ group.sub_system }}</h3>
+      <ul>
+        <li *ngFor="let table of group.tables" (click)="getTableContent(table.name)">
+          {{ table.name }}
+        </li>
+      </ul>
+    </div>
+    <mat-paginator [length]="codeTables.length"
+                   [pageSize]="pageSize"
+                   [pageIndex]="pageIndex"
+                   [pageSizeOptions]="[10, 20, 50]"
+                   showFirstLastButtons
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+
+  <!-- Selected Table Content -->
+  <div class="table-content" *ngIf="!loading && selectedTableName">
+    <button mat-flat-button color="secondary" (click)="closeTableDetails()">
+      <mat-icon>arrow_back</mat-icon> {{ 'codeTables.backTableList' | translate }}
+    </button>
+    <br>
+    <br>
+    <h2>{{ 'codeTables.tableContent' | translate }} {{ selectedTableName }}</h2>
+    <ul>
+      <li *ngFor="let row of selectedRows">
+        <span><strong>{{ 'codeTables.code' | translate }}:</strong> {{ row.code }}</span><br>
+        <span><strong>{{ 'codeTables.description' | translate }}:</strong> {{ row.description }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

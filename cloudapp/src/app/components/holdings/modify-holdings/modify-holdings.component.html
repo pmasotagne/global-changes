@@ -1,0 +1,139 @@
+<div class="modify-holdings-container">
+    <!-- Actions and Title -->
+    <app-loader [loading]="loading" [processedCount]="processedCount" [totalCount]="totalRows"></app-loader>
+    <div class="eca-header">
+      <h1>{{ 'modifyHoldings.title' | translate }}</h1>
+      <button *ngIf="!fileValidated" mat-flat-button color="secondary" (click)="back()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+
+      <button *ngIf="fileValidated" mat-flat-button color="secondary" (click)="reload()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+    </div>
+
+    <div *ngIf="checkingUser">
+      <p translate>main.checkingPermissions</p>
+    </div>
+    
+    <!-- When permission is denied -->
+    <div *ngIf="!isModuleUserAllowed && !checkingUser">
+      <section>
+        <h1 translate>main.userIsNotAllowed</h1>
+        <p translate>main.userIsNotAllowedInfoModule</p>
+      </section>
+    </div>
+    <div *ngIf="isModuleUserAllowed && !checkingUser">
+
+      <div *ngIf="!fileValidated" class="file-validation-container">
+
+        <!-- Information Section -->
+        <div class="validation-info">
+          <p>
+            <mat-icon>info</mat-icon>
+            {{ 'modifyHoldings.validationInfoHeader' | translate }}
+          </p>
+          <ul>
+            <li>{{ 'modifyHoldings.validationInfoPoint1' | translate }}</li>
+            <details class="example-details">
+              <!--summary class="example-summary">Examples:</summary>-->
+              <summary class="example-summary">{{ 'modifyHoldings.validationInfoPoint2' | translate }}</summary>
+              <ul class="example-details">
+                <li><code class="small-code">{{ 'modifyHoldings.validationInfoPoint2.1' | translate }}</code></li>
+              </ul>
+            </details>
+            <li>{{ 'modifyHoldings.validationInfoPoint3' | translate }}</li>
+            <li>{{ 'modifyHoldings.validationInfoPoint4' | translate }}</li>
+          </ul>
+        </div>
+        
+        <div class="form-group file-upload-container">
+          <div class="file-upload-wrapper">
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-upload"
+              (change)="onFileSelected($event)"
+              hidden
+              #fileInput
+            />
+          </div>
+    
+          <!-- File name display -->
+          <span *ngIf="selectedFile" class="file-name">
+            <br />{{ selectedFile.name }}
+          </span>
+
+          <!-- File selection button -->
+          <button mat-raised-button color="secondary" (click)="fileInput.click()">
+            <mat-icon>upload</mat-icon> {{ 'config.selectFileButton' | translate }}
+          </button>
+
+        </div>
+    
+        <!-- Validate Button -->
+        <div class="form-group file-upload-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            [disabled]="!selectedFile"
+            (click)="validateFile()"
+          >
+          <mat-icon>approval</mat-icon>  {{ 'modifyHoldings.validateFileButton' | translate }}
+          </button>
+        </div>
+    
+        <!-- Error Message Section -->
+        <div *ngIf="validationError" class="error-message">
+          <p>
+            <mat-icon color="warn">error_outline</mat-icon>
+            {{ validationError }}
+          </p>
+        </div>
+      </div>
+    
+
+      <!-- Form -->
+      <form *ngIf="fileValidated">
+        <div class="validation-info">
+          <p>
+            <mat-icon>info</mat-icon>
+            {{ 'modifyHoldings.information' | translate }}
+          </p>
+          <ul>
+          <li>{{ 'modifyHoldings.changesExactContent' | translate }}</li>
+          <li>{{ 'modifyHoldings.apiLimitations' | translate }}</li>
+          </ul>
+        </div>
+        <br>
+
+        <div class="form-group file-upload-container">
+          <div class="file-upload-wrapper">
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-upload"
+              (change)="onFileSelected($event)"
+              hidden
+              #fileInput
+            />
+          </div>
+        
+          <!-- File name display -->
+          <span *ngIf="selectedFile" class="file-name">
+            <br />{{ selectedFile.name }}
+          </span>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group file-upload-container">
+          <button mat-raised-button color="primary" type="button" (click)="submitForm()" [disabled]="!selectedFile">{{ 'config.submitButton' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+ 
+
+  

@@ -1,0 +1,41 @@
+.eca-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .eca-header {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .button-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .second-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .second-row button {
+    margin-right: 24px;
+  }
+  
+  .reload {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .reload button {
+    margin-right: 24px;
+  }
+
+  .small-code {
+    font-size: 0.75em;
+  }

@@ -1,0 +1,58 @@
+{
+   "id": "pmasotagne/global-changes",
+   "title": "Global Changes",
+   "relevantForInst": ["34CSUC_NETWORK", "34CSUC_GEPA", "34CSUC_INSTB", "34CSUC_BC", "34CSUC_UB", "34CSUC_UAB", "34CSUC_UDL", "34CSUC_UVIC", "34CSUC_URL", "34CSUC_UPF", "34CSUC_UPC", "34CSUC_URV" , "34CSUC_UOC", "34CSUC_UDG" ],
+   "subtitle": [
+      {
+         "lang": "ca",
+         "text": "Actualitzacions per lots pels diferents tipus de registres d'Alma"
+      },
+      {
+         "lang": "es",
+         "text": "Actualizaciones por lotes para los diferentes tipos de registros de Alma"
+      },
+      {
+         "lang": "en",
+         "text": "Batch updates for the different types of Alma records"
+      }
+   ],
+   "author": "Pau Masot Agné",
+   "description": [
+      {
+         "lang": "ca",
+         "text": "Aquesta CloudApp permet realitzar canvis globals en els registres d’Alma, incloent exemplars, holdings, ordres de compra i usuaris."
+      },
+      {
+         "lang": "es",
+         "text": "Esta CloudApp permite realizar cambios globales en los registros de Alma, incluyendo ejemplares, holdings, ordenes de compra y usuarios."
+      },
+      {
+         "lang": "en",
+         "text": "This CloudApp allows you to perform global changes on Alma records, including items, holdings, po lines and users."
+      }
+   ],
+   "license": "https://raw.githubusercontent.com/pmasotagne/global-changes/main/LICENSE",
+   "contentSecurity": {
+      "sandbox": {
+         "modals": true
+      },
+      "connectSrc": [
+         "https://cgalma-sgbc.csuc.cat/"
+      ]
+   },
+   "pages": {
+      "help": "https://github.com/pmasotagne/global-changes/blob/main/README.md",
+      "config": "/#/config"
+   },
+   "icon": {
+      "type": "url",
+      "value": "/assets/app-icon.png"
+   },
+   "fullscreen": {
+      "allow": true,
+      "open": false
+   },
+   "entities": [
+      "PO-LINE"
+   ]
+}

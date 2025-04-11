@@ -1,0 +1,422 @@
+{
+	"clonePOLines": {
+		"modifyInfo": "Reviseu les modificacions que s'aplicaran a la línia PO clonada per intentar establir el seu estat a 'En revisió' (això depèn de la configuració del sistema).",
+		"modifyInfo1": "Eliminar l'element 'number'",
+		"modifyInfo2": "Eliminar l'element 'po_number'",
+		"modifyInfo3": "Eliminar l'element 'status'",
+		"modifyInfo4": "Afegir l'element 'link' buit",
+		"modifyInfo5": "Afegir l'element 'status_date' amb la data actual",
+		"modifyInfo6": "Afegir l'element 'created_date' amb la data actual"
+	},
+	"codeTables": {
+		"backTableList": "Tornar al llistat",
+		"code": "Codi",
+		"description": "Descripció",
+		"tableContent": "Contingut de la taula -",
+		"title": "Taules de configuració"
+	},
+	"config": {
+		"acquisitions": "Adquisicions",
+		"allowAnyRole": "Sense restriccions per rol",
+		"allowByRole": "Permetre per rol",
+		"allowByUser": "Permetre per usuari",
+		"allowForAcquisitionAdministrator": "Administrador d'adquisicions",
+		"allowForCatalogAdministrator": "Administrador de catalogació",
+		"allowForCatalogManager": "Gestor de catalogació",
+		"allowForFulfillmentAdministrator": "Administrador de préstec",
+		"allowForGeneralAdministrator": "Administrador general",
+		"allowForRepositoryAdministrator": "Administrador del repositori",
+		"allowForRepositoryManager": "Gestor del repositori",
+		"allowForUserAdministrator": "Administrador d'usuaris",
+		"allowForUserManager": "Gestor d'usuaris",
+		"allowUsage": "Gestionar l'ús de l'aplicació",
+		"allowUsageExplanation": "Els paràmetres següents poden utilitzar-se per gestionar l'ús de l'aplicació. Si no es configura, tots els usuaris estan permesos. Un usuari explicitat a la llista d'usuaris permesos sempre tindrà accés, independentment dels rols.",
+		"allowUsersWithRoleText": "Permetre l'ús per a usuaris amb els rols següents:",
+		"allowedUsers": "Usuaris permesos:",
+		"backButton": "Enrere",
+		"confirmRemoveConfig": "Esteu segur que voleu eliminar la configuració?",
+		"confirmUnsaved": "Hi ha dades no desades, voleu continuar igualment?",
+		"globalConfig": "Configuració global",
+		"holdings": "Registres de fons",
+		"items": "Exemplars",
+		"moduleConfig": "Configuració del mòdul",
+		"moduleRestrictions": "Restriccions de mòdul",
+		"moduleRestrictionsExplanation": "Les restriccions de mòdul us permeten controlar l'accés a mòduls específics dins de l'aplicació. Podeu restringir l'accés basant-vos en rols d'usuari o seleccionant explícitament usuaris individuals. Si no s'estableixen restriccions per a un mòdul, tots els usuaris hi tindran accés per defecte.",
+		"removeConfig": "Eliminar configuració",
+		"rolesAndUsersAreExclusive": "Si hi ha usuaris a la llista de permesos, no es comprovaran els rols",
+		"saveButton": "Desar",
+		"searchForUser": "Cerca usuari:",
+		"selectAnotherFileButton": "Seleccionar un altre fitxer",
+		"selectFileButton": "Seleccionar fitxer",
+		"submitButton": "Enviar",
+		"userAlreadyInList": "'{{user}}' ja és a la llista",
+		"users": "Usuaris"
+	},
+	"createItems": {
+		"title": "Crear exemplars per a registres de fons existents",
+		"createResultSets": "Crear conjunts de resultats",
+		"validHeaders": "Comprova les capçaleres vàlides",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,fieldItem1,fieldItem2...'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": {
+      		"text": "4. Per als camps amb valors controlats (camps desplegables), cal especificar el codi de configuració, no la descripció. ",
+      		"link": "Consulteu les vostres taules de configuració."
+    	},
+    	"validateFileButton": "Validar el fitxer",
+		"error": {
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, Holding ID, Physical ID, fieldItemX...",
+			"recordsNotCreated": "Registres no creats"
+		},
+		"success": {
+			"recordsCreated": "Registres creats"
+		},
+		"warning": {
+    		"partialSuccess": "Alguns registres s'han creat, però també hi ha hagut errors"
+  		}
+	},
+	"disclaimer": {
+		"title": "Avís legal",
+		"developedBy": "Aquesta aplicació al núvol ha estat desenvolupada per",
+		"noResponsibility": "No ens fem responsables de cap problema derivat de modificacions de registres. La responsabilitat recau únicament en l'usuari que executa els processos.",
+		"dataSent": "També s'envien certes dades amb finalitats estadístiques, com el nombre de registres processats correctament, errors, tipus de procés executat i el codi de la institució (ex. 34CSUC_NETWORK) que inicia el procés.",
+		"privacy": "No emmagatzemem dades personals ni informació privada dels usuaris."
+	},
+	"errors": {
+		"selectField": "Seleccioneu un camp per modificar.",
+		"selectDelimiter": "Seleccioneu un delimitador.",
+		"selectPosition": "Seleccioneu una posició.",
+		"noFile": "No s'ha seleccionat cap fitxer.",
+		"fileType": "Tipus de fitxer no vàlid. Pugeu un fitxer .csv.",
+		"readingFile": "Error en llegir el fitxer.",
+		"emptyInvalid": "El fitxer CSV està buit o és invàlid."
+	},
+	"field": {
+		"library": "Biblioteca",
+		"barcode": "Codi de barres",
+		"committed_to_retain": "Compromís a retenir",
+		"physical_condition": "Estat físic",
+		"chronology_i": "Cronologia I",
+		"chronology_j": "Cronologia J",
+		"chronology_k": "Cronologia K",
+		"chronology_l": "Cronologia L",
+		"chronology_m": "Cronologia M",
+		"year_of_issue": "Any del fascícle",
+		"description": "Descripció",
+		"enumeration_a": "Enumeració A",
+		"enumeration_b": "Enumeració B",
+		"enumeration_c": "Enumeració C",
+		"enumeration_d": "Enumeració D",
+		"enumeration_e": "Enumeració E",
+		"enumeration_f": "Enumeració F",
+		"enumeration_g": "Enumeració G",
+		"enumeration_h": "Enumeració H",
+		"is_magnetic": "És magnètic",
+		"storage_location_id": "ID d'ubicació d'emmagatzematge",
+		"break_indicator": "Indicador de tall",
+		"location": "Ubicació permanent",
+		"retention_note": "Nota de la retenció",
+		"fulfillment_note": "Nota de serveis a l'usuari",
+		"statistics_note_1": "Nota d'estadístiques 1",
+		"statistics_note_2": "Nota d'estadístiques 2",
+		"statistics_note_3": "Nota d'estadístiques 3",
+		"internal_note_1": "Nota interna 1",
+		"internal_note_2": "Nota interna 2",
+		"internal_note_3": "Nota interna 3",
+		"public_note": "Nota pública",
+		"linking_number": "Número d'enllaç",
+		"inventory_number": "Número d'inventari",
+		"receiving_operator": "Operador de recepcions",
+		"pages": "Pàgines",
+		"pieces": "Peces",
+		"policy": "Política d'exemplar",
+		"inventory_price": "Preu de l'inventari",
+		"provenance": "Procedència",
+		"retention_reason": "Motiu de la retenció",
+		"alternative_call_number": "Signatura de l'exemplar",
+		"type_of_unit": "Tipus d'unitat",
+		"physical_material_type": "Tipus de material",
+		"pattern_type": "Tipus de patró",
+		"process_type": "Tipus de procés",
+		"alternative_call_number_type": "Tipus de signatura alternativa",
+		"acquisition_method": "Mètode d'adquisició",
+		"material_type": "Tipus de material",
+		"owner": "Propietari",
+    	"receiving_note": "Nota de recepció",
+    	"reporting_code": "Codi d'informe",
+    	"secondary_reporting_code": "Codi d'informe secundari",
+    	"tertiary_reporting_code": "Codi d'informe terciari",
+    	"fourth_reporting_code": "Quart codi d'informe",
+    	"fifth_reporting_code": "Cinquè codi d'informe",
+    	"vendor_note": "Nota del proveïdor"
+	},
+	"findUser": {
+		"error": {
+			"findUserAlert": "No s'ha pogut cercar l'usuari. Alma ha respost amb l'estat: '{{status}}'",
+			"userDetailAlert": "No s'han pogut obtenir els detalls de l'usuari {{primaryId}}. Alma ha respost amb l'estat: '{{status}}'"
+		},
+		"findUserLabel": "Cerca usuari",
+		"resultCountInfo": "(només es mostren {{pageSize}}, refineu la cerca, p.ex. nom complet o ID principal)",
+		"resultCountLabel": "Resultats: {{resultCount}}",
+		"selectUserFromListInfo": "Seleccioneu un usuari de la llista:"
+	},
+	"global": {
+		"sets": {
+			"change": "Canvia",
+			"move": "Mou",
+			"split": "Divideix",
+			"updatedRecords": "Registres actualitzats",
+			"notUpdatedRecords": "Registres NO actualitzats",
+			"create": "Crea exemplars",
+			"createdRecords": "Registres creats"
+		}
+	},
+	"loader": {
+		"processing": "Processant",
+		"of": "de",
+		"lines": "línies",
+		"preparingResultsAndSets": "Preparant resultats i conjunts..." 
+	},
+	"main": {
+		"checkingPermissions": "Comprovant permisos...",
+		"error": {
+			"permissionCheck": "No s'han pogut comprovar els permisos. Alma ha respost amb l'estat: '{{status}}'",
+			"validationAlert": "No s'ha pogut validar l'usuari. Alma ha respost amb l'estat: '{{status}}'"
+		},
+		"acquisitions": "Adquisicions",
+		"menuAcquisitions": {
+			"clonePO": "Clonar línies de compra",
+			"modifyPO": "Modificar línies de compra"
+		},
+		"items": "Exemplars",
+		"menuItems": {
+			"modifyItems": "Modificar camps d'exemplar",
+			"moveItemFields": "Moure camps d'exemplar",
+			"splitMoveItemFields": "Dividir i moure camps d'exemplar",
+			"createItems": "Crear exemplars en massa"
+		},
+		"users": "Usuaris",
+		"menuUsers": {
+			"loadData": "Carregar dades d'usuari",
+			"removeUsers": "Eliminar usuaris"
+		},
+		"holdings": "Registres de fons",
+		"menuHoldings": {
+			"modifyFields": "Modificar contingut de subcamps"
+		},
+		"information": "Informació",
+		"menuInformation": {
+			"config-tables": "Taules de codis"
+		},
+		"resetButton": "Reiniciar",
+		"titleCloudApp": "Canvis globals",
+		"userIsNotAllowed": "Permís denegat",
+		"userIsNotAllowedInfo": "No teniu permís per utilitzar aquesta aplicació.",
+		"userIsNotAllowedInfoModule": "No teniu permís per utilitzar aquesta funció."
+	},
+	"modifyHoldings": {
+		"title": "Modificar camp de registre de fons",
+		"createResultSets": "Crear conjunts de resultats",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,Camp,Subcamp,original,nou'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
+    	"validateFileButton": "Valida el fitxer",
+		"information": "Informació",
+		"changesExactContent": "Els canvis sempre es basaran en el contingut exacte.",
+		"apiLimitations": "No és possible crear conjunts de resultats degut a una limitació de l'API. Els identificadors de registres de fons no poden afegir-se als conjunts.",
+		"error": {
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, Camp, Subcamp, text original, text nou",
+			"recordsNotUpdated": "Registres no actualitzats"
+		},
+		"success": {
+			"recordsUpdated": "Registres actualitzats"
+		},
+		"warning": {
+    		"partialSuccess": "Alguns registres s'han actualitzat, però també hi ha hagut errors"
+  		}
+	},
+	"modifyItems": {
+		"title": "Modificar camps d'exemplar",
+		"dropdownTitle": "Camp",
+		"exactContent": "Contingut exacte",
+		"checkRequests": "Comprovar peticions",
+		"createResultSets": "Crear conjunts de resultats",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,ID físic,original,nou'",
+    	"validationInfoPoint2.2": "'Codi de barres,original,nou'",
+			"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
+    	"validateFileButton": "Valida el fitxer",
+		"error": {
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, ID físic, text original, text nou",
+			"recordsNotUpdated": "Registres no actualitzats"
+		},
+		"success": {
+			"recordsUpdated": "Registres actualitzats"
+		},
+		"warning": {
+    		"partialSuccess": "Alguns registres s'han actualitzat, però també hi ha hagut errors"
+  		}
+	},
+	"modifyPOLines": {
+		"title": "Modificar línies de compra",
+		"dropdownTitle": "Camp",
+		"exactContent": "Contingut exacte",
+		"checkRequests": "Comprovar peticions",
+		"createResultSets": "Crear conjunts de resultats",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'ID PO,original,nou'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
+		"validationInfoPoint5": "Per carregar informació en un camp buit, no utilitzeu la casella de contingut exacte i envieu una columna buida al CSV.",
+    	"validateFileButton": "Valida el fitxer",
+		"error": {
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: ID PO, text original, text nou",
+			"recordsNotUpdated": "Registres no actualitzats"
+		},
+		"success": {
+			"recordsUpdated": "Registres actualitzats"
+		},
+		"warning": {
+    		"partialSuccess": "Alguns registres s'han actualitzat, però també hi ha hagut errors"
+  		}
+	},
+	"moveFieldItems": {
+		"title": "Moure camps d'exemplar",
+		"dropdownOrigin": "Camp d'origen",
+		"dropdownDestination": "Camp de destinació",
+		"dropdownPosition": "Posició",
+		"dropdownDelimiter": "Delimitador",
+		"emptyField": "Buidar camp d'origen",
+		"checkRequests": "Comprovar peticions",
+		"createResultSets": "Crear conjunts de resultats",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,ID físic'",
+    	"validationInfoPoint2.2": "'Codi de barres'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
+    	"validateFileButton": "Valida el fitxer",
+		"error": {
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, ID físic",
+			"recordsNotUpdated": "Registres no actualitzats"
+		},
+		"success": {
+			"recordsUpdated": "Registres actualitzats"
+		},
+		"warning": {
+    		"partialSuccess": "Alguns registres s'han actualitzat, però també hi ha hagut errors"
+  		},
+		"position": {
+			"back": "Al final",
+			"front": "Al principi",
+			"overwrite": "Sobreescriure"
+		},
+		"delimiter": {
+			"point": "Punt (.)",
+			"hash": "Coets (#)",
+			"at": "Arrova (@)",
+			"pipe": "Barra vertical (|)",
+			"slash": "Barra (/)",
+			"backslash": "Barra inversa (\\)",
+			"hyphen": "Guió (-)",
+			"doubleHyphen": "Doble guió (--)"
+		}
+	},
+	"POLine": {
+		"aTotal": "S'han seleccionat",
+		"itemsSelected": "elements.",
+		"navigateToList": "Navegueu a una llista.",
+		"searchPOLines": "Cerqueu només línies PO. L'element seleccionat no és una línia PO.",
+		"title": "Clona línies PO"
+	},
+	"removeUser": {
+		"aTotal": "S'han seleccionat",
+		"itemsSelected": "usuaris.",
+		"navigateToListorUpload": "Navegueu a una llista o pugeu un fitxer.",
+		"searchPOLines": "Cerqueu només usuaris. L'element seleccionat no és un usuari.",
+		"title": "Elimina registres d'usuari",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'primary_id'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": "4. No es permeten entrades duplicades."
+	},
+	"resume": {
+		"title": "Resum",
+		"itemsUpdated": "Exemplars processats",
+		"errors": "Errors (no processats)",
+		"totalLinesProcessed": "Total de línies processades",
+		"setId": "ID del conjunt",
+		"setIdError": "ID del conjunt d'errors",
+		"close": "Tanca",
+		"seconds": "seg",
+		"removedUsers": "Usuaris eliminats",
+		"removedUsersErrors": "Usuaris no eliminats",
+		"poLineCloned": "Línies PO clonades",
+		"poLineClonedErrors": "Línies PO no clonades"
+	},
+	"roleSelect": {
+		"deselectAll": "Desselecciona-ho tot",
+		"rolesSelected": "Rols seleccionats",
+		"selectAll": "Selecciona-ho tot"
+	},
+	"SelectEntities": {
+		"CheckAll": "Selecciona/Desselecciona tot"
+	},
+	"splitFieldItems": {
+		"title": "Dividir i moure camps d'exemplar",
+		"dropdownField": "Selecciona camp",
+		"dropdownParts": "Parts",
+		"dropdownPart": "Part",
+		"dropdownPosition": "Posició",
+		"dropdownDelimiter": "Delimitador",
+		"emptyField": "Buidar camp d'origen",
+		"checkRequests": "Comprovar peticions",
+		"createResultSets": "Crear conjunts de resultats",
+		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
+		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
+		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
+		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,ID físic,delimitador'",
+    	"validationInfoPoint2.2": "'Codi de barres,delimitador'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
+    	"validateFileButton": "Valida el fitxer",
+		"error": {
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, ID físic, delimitador",
+			"recordsNotUpdated": "Registres no actualitzats"
+		},
+		"success": {
+			"recordsUpdated": "Registres actualitzats"
+		},
+		"warning": {
+    		"partialSuccess": "Alguns registres s'han actualitzat, però també hi ha hagut errors"
+  		}
+	},
+	"validateFile": {
+		"error": {
+			"invalidFileType": "Tipus de fitxer no vàlid. Pugeu un CSV.",
+			"emptyFile": "El fitxer està buit.",
+			"invalidHeaders": "Capçaleres invàlides, comproveu les permeses",
+			"invalidHeaderBarcode": "Capçalera invàlida. La primera columna ha de ser 'Codi de barres' per fitxers de 3 columnes.",
+			"invalidHeaderMMS": "Capçaleres invàlides. Les tres primeres columnes han de ser 'MMS ID', 'ID del registre de fons' i 'ID físic' per fitxers de 5 columnes.",
+			"invalidHeaderHolding": "Capçaleres invàlides. Les dues primeres columnes han de ser 'MMS ID' i 'ID del registre de fons'.",
+			"invalidHeaderColumnCount": "Nombre de columnes invàlid a la fila de capçalera. S'esperaven {{expected}}, però n'hi ha {{actual}}.",
+			"mismatchedColumns": "La fila {{row}} té un nombre de columnes incorrecte. S'esperaven {{expected}}, però n'hi ha {{actual}}.",
+			"duplicateKey": "Entrada duplicada per a '{{key}}' a la fila {{row}}.",
+			"fileReadError": "S'ha produït un error en llegir el fitxer.",
+			"fileTooLarge": "El fitxer és massa gran. Mida màxima permesa: {{maxSize}}."
+		}
+	}
+}

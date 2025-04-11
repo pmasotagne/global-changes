@@ -1,0 +1,42 @@
+.menu-container {
+    padding: 10px;
+    overflow-y: auto;
+    height: 100%;
+  }
+  
+  .menu-accordion {
+    max-width: 100%;
+  }
+  
+  .menu-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-list li {
+    margin-bottom: 10px;
+  }  
+  
+  button {
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    padding: 10px;
+    color: #333;
+    border: none;
+    background: #f9f9f9;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease-in-out;
+  
+    &:hover {
+      background: #e0e0e0;
+    }
+  
+    &:focus {
+      outline: none;
+      background: #d0d0d0;
+    }
+  }
+  

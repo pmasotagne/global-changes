@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{'resume.title' | translate}} <small align="right" *ngIf="data.minutes || data.seconds">{{data.minutes}}min {{data.seconds}}{{'resume.seconds' | translate}}</small></h2>
+
+<mat-dialog-content *ngIf="!data.poline && !data.users">
+  <p><strong>{{'resume.itemsUpdated' | translate}}:</strong> {{data.updatedCount}}</p>
+  <p><strong>{{'resume.errors' | translate}}:</strong> {{data.errorsCount}}</p>
+  <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
+  <p *ngIf="data.setId"><strong>{{'resume.setId' | translate}}:</strong> {{data.setId}}</p>
+  <p *ngIf="data.setIdError"><strong>{{'resume.setIdError' | translate}}:</strong> {{data.setIdError}}</p>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="data.poline">
+  <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
+  <p><strong>{{'resume.poLineCloned' | translate}}:</strong> {{data.updatedCount}}</p>
+  <p><strong>{{'resume.poLineClonedErrors' | translate}}:</strong> {{data.errorsCount}}</p>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="data.users">
+  <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
+  <p><strong>{{'resume.removedUsers' | translate}}:</strong> {{data.removedCount}}</p>
+  <p><strong>{{'resume.removedUsersErrors' | translate}}:</strong> {{data.errorsCount}}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="close()">Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,21 @@
+<div class="loading-shade" *ngIf="loading">
+	<!-- Spinner at the top -->
+	<div class="spinner-container">
+		<mat-spinner diameter="50"></mat-spinner>
+	</div>
+
+	<!-- Only show the processing information if processedCount > 0 -->
+	<div *ngIf="!statusMessage && processedCount >= 0 && totalCount > 0" class="loading-info">
+		<p>{{ 'loader.processing' | translate }} {{ processedCount }} {{ 'loader.of' | translate }} {{ totalCount }} {{ 'loader.lines' | translate }}...</p>
+	</div>
+
+	<div *ngIf="statusMessage" class="loading-info">
+		<p>{{ statusMessage }}</p>
+	</div>
+	
+	<mat-progress-bar
+		*ngIf="totalCount > 0 && totalCount > 0"
+		mode="determinate"
+		[value]="(processedCount / totalCount) * 100"
+	></mat-progress-bar>
+</div>

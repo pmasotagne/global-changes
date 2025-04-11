@@ -1,0 +1,422 @@
+{
+	"clonePOLines": {
+		"modifyInfo": "Review the modifications that will be applied to the cloned PO Line in an attempt to set its status to 'In Review' (this depends on the system configuration).",
+		"modifyInfo1": "Remove the 'number' element",
+		"modifyInfo2": "Remove the 'po_number' element",
+		"modifyInfo3": "Remove the 'status' element",
+		"modifyInfo4": "Add an empty 'link' element",
+		"modifyInfo5": "Add 'status_date' element with today's date",
+		"modifyInfo6": "Add 'created_date' element with today's date"
+	},
+	"codeTables": {
+		"backTableList": "Back to table list",
+		"code": "Code",
+		"description": "Description",
+		"tableContent": "Table Content for",
+		"title": "Configuration Tables"
+	},
+	"config": {
+		"acquisitions": "Acquisitions",
+		"allowAnyRole": "No restriction by role",
+		"allowByRole": "Allow by role",
+		"allowByUser": "Allow by user",
+		"allowForAcquisitionAdministrator": "Acquisition Administrator",
+		"allowForCatalogAdministrator": "Catalog Administrator",
+		"allowForCatalogManager": "Catalog Manager",
+		"allowForFulfillmentAdministrator": "Fulfillment Administrator",
+		"allowForGeneralAdministrator": "General Administrator",
+		"allowForRepositoryAdministrator": "Repository Administrator",
+		"allowForRepositoryManager": "Repository Manager",
+		"allowForUserAdministrator": "User Administrator",
+		"allowForUserManager": "User Manager",
+		"allowUsage": "Manage app usage",
+		"allowUsageExplanation": "The following settings can be used to manage the use of the app. If no configuration is made, all users are allowed. An explicit entry in the list of allowed users always has access, regardless of the roles.",
+		"allowUsersWithRoleText": "Allow usage for users with the following roles:",
+		"allowedUsers": "Allowed users:",
+		"backButton": "Back",
+		"confirmRemoveConfig": "Do you really want to remove the configuration?",
+		"confirmUnsaved": "Unsaved data, proceed anyway?",
+		"globalConfig": "Global configuration",
+		"holdings": "Holdings",
+		"items": "Items",
+		"moduleConfig": "Module configuration",
+		"moduleRestrictions": "Module Restrictions",
+		"moduleRestrictionsExplanation": "Module restrictions allow you to control access to specific modules within the application. You can restrict access based on user roles or by explicitly selecting individual users. If no restrictions are set for a module, all users will have access by default.",
+		"removeConfig": "Remove configuration",
+		"rolesAndUsersAreExclusive": "If there are users in the allow list, roles will not be checked",
+		"saveButton": "Save",
+		"searchForUser": "Search user:",
+		"selectAnotherFileButton": "Select Another File",
+		"selectFileButton": "Select File",
+		"submitButton": "Submit",
+		"userAlreadyInList": "'{{user}}' is already on the list",
+		"users": "Users"
+	},
+	"createItems": {
+		"title": "Create Items to existent Holdings",
+		"createResultSets": "Create set of results",
+		"validHeaders": "Check for valid headers",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,fieldItem1,fieldItem2...'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": {
+      		"text": "4. For fields with controlled values (dropdown fields), it is necessary to specify the configuration code, not the description. ",
+      		"link": "Check your configuration tables."
+    	},
+    	"validateFileButton": "Validate File",
+		"error": {
+			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID, fieldItemX...",
+			"recordsNotCreated": "Records not created"
+		},
+		"success": {
+			"recordsCreated": "Records created"
+		},
+		"warning": {
+    		"partialSuccess": "Some records were created, but there were also errors"
+  		}
+	},
+	"disclaimer": {
+		"title": "Disclaimer",
+		"developedBy": "This cloud application has been developed by",
+		"noResponsibility": "We are not responsible for any issues arising from record modifications. The responsibility lies solely with the user executing the processes.",
+		"dataSent": "Additionally, certain data is sent for statistical purposes, such as the number of successfully processed records, errors, process type, and the IZ code initiating the process.",
+		"privacy": "We do not store any personal details or information belonging to users."
+	},
+	"errors": {
+		"selectField": "Please select a field to modify.",
+		"selectDelimiter": "Please select a delimiter.",
+		"selectPosition": "Please select a position.",
+		"noFile": "No file selected.",
+		"fileType": "Invalid file type. Please upload a .csv file.",
+		"readingFile": "Error reading file.",
+		"emptyInvalid": "CSV file is empty or invalid."
+	},
+	"field": {
+		"library": "Library",
+		"barcode": "Barcode",
+		"committed_to_retain": "Committed to Retain",
+		"physical_condition": "Physical Condition",
+		"chronology_i": "Chronology I",
+		"chronology_j": "Chronology J",
+		"chronology_k": "Chronology K",
+		"chronology_l": "Chronology L",
+		"chronology_m": "Chronology M",
+		"year_of_issue": "Year of Issue",
+		"description": "Description",
+		"enumeration_a": "Enumeration A",
+		"enumeration_b": "Enumeration B",
+		"enumeration_c": "Enumeration C",
+		"enumeration_d": "Enumeration D",
+		"enumeration_e": "Enumeration E",
+		"enumeration_f": "Enumeration F",
+		"enumeration_g": "Enumeration G",
+		"enumeration_h": "Enumeration H",
+		"is_magnetic": "Is Magnetic",
+		"storage_location_id": "Storage Location ID",
+		"break_indicator": "Break Indicator",
+		"location": "Permanent Location",
+		"retention_note": "Retention Note",
+		"fulfillment_note": "Fulfillment Note",
+		"statistics_note_1": "Statistics Note 1",
+		"statistics_note_2": "Statistics Note 2",
+		"statistics_note_3": "Statistics Note 3",
+		"internal_note_1": "Internal Note 1",
+		"internal_note_2": "Internal Note 2",
+		"internal_note_3": "Internal Note 3",
+		"public_note": "Public Note",
+		"linking_number": "Linking Number",
+		"inventory_number": "Inventory Number",
+		"receiving_operator": "Receiving Operator",
+		"pages": "Pages",
+		"pieces": "Pieces",
+		"policy": "Policy",
+		"inventory_price": "Inventory Price",
+		"provenance": "Provenance",
+		"retention_reason": "Retention Reason",
+		"alternative_call_number": "Alternative Call Number",
+		"type_of_unit": "Type of Unit",
+		"physical_material_type": "Physical Material Type",
+		"pattern_type": "Pattern Type",
+		"process_type": "Process Type",
+		"alternative_call_number_type": "Alternative Call Number Type",
+		"acquisition_method": "Acquisition Method",
+    	"material_type": "Material Type",
+		"owner": "Owner",
+    	"receiving_note": "Receiving Note",
+    	"reporting_code": "Reporting Code",
+    	"secondary_reporting_code": "Secondary Reporting Code",
+    	"tertiary_reporting_code": "Tertiary Reporting Code",
+    	"fourth_reporting_code": "Fourth Reporting Code",
+    	"fifth_reporting_code": "Fifth Reporting Code",
+    	"vendor_note": "Vendor note"
+	},
+	"findUser": {
+		"error": {
+			"findUserAlert": "Could not search for user, Alma responded with status: '{{status}}'",
+			"userDetailAlert": "Could not get user details for user {{primaryId}}, Alma responded with status: '{{status}}'"
+		},
+		"findUserLabel": "Find user",
+		"resultCountInfo": "(only {{pageSize}} displayed, please refine search, e.g. full name or primary ID)",
+		"resultCountLabel": "Results: {{resultCount}}",
+		"selectUserFromListInfo": "Select a user from the list:"
+	},
+	"global": {
+		"sets": {
+			"change": "Change",
+			"move": "Move",
+			"split": "Split",
+			"updatedRecords": "Updated records",
+			"notUpdatedRecords": "NOT updated records",
+			"create": "Create items",
+			"createdRecords": "Created records"
+		}
+	},
+	"loader": {
+		"processing": "Processing",
+		"of": "of",
+		"lines": "lines",
+		"preparingResultsAndSets": "Preparing results and sets..." 
+	},
+	"main": {
+		"checkingPermissions": "Checking permissions...",
+		"error": {
+			"permissionCheck": "Could not check permissions, Alma responded with status: '{{status}}'",
+			"validationAlert": "Could not validate user, Alma respondend with status: '{{status}}'"
+		},
+		"acquisitions": "Acquisitions",
+		"menuAcquisitions": {
+			"clonePO": "Clone POLines",
+			"modifyPO": "Modify POLines"
+		},
+		"items": "Items",
+		"menuItems": {
+			"modifyItems": "Modify item fields",
+			"moveItemFields": "Move item fields",
+			"splitMoveItemFields": "Split and move item fields",
+			"createItems": "Create items in bulk"
+		},
+		"users": "Users",
+		"menuUsers": {
+			"loadData": "Load user data",
+			"removeUsers": "Remove users"
+		},
+		"holdings": "Holdings",
+		"menuHoldings": {
+			"modifyFields": "Modify subfields content"
+		},
+		"information": "Information",
+		"menuInformation": {
+			"config-tables": "Code tables"
+		},
+		"resetButton": "Reset",
+		"titleCloudApp": "Global Changes",
+		"userIsNotAllowed": "Permission denied",
+		"userIsNotAllowedInfo": "You don't have the permission to use this app.",
+		"userIsNotAllowedInfoModule": "You don't have the permission to use this function."
+	},
+	"modifyHoldings": {
+		"title": "Modify Holdings Field",
+		"createResultSets": "Create set of results",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Field,Subfield,original,new'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": "4. No duplicate entries are allowed.",
+    	"validateFileButton": "Validate File",
+		"information": "Information",
+		"changesExactContent": "The changes will always be based on exact content.",
+		"apiLimitations": "It is not possible to create result sets due to an API limitation. Holding identifiers cannot be added to holding sets.",
+		"error": {
+			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Field, Subfield, original text, new text",
+			"recordsNotUpdated": "Records not updated"
+		},
+		"success": {
+			"recordsUpdated": "Records updated"
+		},
+		"warning": {
+    		"partialSuccess": "Some records were updated, but there were also errors"
+  		}
+	},
+	"modifyItems": {
+		"title": "Modify Item Field",
+		"dropdownTitle": "Field",
+		"exactContent": "Exact content",
+		"checkRequests": "Check requests",
+		"createResultSets": "Create set of results",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,original,new'",
+    	"validationInfoPoint2.2": "'Barcode,original,new'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": "4. No duplicate entries are allowed.",
+    	"validateFileButton": "Validate File",
+		"error": {
+			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID, original text, new text",
+			"recordsNotUpdated": "Records not updated"
+		},
+		"success": {
+			"recordsUpdated": "Records updated"
+		},
+		"warning": {
+    		"partialSuccess": "Some records were updated, but there were also errors"
+  		}
+	},
+	"modifyPOLines": {
+		"title": "Modify POLines",
+		"dropdownTitle": "Field",
+		"exactContent": "Exact content",
+		"checkRequests": "Check requests",
+		"createResultSets": "Create set of results",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'PO ID,original,new'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": "4. No duplicate entries are allowed.",
+		"validationInfoPoint5": "To load information into an empty field, do not use the exact content checkbox and send an empty column in the CSV.",
+    	"validateFileButton": "Validate File",
+		"error": {
+			"headers": "Invalid column format. Ensure the columns match: PO ID, original text, new text",
+			"recordsNotUpdated": "Records not updated"
+		},
+		"success": {
+			"recordsUpdated": "Records updated"
+		},
+		"warning": {
+    		"partialSuccess": "Some records were updated, but there were also errors"
+  		}
+	},
+	"moveFieldItems": {
+		"title": "Move Item Field",
+		"dropdownOrigin": "Origin field",
+		"dropdownDestination": "Destination field",
+		"dropdownPosition": "Position",
+		"dropdownDelimiter": "Delimiter",
+		"emptyField": "Empty origin field",
+		"checkRequests": "Check requests",
+		"createResultSets": "Create set of results",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID'",
+    	"validationInfoPoint2.2": "'Barcode'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": "4. No duplicate entries are allowed.",
+    	"validateFileButton": "Validate File",
+		"error": {
+			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID",
+			"recordsNotUpdated": "Records not updated"
+		},
+		"success": {
+			"recordsUpdated": "Records updated"
+		},
+		"warning": {
+    		"partialSuccess": "Some records were updated, but there were also errors"
+  		},
+		"position": {
+			"back": "Back",
+			"front": "Front",
+			"overwrite": "Overwrite"
+		},
+		"delimiter": {
+			"point": "Point (.)",
+			"hash": "Hash (#)",
+			"at": "At (@)",
+			"pipe": "Pipe (|)",
+			"slash": "Slash (/)",
+			"backslash": "Backslash (\\)",
+			"hyphen": "Hyphen (-)",
+			"doubleHyphen": "Double Hyphen (--)"
+		}
+	},
+	"POLine": {
+		"aTotal": "A total of",
+		"itemsSelected": "items have been selected.",
+		"navigateToList": "Please navigate to a list.",
+		"searchPOLines": "Please search for PO Lines only. The selected item is not a PO Line.",
+		"title": "Clone POLines"
+	},
+	"removeUser": {
+		"aTotal": "A total of",
+		"itemsSelected": "users have been selected.",
+		"navigateToListorUpload": "Please navigate to a list or upload a file.",
+		"searchPOLines": "Please search for Users only. The selected item is not a User record.",
+		"title": "Remove User Records",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'primary_id'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": "4. No duplicate entries are allowed."
+	},
+	"resume": {
+		"title": "Resume",
+		"itemsUpdated": "Items processed",
+		"errors": "Errors (not processed)",
+		"totalLinesProcessed": "Total lines processed",
+		"setId": "Set ID",
+		"setIdError": "Set ID Errors",
+		"close": "Close",
+		"seconds": "sec",
+		"removedUsers": "Users removed",
+		"removedUsersErrors": "Users not removed",
+		"poLineCloned": "POL cloned",
+		"poLineClonedErrors": "POL not cloned"
+	},
+	"roleSelect": {
+		"deselectAll": "Deselect all",
+		"rolesSelected": "Selected roles",
+		"selectAll": "Select all"
+	},
+	"SelectEntities": {
+		"CheckAll": "Check/Uncheck All"
+	},
+	"splitFieldItems": {
+		"title": "Split Item Field",
+		"dropdownField": "Select field",
+		"dropdownParts": "Parts",
+		"dropdownPart": "Part",
+		"dropdownPosition": "Position",
+		"dropdownDelimiter": "Delimiter",
+		"emptyField": "Empty origin field",
+		"checkRequests": "Check requests",
+		"createResultSets": "Create set of results",
+		"validationInfoHeader": "The file will be validated for the following checks:",
+		"validationInfoPoint1": "1. The file must be in CSV format.",
+		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,delimiter'",
+    	"validationInfoPoint2.2": "'Barcode,delimiter'",
+		"validationInfoPoint3": "3. All rows must have the same number of columns.",
+		"validationInfoPoint4": "4. No duplicate entries are allowed.",
+    	"validateFileButton": "Validate File",
+		"error": {
+			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID, delimiter",
+			"recordsNotUpdated": "Records not updated"
+		},
+		"success": {
+			"recordsUpdated": "Records updated"
+		},
+		"warning": {
+    		"partialSuccess": "Some records were updated, but there were also errors"
+  		}
+	},
+	"validateFile": {
+		"error": {
+			"invalidFileType": "Invalid file type. Please upload a CSV.",
+			"emptyFile": "The file is empty.",
+			"invalidHeaders": "Invalid headers, check for allowed headers",
+			"invalidHeaderBarcode": "Invalid header. The first column must be 'Barcode' for 3-column files.",
+			"invalidHeaderMMS": "Invalid headers. The first three columns must be 'MMS ID', 'Holding ID', and 'Physical ID' for 5-column files.",
+			"invalidHeaderHolding": "Invalid headers. The first two columns must be 'MMS ID', 'Holding ID'.",
+			"invalidHeaderColumnCount": "Invalid number of columns in the header row. Expected {{expected}}, but got {{actual}}.",
+			"mismatchedColumns": "Row {{row}} has a mismatched number of columns. Expected {{expected}}, but got {{actual}}.",
+			"duplicateKey": "Duplicate entry found for '{{key}}' in row {{row}}.",
+			"fileReadError": "An error occurred while reading the file.",
+			"fileTooLarge": "The file is too large. Maximum size allowed is {{maxSize}}."
+		}
+	}
+}

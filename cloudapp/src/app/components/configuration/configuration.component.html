@@ -1,0 +1,355 @@
+<div id="copy-user-roles-config">
+  <!-- Global Back/Save Actions always visible -->
+  <div class="eca-actions">
+    <button mat-flat-button color="secondary" (click)="back()">
+      <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+    </button>
+    <button mat-flat-button color="primary" (click)="save()" [disabled]="saving || !dirty">
+      {{ 'config.saveButton' | translate }}
+    </button>
+  </div>
+
+  <!-- Tab group for Global and Module-specific configurations -->
+  <mat-tab-group>
+    <!-- Global Configuration Tab -->
+    <mat-tab label="{{ 'config.globalConfig' | translate }}">
+      <section>
+        <h1 translate>config.allowUsage</h1>
+        <p translate>config.allowUsageExplanation</p>
+
+        <!-- Allow usage for specific users -->
+        <section>
+          <h1 translate>config.allowByUser</h1>
+          <div *ngIf="allowedUsers.size > 0">
+            <div class="cur-allowed-users-title-bar">
+              <p class="bold" translate>config.allowedUsers</p>
+              <button mat-icon-button [disabled]="allowedUsersSelection.length == 0" (click)="removeAllowedUsers()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+            <mat-selection-list class="allowed-users-list"
+                                [multiple]="true"
+                                [(ngModel)]="allowedUsersSelection"
+                                (ngModelChange)="selectAllowedUsers($event)">
+              <mat-list-option class="list-option"
+                               *ngFor="let allowedUser of allowedUsers"
+                               [value]="allowedUser">
+                <div matLine>
+                  <span class="uxf-icon uxf-user leading-icon"></span>
+                  {{ allowedUser.last_name }}, {{ allowedUser.first_name }} - {{ allowedUser?.user_group?.desc.trim() }}&nbsp;
+                </div>
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+          <p class="bold" translate>config.searchForUser</p>
+          <app-find-user (selectedUserOutput)="addAllowedUser($event)"></app-find-user>
+        </section>
+        <!-- /Allow usage for specific users -->
+
+        <!-- Allow usage for specific roles -->
+        <section>
+          <h1 translate>config.allowByRole</h1>
+          <p *ngIf="allowedUsers.size > 0"><b translate>config.rolesAndUsersAreExclusive</b></p>
+          <p translate>config.allowUsersWithRoleText</p>
+          <mat-selection-list [disabled]="allowedUsers.size > 0"
+                              [multiple]="true"
+                              [(ngModel)]="allowedRolesSelection"
+                              (ngModelChange)="selectAllowedRole($event)">
+            <mat-list-option class="list-option" [value]="0" [disabled]="allowedRolesSelection.length > 0 && !allowedRolesSelection.includes(0)">
+              {{ 'config.allowAnyRole' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="26" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForGeneralAdministrator' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="50" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForUserAdministrator' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="21" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForUserManager' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="52" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForFulfillmentAdministrator' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="56" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForAcquisitionAdministrator' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="205" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForCatalogAdministrator' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="206" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForCatalogManager' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="53" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForRepositoryAdministrator' | translate }}
+            </mat-list-option>
+            <mat-list-option class="list-option" [value]="29" [disabled]="allowedRolesSelection.includes(0)">
+              {{ 'config.allowForRepositoryManager' | translate }}
+            </mat-list-option>
+          </mat-selection-list>
+        </section>
+        <!-- /Allow usage for specific roles -->
+
+        <div class="eca-actions">
+          <button mat-flat-button color="secondary" (click)="removeConfig()">
+            <mat-icon>delete</mat-icon> {{ 'config.removeConfig' | translate }}
+          </button>
+        </div>
+      </section>
+    </mat-tab>
+
+    <!-- Module-specific Configuration Tab -->
+    <mat-tab label="{{ 'config.moduleConfig' | translate }}">
+      <section>
+        <h1 translate>config.moduleRestrictions</h1>
+        <p translate>config.moduleRestrictionsExplanation</p>
+        <mat-accordion>
+          <!-- Acquisitions Module -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ 'config.acquisitions' | translate }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- Allowed Roles -->
+            <section>
+              <h3 translate>config.allowByRole</h3>
+              <mat-selection-list [multiple]="true" [(ngModel)]="moduleRestrictions.acquisitions.allowedRoles" (ngModelChange)="selectAllowedRole($event)">
+                <mat-list-option class="list-option" [value]="0" [disabled]="moduleRestrictions.acquisitions.allowedRoles.length > 0 && !moduleRestrictions.acquisitions.allowedRoles.includes(0)">
+                  {{ 'config.allowAnyRole' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="26"  [disabled]="moduleRestrictions.acquisitions.allowedRoles.includes(0)">
+                  {{ 'config.allowForGeneralAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="52"  [disabled]="moduleRestrictions.acquisitions.allowedRoles.includes(0)">
+                  {{ 'config.allowForFulfillmentAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="56"  [disabled]="moduleRestrictions.acquisitions.allowedRoles.includes(0)">
+                  {{ 'config.allowForAcquisitionAdministrator' | translate }}
+                </mat-list-option>
+              </mat-selection-list>
+            </section>
+            <!-- Allowed Users -->
+            <section>
+              <h3 translate>config.allowByUser</h3>
+
+              <div *ngIf="moduleRestrictions.acquisitions.allowedUsers?.length > 0">
+                <div class="cur-allowed-users-title-bar">
+                  <p class="bold" translate>config.allowedUsers</p>
+                  <button mat-icon-button 
+                          [disabled]="selectedModuleUsers.length == 0" 
+                          (click)="removeSelectedModuleUsers('acquisitions')">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+                
+                <mat-selection-list class="allowed-users-list"
+                                    [multiple]="true"
+                                    [(ngModel)]="selectedModuleUsers"
+                                    (ngModelChange)="selectModuleUsers($event)">
+                  <mat-list-option class="list-option"
+                                  *ngFor="let user of moduleRestrictions.acquisitions.allowedUsers"
+                                  [value]="user">
+                    <div matLine>
+                      <span class="uxf-icon uxf-user leading-icon"></span>
+                      {{ user.last_name }}, {{ user.first_name }} - {{ user?.user_group?.desc.trim() }}&nbsp;
+                    </div>
+                  </mat-list-option>
+                </mat-selection-list>
+              </div>
+              <p class="bold" translate>config.searchForUser</p>
+              <app-find-user (selectedUserOutput)="addModuleUser('acquisitions', $event)"></app-find-user>
+            </section>
+          </mat-expansion-panel>
+
+          <!-- Items Module -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ 'config.items' | translate }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- Allowed Roles -->
+            <section>
+              <h3 translate>config.allowByRole</h3>
+              <mat-selection-list [multiple]="true" [(ngModel)]="moduleRestrictions.items.allowedRoles" (ngModelChange)="selectAllowedRole($event)">
+                <mat-list-option class="list-option" [value]="0" [disabled]="moduleRestrictions.items.allowedRoles.length > 0 && !moduleRestrictions.items.allowedRoles.includes(0)">
+                  {{ 'config.allowAnyRole' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="26" [disabled]="moduleRestrictions.items.allowedRoles.includes(0)">
+                  {{ 'config.allowForGeneralAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="205" [disabled]="moduleRestrictions.items.allowedRoles.includes(0)">
+                  {{ 'config.allowForCatalogAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="206" [disabled]="moduleRestrictions.items.allowedRoles.includes(0)">
+                  {{ 'config.allowForCatalogManager' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="53" [disabled]="moduleRestrictions.items.allowedRoles.includes(0)">
+                  {{ 'config.allowForRepositoryAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="29" [disabled]="moduleRestrictions.items.allowedRoles.includes(0)">
+                  {{ 'config.allowForRepositoryManager' | translate }}
+                </mat-list-option>
+              </mat-selection-list>
+            </section>
+            <!-- Allowed Users -->
+            <section>
+              <h3 translate>config.allowByUser</h3>
+
+              <div *ngIf="moduleRestrictions.items.allowedUsers?.length > 0">
+                <div class="cur-allowed-users-title-bar">
+                  <p class="bold" translate>config.allowedUsers</p>
+                  <button mat-icon-button 
+                          [disabled]="selectedModuleUsers.length == 0" 
+                          (click)="removeSelectedModuleUsers('items')">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+                
+                <mat-selection-list class="allowed-users-list"
+                                    [multiple]="true"
+                                    [(ngModel)]="selectedModuleUsers"
+                                    (ngModelChange)="selectModuleUsers($event)">
+                  <mat-list-option class="list-option"
+                                  *ngFor="let user of moduleRestrictions.items.allowedUsers"
+                                  [value]="user">
+                    <div matLine>
+                      <span class="uxf-icon uxf-user leading-icon"></span>
+                      {{ user.last_name }}, {{ user.first_name }} - {{ user?.user_group?.desc.trim() }}&nbsp;
+                    </div>
+                  </mat-list-option>
+                </mat-selection-list>
+              </div>
+              <p class="bold" translate>config.searchForUser</p>
+              <app-find-user (selectedUserOutput)="addModuleUser('items', $event)"></app-find-user>
+            </section>
+          </mat-expansion-panel>
+
+          <!-- Users Module -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ 'config.users' | translate }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- Allowed Roles -->
+            <section>
+              <h3 translate>config.allowByRole</h3>
+              <mat-selection-list [multiple]="true" [(ngModel)]="moduleRestrictions.users.allowedRoles" (ngModelChange)="selectAllowedRole($event)">
+                <mat-list-option class="list-option" [value]="0" [disabled]="moduleRestrictions.users.allowedRoles.length > 0 && !moduleRestrictions.users.allowedRoles.includes(0)">
+                  {{ 'config.allowAnyRole' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="26" [disabled]="moduleRestrictions.users.allowedRoles.includes(0)">
+                  {{ 'config.allowForGeneralAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="50" [disabled]="moduleRestrictions.users.allowedRoles.includes(0)">
+                  {{ 'config.allowForUserAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="21" [disabled]="moduleRestrictions.users.allowedRoles.includes(0)">
+                  {{ 'config.allowForUserManager' | translate }}
+                </mat-list-option>
+              </mat-selection-list>
+            </section>
+            <!-- Allowed Users -->
+            <section>
+              <h3 translate>config.allowByUser</h3>
+
+              <div *ngIf="moduleRestrictions.users.allowedUsers?.length > 0">
+                <div class="cur-allowed-users-title-bar">
+                  <p class="bold" translate>config.allowedUsers</p>
+                  <button mat-icon-button 
+                          [disabled]="selectedModuleUsers.length == 0" 
+                          (click)="removeSelectedModuleUsers('users')">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+                
+                <mat-selection-list class="allowed-users-list"
+                                    [multiple]="true"
+                                    [(ngModel)]="selectedModuleUsers"
+                                    (ngModelChange)="selectModuleUsers($event)">
+                  <mat-list-option class="list-option"
+                                  *ngFor="let user of moduleRestrictions.users.allowedUsers"
+                                  [value]="user">
+                    <div matLine>
+                      <span class="uxf-icon uxf-user leading-icon"></span>
+                      {{ user.last_name }}, {{ user.first_name }} - {{ user?.user_group?.desc.trim() }}&nbsp;
+                    </div>
+                  </mat-list-option>
+                </mat-selection-list>
+              </div>
+
+              <p class="bold" translate>config.searchForUser</p>
+              <app-find-user (selectedUserOutput)="addModuleUser('users', $event)"></app-find-user>
+            </section>
+          </mat-expansion-panel>
+
+          <!-- Holdings Module -->
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ 'config.holdings' | translate }}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <!-- Allowed Roles -->
+            <section>
+              <h3 translate>config.allowByRole</h3>
+              <mat-selection-list [multiple]="true" [(ngModel)]="moduleRestrictions.holdings.allowedRoles" (ngModelChange)="selectAllowedRole($event)">
+                <mat-list-option class="list-option" [value]="0" [disabled]="moduleRestrictions.holdings.allowedRoles.length > 0 && !moduleRestrictions.holdings.allowedRoles.includes(0)">
+                  {{ 'config.allowAnyRole' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="26" [disabled]="moduleRestrictions.holdings.allowedRoles.includes(0)">
+                  {{ 'config.allowForGeneralAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="205" [disabled]="moduleRestrictions.holdings.allowedRoles.includes(0)">
+                  {{ 'config.allowForCatalogAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="206" [disabled]="moduleRestrictions.holdings.allowedRoles.includes(0)">
+                  {{ 'config.allowForCatalogManager' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="53" [disabled]="moduleRestrictions.holdings.allowedRoles.includes(0)">
+                  {{ 'config.allowForRepositoryAdministrator' | translate }}
+                </mat-list-option>
+                <mat-list-option class="list-option" [value]="29" [disabled]="moduleRestrictions.holdings.allowedRoles.includes(0)">
+                  {{ 'config.allowForRepositoryManager' | translate }}
+                </mat-list-option>
+              </mat-selection-list>
+            </section>
+            <!-- Allowed Users -->
+            <section>
+              <h3 translate>config.allowByUser</h3>
+
+              <div *ngIf="moduleRestrictions.holdings.allowedUsers?.length > 0">
+                <div class="cur-allowed-users-title-bar">
+                  <p class="bold" translate>config.allowedUsers</p>
+                  <button mat-icon-button 
+                          [disabled]="selectedModuleUsers.length == 0" 
+                          (click)="removeSelectedModuleUsers('holdings')">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+                
+                <mat-selection-list class="allowed-users-list"
+                                    [multiple]="true"
+                                    [(ngModel)]="selectedModuleUsers"
+                                    (ngModelChange)="selectModuleUsers($event)">
+                  <mat-list-option class="list-option"
+                                  *ngFor="let user of moduleRestrictions.holdings.allowedUsers"
+                                  [value]="user">
+                    <div matLine>
+                      <span class="uxf-icon uxf-user leading-icon"></span>
+                      {{ user.last_name }}, {{ user.first_name }} - {{ user?.user_group?.desc.trim() }}&nbsp;
+                    </div>
+                  </mat-list-option>
+                </mat-selection-list>
+              </div>
+              <p class="bold" translate>config.searchForUser</p>
+              <app-find-user (selectedUserOutput)="addModuleUser('holdings', $event)"></app-find-user>
+            </section>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+  <app-loader [loading]="loading"></app-loader>
+</div>

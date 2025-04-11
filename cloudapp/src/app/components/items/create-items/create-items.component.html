@@ -1,0 +1,199 @@
+<div class="modificar-exemplar-container">  
+    <!-- Actions and Title -->
+    <app-loader [loading]="loading" [processedCount]="processedCount" [totalCount]="totalRows" [statusMessage]="loaderStatusMessage"></app-loader>
+    <div class="eca-header">
+      <h1>{{ 'createItems.title' | translate }}</h1>
+      <button *ngIf="!fileValidated" mat-flat-button color="secondary" (click)="back()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+
+      <button *ngIf="fileValidated" mat-flat-button color="secondary" (click)="reload()">
+        <mat-icon>arrow_back</mat-icon> {{ 'config.backButton' | translate }}
+      </button>
+    </div>
+
+    <div *ngIf="checkingUser">
+      <p translate>main.checkingPermissions</p>
+    </div>
+    
+    <!-- When permission is denied -->
+    <div *ngIf="!isModuleUserAllowed && !checkingUser">
+      <section>
+        <h1 translate>main.userIsNotAllowed</h1>
+        <p translate>main.userIsNotAllowedInfoModule</p>
+      </section>
+    </div>
+    <div *ngIf="isModuleUserAllowed && !checkingUser">
+
+      <div *ngIf="!fileValidated" class="file-validation-container">
+
+        <!-- Information Section -->
+        <div class="validation-info">
+          <p>
+            <mat-icon>info</mat-icon>
+            {{ 'createItems.validationInfoHeader' | translate }}
+          </p>
+          <ul>
+            <li>{{ 'createItems.validationInfoPoint1' | translate }}</li>
+            <details class="example-details">
+              <summary class="example-summary">{{ 'createItems.validationInfoPoint2' | translate }}</summary>
+              <ul class="example-details">
+                <li><code class="small-code">{{ 'createItems.validationInfoPoint2.1' | translate }}</code></li>
+              </ul>
+            </details>
+            <li>{{ 'createItems.validationInfoPoint3' | translate }}</li>
+            <li>
+              {{ 'createItems.validationInfoPoint4.text' | translate }}
+              <a [routerLink]="['/code-tables']">
+                {{ 'createItems.validationInfoPoint4.link' | translate }}
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="form-group file-upload-container">
+          <div class="file-upload-wrapper">
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-upload"
+              (change)="onFileSelected($event)"
+              hidden
+              #fileInput
+            />
+          </div>
+    
+          <!-- File name display -->
+          <span *ngIf="selectedFile" class="file-name">
+            <br />{{ selectedFile.name }}
+          </span>
+
+          <!-- File selection button -->
+          <button mat-raised-button color="secondary" (click)="fileInput.click()">
+            <mat-icon>upload</mat-icon> {{ 'config.selectFileButton' | translate }}
+          </button>
+
+        </div>
+    
+        <!-- Validate Button -->
+        <div class="form-group file-upload-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            [disabled]="!selectedFile"
+            (click)="validateFile()"
+          >
+          <mat-icon>approval</mat-icon>  {{ 'createItems.validateFileButton' | translate }}
+          </button>
+        </div>
+    
+        <!-- Error Message Section -->
+        <div *ngIf="validationError" class="error-message">
+          <p>
+            <mat-icon color="warn">error_outline</mat-icon>
+            {{ validationError }}
+          </p>
+        </div>
+      </div>
+    
+
+      <!-- Form -->
+      <form *ngIf="fileValidated">
+        <details class="valid-headers">
+          <summary class="valid-headers">{{ 'createItems.validHeaders' | translate }}</summary>
+          <ul class="valid-headers-details">
+              <li><code class="small-code">alternative_call_number</code></li>
+              <li><code class="small-code">alternative_call_number_type</code></li>
+              <li><code class="small-code">awaiting_reshelving</code></li>
+              <li><code class="small-code">barcode</code></li>
+              <li><code class="small-code">base_status</code></li>
+              <li><code class="small-code">break_indicator</code></li>
+              <li><code class="small-code">chronology_i</code></li>
+              <li><code class="small-code">chronology_j</code></li>
+              <li><code class="small-code">chronology_k</code></li>
+              <li><code class="small-code">chronology_l</code></li>
+              <li><code class="small-code">chronology_m</code></li>
+              <li><code class="small-code">committed_to_retain</code></li>
+              <li><code class="small-code">creation_date</code></li>
+              <li><code class="small-code">description</code></li>
+              <li><code class="small-code">enumeration_a</code></li>
+              <li><code class="small-code">enumeration_b</code></li>
+              <li><code class="small-code">enumeration_c</code></li>
+              <li><code class="small-code">enumeration_d</code></li>
+              <li><code class="small-code">enumeration_e</code></li>
+              <li><code class="small-code">enumeration_f</code></li>
+              <li><code class="small-code">enumeration_g</code></li>
+              <li><code class="small-code">enumeration_h</code></li>
+              <li><code class="small-code">fulfillment_note</code></li>
+              <li><code class="small-code">internal_note_1</code></li>
+              <li><code class="small-code">internal_note_2</code></li>
+              <li><code class="small-code">internal_note_3</code></li>
+              <li><code class="small-code">inventory_number</code></li>
+              <li><code class="small-code">inventory_price</code></li>
+              <li><code class="small-code">is_magnetic</code></li>
+              <li><code class="small-code">library</code></li>
+              <li><code class="small-code">linking_number</code></li>
+              <li><code class="small-code">location</code></li>
+              <li><code class="small-code">modification_date</code></li>
+              <li><code class="small-code">pages</code></li>
+              <li><code class="small-code">pattern_type</code></li>
+              <li><code class="small-code">pieces</code></li>
+              <li><code class="small-code">physical_condition</code></li>
+              <li><code class="small-code">physical_material_type</code></li>
+              <li><code class="small-code">policy</code></li>
+              <li><code class="small-code">po_line</code></li>
+              <li><code class="small-code">process_type</code></li>
+              <li><code class="small-code">provenance</code></li>
+              <li><code class="small-code">public_note</code></li>
+              <li><code class="small-code">receiving_operator</code></li>
+              <li><code class="small-code">retention_reason</code></li>
+              <li><code class="small-code">retention_note</code></li>
+              <li><code class="small-code">requested</code></li>
+              <li><code class="small-code">statistics_note_1</code></li>
+              <li><code class="small-code">statistics_note_2</code></li>
+              <li><code class="small-code">statistics_note_3</code></li>
+              <li><code class="small-code">storage_location_id</code></li>
+              <li><code class="small-code">type_of_unit</code></li>
+              <li><code class="small-code">year_of_issue</code></li>
+          </ul>
+        </details>
+        
+        <br>
+
+        <div class="form-group file-upload-container">
+          <div class="file-upload-wrapper">
+            <!-- Hidden file input -->
+            <input
+              type="file"
+              id="file-upload"
+              (change)="onFileSelected($event)"
+              hidden
+              #fileInput
+            />
+          </div>
+        
+          <!-- File name display -->
+          <span *ngIf="selectedFile" class="file-name">
+            <br />{{ selectedFile.name }}
+          </span>
+
+          <!-- Checkboxes -->
+          <div class="form-group horizontal-checkboxes">
+              <mat-checkbox [(ngModel)]="createResultSets" name="createResultSets">
+              {{ 'createItems.createResultSets' | translate }}
+              </mat-checkbox>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group file-upload-container">
+          <button mat-raised-button color="primary" type="button" (click)="submitForm()" [disabled]="!selectedFile">{{ 'config.submitButton' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+ 
+
+  

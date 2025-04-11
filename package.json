@@ -1,0 +1,41 @@
+{
+  "name": "global-changes",
+  "version": "1.0.0",
+  "description": "Alma CloudApp Global Changes",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "scripts": {
+    "start": "eca start"
+  },
+  "dependencies": {
+    "@angular/animations": "~11.2.14",
+    "@angular/cdk": "~11.2.12",
+    "@angular/common": "~11.2.14",
+    "@angular/compiler": "~11.2.14",
+    "@angular/core": "~11.2.14",
+    "@angular/forms": "~11.2.14",
+    "@angular/language-service": "~11.2.14",
+    "@angular/material": "~11.2.12",
+    "@angular/platform-browser": "~11.2.14",
+    "@angular/platform-browser-dynamic": "~11.2.14",
+    "@angular/router": "~11.2.14",
+    "@exlibris/exl-cloudapp-angular-lib": "^1.4.7",
+    "@exlibris/exl-cloudapp-base": "^1.4.7",
+    "@ngx-translate/core": "~13.0.0",
+    "eca-components": "^1.4.4",
+    "lodash": "~4.17.21",
+    "papaparse": "^5.5.1",
+    "rxjs": "~6.5.5",
+    "tone": "^15.0.4",
+    "zone.js": "~0.10.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1102.18",
+    "@angular/cli": "~11.2.18",
+    "@angular/compiler-cli": "~11.2.14",
+    "@types/node": "^16.0.0",
+    "eventsource": "~2.0.2",
+    "postcss": "~8.3.0",
+    "typescript": "~4.1.5"
+  }
+}
