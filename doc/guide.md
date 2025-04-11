@@ -11,7 +11,7 @@ Access the configuration settings by clicking on the configuration icon within t
 
 **Configuration Icon:**
 
-![Configuration](doc/img/configuration.png)
+![Configuration](img/configuration.png)
 
 ---
 
@@ -20,7 +20,7 @@ The **Global Configuration** controls access to the entire CloudApp. This sectio
 
 **Interface:**
 
-![Global Configuration](doc/img/global_configuration.png)
+![Global Configuration](img/global_configuration.png)
 
 ---
 
@@ -29,7 +29,7 @@ The **Module Configuration** lets you restrict access to specific modules or fun
 
 **Interface:**
 
-![Module Configuration](doc/img/module_configuration.png)
+![Module Configuration](img/module_configuration.png)
 
 ---
 
@@ -40,7 +40,7 @@ Once you enter the CloudApp, you will be greeted with the main interface. This a
 
 **Interface:**
 
-![Main Interface](doc/img/main_interface.png)
+![Main Interface](img/main_interface.png)
 
 ---
 
@@ -49,7 +49,7 @@ The **Menu** in the main interface presents all available options. It enables ea
 
 **Menu Interface:**
 
-![Menu](doc/img/menu.png)
+![Menu](img/menu.png)
 
 ---
 
@@ -60,7 +60,7 @@ All functionalities include different validations, depending on their specific c
 
 **Validation:**
 
-![Validation](doc/img/validation.png)
+![Validation](img/validation.png)
 
 ---
 
@@ -69,7 +69,7 @@ Before launching a process, the CloudApp validates the uploaded CSV file. If the
 
 **Validation Error:**
 
-![Validation Error](doc/img/validation_error.png)
+![Validation Error](img/validation_error.png)
 
 ---
 
@@ -80,7 +80,7 @@ When you use the function to split fields, a dedicated form appears for entering
 
 **Example Form:**
 
-![Form Interface](doc/img/form_interface.png)
+![Form Interface](img/form_interface.png)
 
 ---
 
