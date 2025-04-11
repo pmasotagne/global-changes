@@ -92,31 +92,37 @@ export class UserAccessService {
 	isModuleAccessAllowed(moduleName: keyof Configuration['moduleRestrictions']): Observable<boolean> {
 		return this.configService.get().pipe(
 		  map((config: Configuration) => {
-			// If no restrictions are set for the module, allow access.
+			// If no restrictions are set for the module, allow access
 			const moduleRestriction = config.moduleRestrictions?.[moduleName];
-
+			console.log(moduleRestriction);
 			if (!moduleRestriction || (!moduleRestriction.allowedRoles?.length && !moduleRestriction.allowedUsers?.length)) {
 				return true; 
 			}
-			// Get the current user details (make sure they have been set previously, for example in isUserAllowed).
+
+			// Get the current user details
 			const currentUser: UserDetails = this.getUserDetails();
 			if (!currentUser) {
 			  return false;
 			}
-			// Check if any of the allowed roles for the module match an active role of the user.
-			const allowedByRole = moduleRestriction.allowedRoles?.some(roleId =>
-			  currentUser.user_role.some(userRole =>
-				parseInt(userRole.role_type.value) === roleId && userRole.status.value === 'ACTIVE'
-			  )
-			);
+			
 			// Check if the user is explicitly allowed.
 			const allowedByUser = moduleRestriction.allowedUsers?.some(user =>
 			  user.primary_id === currentUser.primary_id
 			);
-			return !!(allowedByRole || allowedByUser);
+
+			if (moduleRestriction.allowedUsers?.length) {
+				return allowedByUser;
+			}
+
+			// Check if any of the allowed roles for the module match an active role of the user.
+			const allowedByRole = moduleRestriction.allowedRoles?.some(roleId =>
+				currentUser.user_role.some(userRole =>
+				  parseInt(userRole.role_type.value) === roleId && userRole.status.value === 'ACTIVE'
+				)
+			  );
+
+			return allowedByRole;
 		  })
 		);
-	  }
-	  
-	
+	}
 }
