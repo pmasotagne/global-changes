@@ -1,6 +1,6 @@
 # Global Changes CloudApp
 
-<img align="right" src="./cloudapp/src/assets/app-icon.png" width="100" style="border-radius: 3px">
+<img align="center" src="./cloudapp/src/assets/app-icon.png" width="250" style="border-radius: 3px;">
 
 **Global Changes** is an [ExLibris Alma CloudApp](https://developers.exlibrisgroup.com/cloudapps/) designed to streamline batch updates to Alma records. This app supports operations on multiple types of records (items, holdings, users and POL.) with built-in validation.
 
