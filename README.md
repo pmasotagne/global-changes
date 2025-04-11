@@ -18,6 +18,12 @@ Leveraging Alma’s APIs and the expertise gained during development, the origin
 
 ---
 
+## 📖 Guide Documentation
+
+For usage instructions and screenshots, please refer to our [Guide Documentation](doc/guide.md).
+
+---
+
 ## ⚙️ Supported Features
 
 - **Apply global updates to:**  
