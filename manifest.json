@@ -20,15 +20,15 @@
    "description": [
       {
          "lang": "ca",
-         "text": "Aquesta CloudApp permet realitzar canvis globals en els registres d’Alma, incloent exemplars, holdings, ordres de compra i usuaris."
+         "text": "Aquesta CloudApp permet realitzar canvis globals en els registres d’Alma, incloent exemplars, holdings, ordres de compra i usuaris. (BETA)"
       },
       {
          "lang": "es",
-         "text": "Esta CloudApp permite realizar cambios globales en los registros de Alma, incluyendo ejemplares, holdings, ordenes de compra y usuarios."
+         "text": "Esta CloudApp permite realizar cambios globales en los registros de Alma, incluyendo ejemplares, holdings, ordenes de compra y usuarios. (BETA)"
       },
       {
          "lang": "en",
-         "text": "This CloudApp allows you to perform global changes on Alma records, including items, holdings, po lines and users."
+         "text": "This CloudApp allows you to perform global changes on Alma records, including items, holdings, po lines and users. (BETA)"
       }
    ],
    "license": "https://raw.githubusercontent.com/pmasotagne/global-changes/main/LICENSE",
