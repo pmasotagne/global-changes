@@ -6,18 +6,6 @@
 
 ---
 
-## 📜 Background
-
-The Global Changes Portal (GCP) project was initiated in November 2022. Originally, it aimed to provide a simple solution for modifying the topographical data (852 $$h) of holding records.
-
-Previously, this operation was performed in Sierra using externally prepared files that were uploaded via a global changes function. With the migration to Alma (2021), that option was lost, prompting the development of a tool that would enable GEPA staff to perform these tasks autonomously.
-
-During the development of this portal, new requirements emerged from the consortium institutions-requirements closely related to item records. The necessary changes in item records could not be made within the system, since the item modification interface only allows adding or replacing specific content across a set of records.
-
-Leveraging Alma’s APIs and the expertise gained during development, the originally conceived portal was expanded to provide a broader service that meets the needs of various institutions linked to the CCUC Network Zone. This portal was later presented to CCUC institutions during a CSUC success program session and, a few months afterward, at the Ex-Libris User Group meeting in Spain (Expania).
-
----
-
 ## 📖 Guide Documentation
 
 For usage instructions and screenshots, please refer to our [Guide Documentation](doc/guide.md).
@@ -34,6 +22,9 @@ For usage instructions and screenshots, please refer to our [Guide Documentation
 
 - **File Validation & Duplicate Detection:**  
   Dynamically checks for duplicates based on headers or column indices (e.g., MMS ID, Barcode, Physical ID).
+
+- **Exact Content Changes & Result Set Creation:**  
+  Provides the option to perform changes based on exact content matches. The app can also create result sets that separate records processed successfully from those that failed, enabling efficient tracking and analysis.
 
 - **Access Control:**  
   Role-based and user-based configuration options restrict usage.
@@ -135,6 +126,17 @@ If any of these checks fail, the function returns a detailed error message so th
 
 ---
 
+## 📜 Background
+
+The Global Changes Portal (GCP) project was initiated in November 2022. Originally, it aimed to provide a simple solution for modifying the topographical data (852 $$h) of holding records.
+
+Previously, this operation was performed in Sierra using externally prepared files that were uploaded via a global changes function. With the migration to Alma (2021), that option was lost, prompting the development of a tool that would enable GEPA staff to perform these tasks autonomously.
+
+During the development of this portal, new requirements emerged from the consortium institutions-requirements closely related to item records. The necessary changes in item records could not be made within the system, since the item modification interface only allows adding or replacing specific content across a set of records.
+
+Leveraging Alma’s APIs and the expertise gained during development, the originally conceived portal was expanded to provide a broader service that meets the needs of various institutions linked to the CCUC Network Zone. This portal was later presented to CCUC institutions during a CSUC success program session and, a few months afterward, at the Ex-Libris User Group meeting in Spain (Expania).
+
+---
 ## ℹ️ Usage Disclaimer
 
 > **Disclaimer:**  
