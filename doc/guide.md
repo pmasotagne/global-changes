@@ -75,8 +75,8 @@ Before launching a process, the CloudApp validates the uploaded CSV file. If the
 
 ## 4. Functionality Demonstrations
 
-### Form Interface for Splitting Fields
-When you use the function to split fields, a dedicated form appears for entering the required data. The following image shows an example of the interface used for splitting fields.
+### Form Interface
+When you use any function, a dedicated form appears for entering the required data. The following image shows an example of the interface used for splitting fields.
 
 **Example Form:**
 
@@ -84,6 +84,75 @@ When you use the function to split fields, a dedicated form appears for entering
 
 ---
 
+### Processing Progress
+During process execution, the CloudApp displays a progress bar showing the actual progress and the total number of lines being processed.
+
+**Processing Changes:**
+
+![Processing Changes](img/processing_changes.png)
+
+---
+
+### Process Summary
+Once the process has finished, a summary and an alert is displayed. This alert shows whether the process succeeded, partially succeeded, or failed. The summary includes details such as the time spent, the number of successful actions, errors, and the IDs of the result sets (if the option to create sets was checked).
+
+**Process Summary:**
+
+![Resume Changes](img/resume_changes.png)
+
+---
+
+### Result Sets
+If result sets are enabled, the CloudApp creates separate sets for successful and failed records (always that it's possible). Each set is named according to the process that was launched, clearly indicating whether it is a success or error set.
+
+**Sets Interface:**
+
+![Set Success](img/set_success.png)
+
+---
+
+### Move Field Functionality (Items)
+The "move field" functionality lets you reposition a field within an item record. In the example below, the app moves "internal note 3" to "public note" at the front. A delimiter (double hyphen, `--`) is used to separate the values. Note that the original text in the source field ("internal note 3") remains because the "empty origin field" checkbox is not selected.
+
+**Move Field Example:**
+
+![Move Field](img/move_field.png)
+
+---
+
+### Modify Field Functionality (Items)
+This function allows you to update the content of a field within an item record. In the example shown, a CSV file is uploaded to update the description field from `descripcio569` to `descripció569_mod`. You have the option to mark a checkbox for changes based on exact content; if this option is not selected, the change is applied only to the portion of the string that matches the CSV "original" column.
+
+**Modify Field Example:**
+
+![Modify Field Items](img/modify_field_item.png)
+
+---
+
+### Split Field Functionality (Items)
+The CloudApp can split a field into multiple parts using a designated delimiter. In this example, a field containing the hash (`#`) delimiter is split into three parts:
+1. The first part is appended to "public note" (using the hash as delimiter).
+2. The second part is inserted at the beginning ("front") of "internal note 3" using a point (`.`) as delimiter (with special spacing behavior: a space is added only after this delimiter).
+3. The third part overwrites "internal note 2".
+
+**Before Processing – Split Field Example:**
+
+![Split Field Start](img/split_field_items_start.png)
+
+**After Processing – Split Field Result:**
+
+![Split Field End](img/split_field_items_end.png)
+
+---
+
+### Sets Interface
+The CloudApp displays an organized interface for result sets created during processing. All sets are properly identified with the process name and indicate whether they contain successful or failed records.
+
+**Sets Interface:**
+
+![Sets Interface](img/sets.png)
+
+---
 
 This guide is designed to help you navigate the Global Changes CloudApp.
 
