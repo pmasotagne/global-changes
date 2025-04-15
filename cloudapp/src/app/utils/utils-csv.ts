@@ -7,44 +7,57 @@ export interface FileValidationResult {
 }
 
 export function parseCSV(content: string): string[][] {
-    const rows: string[][] = [];
-    let currentRow: string[] = [];
-    let currentCell = '';
-    let inQuotes = false;
+  // Remove BOM if present
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
   
-    for (let i = 0; i < content.length; i++) {
-        const char = content[i];
-        const nextChar = content[i + 1];
+  const lines = content.split(/\r?\n/);
+  const firstLine = lines[0];
+  const commaCount = (firstLine.match(/,/g) || []).length;
+  const semicolonCount = (firstLine.match(/;/g) || []).length;
+  const delimiter = semicolonCount > commaCount ? ';' : ',';
+
+  const rows: string[][] = [];
+  let currentRow: string[] = [];
+  let currentCell = '';
+  let inQuotes = false;
   
-        if (char === '"' && inQuotes && nextChar === '"') {
-            currentCell += '"';
-            i++;
-        } else if (char === '"') {
-            inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-            currentRow.push(currentCell);
-            currentCell = '';
-        } else if ((char === '\n' || char === '\r') && !inQuotes) {
-            if (currentCell || currentRow.length > 0) {
-                currentRow.push(currentCell);
-                rows.push(currentRow);
-            }
-            currentCell = '';
-            currentRow = [];
-            if (char === '\r' && nextChar === '\n') {
-                i++;
-            }
-        } else {
-            currentCell += char;
-        }
-    }
-  
-    if (currentCell || currentRow.length > 0) {
-        currentRow.push(currentCell);
+  for (let i = 0; i < content.length; i++) {
+    const char = content[i];
+    const nextChar = content[i + 1];
+    
+    if (char === '"' && inQuotes && nextChar === '"') {
+      currentCell += '"';
+      i++;
+    } else if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === delimiter && !inQuotes) {
+      currentRow.push(currentCell);
+      currentCell = '';
+    } else if ((char === '\n' || char === '\r') && !inQuotes) {
+      currentRow.push(currentCell);
+      if (currentRow.some(cell => cell.trim() !== '')) {
         rows.push(currentRow);
+      }
+      currentCell = '';
+      currentRow = [];
+      if (char === '\r' && nextChar === '\n') {
+        i++;
+      }
+    } else {
+      currentCell += char;
     }
+  }
   
-    return rows;
+  if (currentCell !== '' || currentRow.length > 0) {
+    currentRow.push(currentCell);
+    if (currentRow.some(cell => cell.trim() !== '')) {
+      rows.push(currentRow);
+    }
+  }
+  
+  return rows;
 }
 
 export function validateColumns(columns: string[], requiredColumns: string[]): boolean {
