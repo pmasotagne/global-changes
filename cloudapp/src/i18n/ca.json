@@ -1,6 +1,6 @@
 {
 	"clonePOLines": {
-		"modifyInfo": "Reviseu les modificacions que s'aplicaran a la línia PO clonada per intentar establir el seu estat a 'En revisió' (això depèn de la configuració del sistema).",
+		"modifyInfo": "Reviseu les modificacions que s'aplicaran a la línia de compra clonada per intentar establir el seu estat a 'En revisió' (això depèn de la configuració del sistema).",
 		"modifyInfo1": "Eliminar l'element 'number'",
 		"modifyInfo2": "Eliminar l'element 'po_number'",
 		"modifyInfo3": "Eliminar l'element 'status'",
@@ -79,9 +79,9 @@
 	},
 	"disclaimer": {
 		"title": "Avís legal",
-		"developedBy": "Aquesta aplicació al núvol ha estat desenvolupada per",
+		"developedBy": "Aquesta CloudApp ha estat desenvolupada pel",
 		"noResponsibility": "No ens fem responsables de cap problema derivat de modificacions de registres. La responsabilitat recau únicament en l'usuari que executa els processos.",
-		"dataSent": "També s'envien certes dades amb finalitats estadístiques, com el nombre de registres processats correctament, errors, tipus de procés executat i el codi de la institució (ex. 34CSUC_NETWORK) que inicia el procés.",
+		"dataSent": "S'envien dades amb finalitats estadístiques, com el nombre de registres processats correctament, errors, tipus de procés executat i el codi de la institució (ex. 34CSUC_NETWORK) que inicia el procés.",
 		"privacy": "No emmagatzemem dades personals ni informació privada dels usuaris."
 	},
 	"errors": {
@@ -144,13 +144,13 @@
 		"acquisition_method": "Mètode d'adquisició",
 		"material_type": "Tipus de material",
 		"owner": "Propietari",
-    	"receiving_note": "Nota de recepció",
-    	"reporting_code": "Codi d'informe",
-    	"secondary_reporting_code": "Codi d'informe secundari",
-    	"tertiary_reporting_code": "Codi d'informe terciari",
-    	"fourth_reporting_code": "Quart codi d'informe",
-    	"fifth_reporting_code": "Cinquè codi d'informe",
-    	"vendor_note": "Nota del proveïdor"
+	    	"receiving_note": "Nota de recepció",
+	    	"reporting_code": "Codi d'informe",
+	    	"secondary_reporting_code": "Codi d'informe secundari",
+	    	"tertiary_reporting_code": "Codi d'informe terciari",
+	    	"fourth_reporting_code": "Quart codi d'informe",
+	    	"fifth_reporting_code": "Cinquè codi d'informe",
+	    	"vendor_note": "Nota del proveïdor"
 	},
 	"findUser": {
 		"error": {
@@ -222,15 +222,15 @@
 		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
 		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
 		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,Camp,Subcamp,original,nou'",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Field,Subfield,original,new'",
 		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
 		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
-    	"validateFileButton": "Valida el fitxer",
+    		"validateFileButton": "Valida el fitxer",
 		"information": "Informació",
 		"changesExactContent": "Els canvis sempre es basaran en el contingut exacte.",
 		"apiLimitations": "No és possible crear conjunts de resultats degut a una limitació de l'API. Els identificadors de registres de fons no poden afegir-se als conjunts.",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, Camp, Subcamp, text original, text nou",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, Holding ID, Field, Subfield, original, new",
 			"recordsNotUpdated": "Registres no actualitzats"
 		},
 		"success": {
@@ -249,13 +249,13 @@
 		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
 		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
 		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,ID físic,original,nou'",
-    	"validationInfoPoint2.2": "'Codi de barres,original,nou'",
-			"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,original,new'",
+    		"validationInfoPoint2.2": "'Barcode,original,new'",
+		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
 		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
-    	"validateFileButton": "Valida el fitxer",
+    		"validateFileButton": "Valida el fitxer",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, ID físic, text original, text nou",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: 'MMS ID, Holding ID, Physical ID, original, new' o 'Barcode, original, new'",
 			"recordsNotUpdated": "Registres no actualitzats"
 		},
 		"success": {
@@ -274,13 +274,13 @@
 		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
 		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
 		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
-		"validationInfoPoint2.1": "'ID PO,original,nou'",
+		"validationInfoPoint2.1": "'PO ID,original,new'",
 		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
 		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
 		"validationInfoPoint5": "Per carregar informació en un camp buit, no utilitzeu la casella de contingut exacte i envieu una columna buida al CSV.",
-    	"validateFileButton": "Valida el fitxer",
+    		"validateFileButton": "Valida el fitxer",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: ID PO, text original, text nou",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: PO ID, original, new",
 			"recordsNotUpdated": "Registres no actualitzats"
 		},
 		"success": {
@@ -302,13 +302,13 @@
 		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
 		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
 		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,ID físic'",
-    	"validationInfoPoint2.2": "'Codi de barres'",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID'",
+    		"validationInfoPoint2.2": "'Barcode'",
 		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
 		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
-    	"validateFileButton": "Valida el fitxer",
+    		"validateFileButton": "Valida el fitxer",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, ID físic",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: 'MMS ID, Holding ID, Physical ID' o 'Barcode'",
 			"recordsNotUpdated": "Registres no actualitzats"
 		},
 		"success": {
@@ -337,8 +337,8 @@
 		"aTotal": "S'han seleccionat",
 		"itemsSelected": "elements.",
 		"navigateToList": "Navegueu a una llista.",
-		"searchPOLines": "Cerqueu només línies PO. L'element seleccionat no és una línia PO.",
-		"title": "Clona línies PO"
+		"searchPOLines": "Cerqueu només línies de compra. L'element seleccionat no és una línia de compra.",
+		"title": "Clona línies de compra"
 	},
 	"removeUser": {
 		"aTotal": "S'han seleccionat",
@@ -364,8 +364,8 @@
 		"seconds": "seg",
 		"removedUsers": "Usuaris eliminats",
 		"removedUsersErrors": "Usuaris no eliminats",
-		"poLineCloned": "Línies PO clonades",
-		"poLineClonedErrors": "Línies PO no clonades"
+		"poLineCloned": "Línies de compra clonades",
+		"poLineClonedErrors": "Línies de compra no clonades"
 	},
 	"roleSelect": {
 		"deselectAll": "Desselecciona-ho tot",
@@ -388,13 +388,13 @@
 		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
 		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
 		"validationInfoPoint2": "2. La primera fila ha de contenir capçaleres vàlides. Feu clic per revisar les capçaleres permeses.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registre de fons,ID físic,delimitador'",
-    	"validationInfoPoint2.2": "'Codi de barres,delimitador'",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,delimiter'",
+    		"validationInfoPoint2.2": "'Barcode,delimiter'",
 		"validationInfoPoint3": "3. Totes les files han de tenir el mateix nombre de columnes.",
 		"validationInfoPoint4": "4. No es permeten entrades duplicades.",
-    	"validateFileButton": "Valida el fitxer",
+    		"validateFileButton": "Valida el fitxer",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, ID del registre de fons, ID físic, delimitador",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: 'MMS ID, Holding ID, Physical ID, delimiter' o 'Barcode, delimiter'",
 			"recordsNotUpdated": "Registres no actualitzats"
 		},
 		"success": {
@@ -410,8 +410,8 @@
 			"emptyFile": "El fitxer està buit.",
 			"invalidHeaders": "Capçaleres invàlides, comproveu les permeses",
 			"invalidHeaderBarcode": "Capçalera invàlida. La primera columna ha de ser 'Codi de barres' per fitxers de 3 columnes.",
-			"invalidHeaderMMS": "Capçaleres invàlides. Les tres primeres columnes han de ser 'MMS ID', 'ID del registre de fons' i 'ID físic' per fitxers de 5 columnes.",
-			"invalidHeaderHolding": "Capçaleres invàlides. Les dues primeres columnes han de ser 'MMS ID' i 'ID del registre de fons'.",
+			"invalidHeaderMMS": "Capçaleres invàlides. Les tres primeres columnes han de ser 'MMS ID', 'Holding ID' i 'Physical ID' per fitxers de 5 columnes.",
+			"invalidHeaderHolding": "Capçaleres invàlides. Les dues primeres columnes han de ser 'MMS ID' i 'Holding ID'.",
 			"invalidHeaderColumnCount": "Nombre de columnes invàlid a la fila de capçalera. S'esperaven {{expected}}, però n'hi ha {{actual}}.",
 			"mismatchedColumns": "La fila {{row}} té un nombre de columnes incorrecte. S'esperaven {{expected}}, però n'hi ha {{actual}}.",
 			"duplicateKey": "Entrada duplicada per a '{{key}}' a la fila {{row}}.",
