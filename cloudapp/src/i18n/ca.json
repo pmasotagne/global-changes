@@ -409,7 +409,7 @@
 			"invalidFileType": "Tipus de fitxer no vàlid. Pugeu un CSV.",
 			"emptyFile": "El fitxer està buit.",
 			"invalidHeaders": "Capçaleres invàlides, comproveu les permeses",
-			"invalidHeaderBarcode": "Capçalera invàlida. La primera columna ha de ser 'Codi de barres' per fitxers de 3 columnes.",
+			"invalidHeaderBarcode": "Capçalera invàlida. La primera columna ha de ser 'Barcode' per fitxers de 3 columnes.",
 			"invalidHeaderMMS": "Capçaleres invàlides. Les tres primeres columnes han de ser 'MMS ID', 'Holding ID' i 'Physical ID' per fitxers de 5 columnes.",
 			"invalidHeaderHolding": "Capçaleres invàlides. Les dues primeres columnes han de ser 'MMS ID' i 'Holding ID'.",
 			"invalidHeaderColumnCount": "Nombre de columnes invàlid a la fila de capçalera. S'esperaven {{expected}}, però n'hi ha {{actual}}.",
