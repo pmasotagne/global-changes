@@ -67,7 +67,7 @@
     	},
     	"validateFileButton": "Validar archivo",
 		"error": {
-			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, Holding ID, Physical ID, fieldItemX...",
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: 'MMS ID, Holding ID, Physical ID, fieldItemX...'",
 			"recordsNotCreated": "Registros no creados"
 		},
 		"success": {
@@ -79,7 +79,7 @@
 	},
 	"disclaimer": {
 		"title": "Aviso legal",
-		"developedBy": "Esta aplicación en la nube ha sido desarrollada por",
+		"developedBy": "Esta CloudApp ha sido desarrollada por el",
 		"noResponsibility": "No nos hacemos responsables de problemas derivados de modificaciones de registros. La responsabilidad recae únicamente en el usuario que ejecuta los procesos.",
 		"dataSent": "Además, se envían ciertos datos con fines estadísticos: número de registros procesados correctamente, errores, tipo de proceso ejecutado y código de la institución (ej. 34CSUC_NETWORK) que inicia el proceso.",
 		"privacy": "No almacenamos datos personales ni información privada de usuarios."
@@ -144,13 +144,13 @@
 		"acquisition_method": "Método de adquisición",
 		"material_type": "Tipo de material",
 		"owner": "Propietario",
-    	"receiving_note": "Nota de recepción",
-    	"reporting_code": "Código de informe",
-    	"secondary_reporting_code": "Código de informe secundario",
-    	"tertiary_reporting_code": "Código de informe terciario",
-    	"fourth_reporting_code": "Cuarto código de informe",
-    	"fifth_reporting_code": "Quinto código de informe",
-    	"vendor_note": "Nota del proveedor"
+	    	"receiving_note": "Nota de recepción",
+	    	"reporting_code": "Código de informe",
+	    	"secondary_reporting_code": "Código de informe secundario",
+	    	"tertiary_reporting_code": "Código de informe terciario",
+	    	"fourth_reporting_code": "Cuarto código de informe",
+	    	"fifth_reporting_code": "Quinto código de informe",
+	    	"vendor_note": "Nota del proveedor"
 	},
 	"findUser": {
 		"error": {
@@ -222,15 +222,15 @@
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
 		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,Campo,Subcampo,original,nuevo'",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Field,Subfield,original,new'",
 		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
 		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
-    	"validateFileButton": "Validar archivo",
+    		"validateFileButton": "Validar archivo",
 		"information": "Información",
 		"changesExactContent": "Los cambios siempre se basarán en el contenido exacto.",
 		"apiLimitations": "No es posible crear conjuntos de resultados debido a una limitación de la API. Los identificadores de registros de fondos no pueden añadirse a los conjuntos.",
 		"error": {
-			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, Campo, Subcampo, texto original, texto nuevo",
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: 'MMS ID, Holding ID, Field, Subfield, original, new'",
 			"recordsNotUpdated": "Registros no actualizados"
 		},
 		"success": {
@@ -249,13 +249,13 @@
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
 		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,ID físico,original,nuevo'",
-    	"validationInfoPoint2.2": "'Código de barras,original,nuevo'",
-			"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,original,new'",
+    		"validationInfoPoint2.2": "'Barcode,original,new'",
+		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
 		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
-    	"validateFileButton": "Validar archivo",
+    		"validateFileButton": "Validar archivo",
 		"error": {
-			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, ID físico, texto original, texto nuevo",
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: 'MMS ID, Holding ID, Physical ID, original, new' o 'Barcode, original, new'",
 			"recordsNotUpdated": "Registros no actualizados"
 		},
 		"success": {
@@ -274,13 +274,13 @@
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
 		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
-		"validationInfoPoint2.1": "'ID PO,original,nuevo'",
+		"validationInfoPoint2.1": "'PO ID,original,new'",
 		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnes.",
 		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
 		"validationInfoPoint5": "Para cargar información en un campo vacío, no use la casilla de contenido exacto y envíe una columna vacía en el CSV.",
-    	"validateFileButton": "Validar archivo",
+    		"validateFileButton": "Validar archivo",
 		"error": {
-			"headers": "Formato de columna inválido. Asegúrese de que coincidan: ID PO, texto original, texto nuevo",
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: 'PO ID, original, new'",
 			"recordsNotUpdated": "Registros no actualizados"
 		},
 		"success": {
@@ -302,13 +302,13 @@
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
 		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,ID físico'",
-    	"validationInfoPoint2.2": "'Código de barras'",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID'",
+    		"validationInfoPoint2.2": "'Barcode'",
 		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnes.",
 		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
-    	"validateFileButton": "Validar archivo",
+    		"validateFileButton": "Validar archivo",
 		"error": {
-			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, ID físico",
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: 'MMS ID, Holding ID, Physical ID' o 'Barcode'",
 			"recordsNotUpdated": "Registros no actualizados"
 		},
 		"success": {
@@ -337,14 +337,14 @@
 		"aTotal": "Se han seleccionado",
 		"itemsSelected": "elementos.",
 		"navigateToList": "Navegue a una lista.",
-		"searchPOLines": "Busque solo líneas PO. El elemento seleccionado no es una línea PO.",
-		"title": "Clonar líneas PO"
+		"searchPOLines": "Busque solo líneas de compra. El elemento seleccionado no es una línea de compra.",
+		"title": "Clonar líneas de compra"
 	},
 	"removeUser": {
 		"aTotal": "Se han seleccionado",
 		"itemsSelected": "usuarios.",
 		"navigateToListorUpload": "Navegue a una lista o suba un archivo.",
-		"searchPOLines": "Busque solo usuarios. El elemento seleccionado no es un usuario.",
+		"searchUsers": "Busque solo usuarios. El elemento seleccionado no es un usuario.",
 		"title": "Eliminar registros de usuario",
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
@@ -364,8 +364,8 @@
 		"seconds": "seg",
 		"removedUsers": "Usuarios eliminados",
 		"removedUsersErrors": "Usuarios no eliminados",
-		"poLineCloned": "Líneas PO clonadas",
-		"poLineClonedErrors": "Líneas PO no clonadas"
+		"poLineCloned": "Líneas de compra clonadas",
+		"poLineClonedErrors": "Líneas de compra no clonadas"
 	},
 	"roleSelect": {
 		"deselectAll": "Desmarcar todo",
@@ -388,13 +388,13 @@
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
 		"validationInfoPoint2": "2. La primera fila debe contener cabeceras válidas. Haga clic para revisar las cabeceras permitidas.",
-		"validationInfoPoint2.1": "'MMS ID,ID del registro de fondos,ID físico,delimitador'",
-    	"validationInfoPoint2.2": "'Código de barras,delimitador'",
+		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,delimiter'",
+    		"validationInfoPoint2.2": "'Barcode,delimiter'",
 		"validationInfoPoint3": "3. Todas las filas deben tener el mismo número de columnas.",
 		"validationInfoPoint4": "4. No se permiten entradas duplicadas.",
-    	"validateFileButton": "Validar archivo",
+    		"validateFileButton": "Validar archivo",
 		"error": {
-			"headers": "Formato de columna inválido. Asegúrese de que coincidan: MMS ID, ID del registro de fondos, ID físico, delimitador",
+			"headers": "Formato de columna inválido. Asegúrese de que coincidan: 'MMS ID, Holding ID, Physical ID, delimiter' o 'Barcode, delimiter'",
 			"recordsNotUpdated": "Registros no actualizados"
 		},
 		"success": {
@@ -409,9 +409,9 @@
 			"invalidFileType": "Tipo de archivo inválido. Suba un CSV.",
 			"emptyFile": "El archivo está vacío.",
 			"invalidHeaders": "Cabeceras inválidas, verifique las permitidas",
-			"invalidHeaderBarcode": "Cabecera inválida. La primera columna debe ser 'Código de barras' para archivos de 3 columnas.",
-			"invalidHeaderMMS": "Cabeceras inválidas. Las tres primeras columnas deben ser 'MMS ID', 'ID del registro de fondos' y 'ID físico' para archivos de 5 columnas.",
-			"invalidHeaderHolding": "Cabeceras inválidas. Las dos primeras columnas deben ser 'MMS ID' y 'ID del registro de fondos'.",
+			"invalidHeaderBarcode": "Cabecera inválida. La primera columna debe ser 'Barcode' para archivos de 3 columnas.",
+			"invalidHeaderMMS": "Cabeceras inválidas. Las tres primeras columnas deben ser 'MMS ID', 'Holding ID' y 'Physical ID' para archivos de 5 columnas.",
+			"invalidHeaderHolding": "Cabeceras inválidas. Las dos primeras columnas deben ser 'MMS ID' y 'Holding ID'.",
 			"invalidHeaderColumnCount": "Número de columnas inválido en la fila de cabecera. Se esperaban {{expected}}, pero hay {{actual}}.",
 			"mismatchedColumns": "La fila {{row}} tiene un número incorrecto de columnas. Se esperaban {{expected}}, pero hay {{actual}}.",
 			"duplicateKey": "Entrada duplicada para '{{key}}' en la fila {{row}}.",
