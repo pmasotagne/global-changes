@@ -67,7 +67,7 @@
     	},
     	"validateFileButton": "Validar el fitxer",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, Holding ID, Physical ID, fieldItemX...",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: 'MMS ID, Holding ID, Physical ID, fieldItemX...'",
 			"recordsNotCreated": "Registres no creats"
 		},
 		"success": {
@@ -230,7 +230,7 @@
 		"changesExactContent": "Els canvis sempre es basaran en el contingut exacte.",
 		"apiLimitations": "No és possible crear conjunts de resultats degut a una limitació de l'API. Els identificadors de registres de fons no poden afegir-se als conjunts.",
 		"error": {
-			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: MMS ID, Holding ID, Field, Subfield, original, new",
+			"headers": "Format de columna invàlid. Assegureu-vos que les columnes coincideixin: 'MMS ID, Holding ID, Field, Subfield, original, new'",
 			"recordsNotUpdated": "Registres no actualitzats"
 		},
 		"success": {
