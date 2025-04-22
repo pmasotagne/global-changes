@@ -67,7 +67,7 @@
     	},
     	"validateFileButton": "Validate File",
 		"error": {
-			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID, fieldItemX...",
+			"headers": "Invalid column format. Ensure the columns match: 'MMS ID, Holding ID, Phyisical ID, fieldItemX...'",
 			"recordsNotCreated": "Records not created"
 		},
 		"success": {
@@ -142,15 +142,15 @@
 		"process_type": "Process Type",
 		"alternative_call_number_type": "Alternative Call Number Type",
 		"acquisition_method": "Acquisition Method",
-    	"material_type": "Material Type",
+    		"material_type": "Material Type",
 		"owner": "Owner",
-    	"receiving_note": "Receiving Note",
-    	"reporting_code": "Reporting Code",
-    	"secondary_reporting_code": "Secondary Reporting Code",
-    	"tertiary_reporting_code": "Tertiary Reporting Code",
-    	"fourth_reporting_code": "Fourth Reporting Code",
-    	"fifth_reporting_code": "Fifth Reporting Code",
-    	"vendor_note": "Vendor note"
+    		"receiving_note": "Receiving Note",
+    		"reporting_code": "Reporting Code",
+    		"secondary_reporting_code": "Secondary Reporting Code",
+    		"tertiary_reporting_code": "Tertiary Reporting Code",
+    		"fourth_reporting_code": "Fourth Reporting Code",
+    		"fifth_reporting_code": "Fifth Reporting Code",
+    		"vendor_note": "Vendor note"
 	},
 	"findUser": {
 		"error": {
@@ -225,12 +225,12 @@
 		"validationInfoPoint2.1": "'MMS ID,Holding ID,Field,Subfield,original,new'",
 		"validationInfoPoint3": "3. All rows must have the same number of columns.",
 		"validationInfoPoint4": "4. No duplicate entries are allowed.",
-    	"validateFileButton": "Validate File",
+    		"validateFileButton": "Validate File",
 		"information": "Information",
 		"changesExactContent": "The changes will always be based on exact content.",
 		"apiLimitations": "It is not possible to create result sets due to an API limitation. Holding identifiers cannot be added to holding sets.",
 		"error": {
-			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Field, Subfield, original text, new text",
+			"headers": "Invalid column format. Ensure the columns match: 'MMS ID, Holding ID, Field, Subfield, original, new'",
 			"recordsNotUpdated": "Records not updated"
 		},
 		"success": {
@@ -250,12 +250,12 @@
 		"validationInfoPoint1": "1. The file must be in CSV format.",
 		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
 		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,original,new'",
-    	"validationInfoPoint2.2": "'Barcode,original,new'",
+    		"validationInfoPoint2.2": "'Barcode,original,new'",
 		"validationInfoPoint3": "3. All rows must have the same number of columns.",
 		"validationInfoPoint4": "4. No duplicate entries are allowed.",
-    	"validateFileButton": "Validate File",
+    		"validateFileButton": "Validate File",
 		"error": {
-			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID, original text, new text",
+			"headers": "Invalid column format. Ensure the columns match: 'MMS ID, Holding ID, Phyisical ID, original, new' or 'Barcode, original, new'",
 			"recordsNotUpdated": "Records not updated"
 		},
 		"success": {
@@ -278,9 +278,9 @@
 		"validationInfoPoint3": "3. All rows must have the same number of columns.",
 		"validationInfoPoint4": "4. No duplicate entries are allowed.",
 		"validationInfoPoint5": "To load information into an empty field, do not use the exact content checkbox and send an empty column in the CSV.",
-    	"validateFileButton": "Validate File",
+    		"validateFileButton": "Validate File",
 		"error": {
-			"headers": "Invalid column format. Ensure the columns match: PO ID, original text, new text",
+			"headers": "Invalid column format. Ensure the columns match: 'PO ID, original, new'",
 			"recordsNotUpdated": "Records not updated"
 		},
 		"success": {
@@ -303,12 +303,12 @@
 		"validationInfoPoint1": "1. The file must be in CSV format.",
 		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
 		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID'",
-    	"validationInfoPoint2.2": "'Barcode'",
+    		"validationInfoPoint2.2": "'Barcode'",
 		"validationInfoPoint3": "3. All rows must have the same number of columns.",
 		"validationInfoPoint4": "4. No duplicate entries are allowed.",
-    	"validateFileButton": "Validate File",
+    		"validateFileButton": "Validate File",
 		"error": {
-			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID",
+			"headers": "Invalid column format. Ensure the columns match: 'MMS ID, Holding ID, Phyisical ID' or 'Barcode'",
 			"recordsNotUpdated": "Records not updated"
 		},
 		"success": {
@@ -389,12 +389,12 @@
 		"validationInfoPoint1": "1. The file must be in CSV format.",
 		"validationInfoPoint2": "2. The first row must contain valid headers. Click to review the allowed headers.",
 		"validationInfoPoint2.1": "'MMS ID,Holding ID,Physical ID,delimiter'",
-    	"validationInfoPoint2.2": "'Barcode,delimiter'",
+    		"validationInfoPoint2.2": "'Barcode,delimiter'",
 		"validationInfoPoint3": "3. All rows must have the same number of columns.",
 		"validationInfoPoint4": "4. No duplicate entries are allowed.",
-    	"validateFileButton": "Validate File",
+    		"validateFileButton": "Validate File",
 		"error": {
-			"headers": "Invalid column format. Ensure the columns match: MMS ID, Holding ID, Phyisical ID, delimiter",
+			"headers": "Invalid column format. Ensure the columns match: 'MMS ID, Holding ID, Phyisical ID, delimiter' or 'Barcode, delimiter'",
 			"recordsNotUpdated": "Records not updated"
 		},
 		"success": {
