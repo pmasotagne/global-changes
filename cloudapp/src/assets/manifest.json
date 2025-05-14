@@ -1,7 +1,7 @@
 {
    "id": "pmasotagne/global-changes",
    "title": "Global Changes",
-   "relevantForInst": ["34CSUC_NETWORK", "34CSUC_GEPA", "34CSUC_INSTB", "34CSUC_BC", "34CSUC_UB", "34CSUC_UAB", "34CSUC_UDL", "34CSUC_UVIC", "34CSUC_URL", "34CSUC_UPF", "34CSUC_UPC", "34CSUC_URV" , "34CSUC_UOC", "34CSUC_UDG" ],
+   "relevantForInst": ["34CSUC_NETWORK", "34CSUC_GEPA", "34CSUC_INSTB", "34CSUC_BC", "34CSUC_UB", "34CSUC_UAB", "34CSUC_UDL", "34CSUC_UVIC", "34CSUC_URL", "34CSUC_UPF", "34CSUC_UPC", "34CSUC_URV" , "34CSUC_UOC", "34CSUC_UDG", "41BCULAUSA_LIB", "41BCULAUSA_SCHOOL", "41BCULAUSA_NETWORK" ],
    "subtitle": [
       {
          "lang": "ca",
