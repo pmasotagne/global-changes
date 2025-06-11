@@ -18,7 +18,7 @@ export class AcquisitionService {
   getPOLine(link: string): Observable<any> {
 
     const request: Request = {
-      url: `/almaws/v1/${encodeURI(link)}`,
+      url: `/almaws/v1${encodeURI(link)}`,
       method: HttpMethod.GET
     };
     return this.restService.call(request);
