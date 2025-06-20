@@ -237,7 +237,8 @@ export class SplitFieldItemsComponent implements OnInit {
   private async processRow(row: string[]): Promise<void> {
     try {
       let item : any = null;
-      let { mmsId, holdingId, physicalId } = this.extractRowData(row);
+      let { mmsId, holdingId, physicalId, delimiterFile } = this.extractRowData(row);
+      console.log(delimiterFile);
       if (!holdingId || !physicalId){
         item = await this.itemService.getItem({barcode: mmsId}).toPromise();
         holdingId = item.holding_data.holding_id;
@@ -252,7 +253,7 @@ export class SplitFieldItemsComponent implements OnInit {
         return;
       }
 
-      const modified_item = this.calculateUpdatedValue(item, this.selectedField, this.selectedFields, this.selectedPositions, this.selectedDelimiters);
+      const modified_item = this.calculateUpdatedValue(item, this.selectedField, this.selectedFields, this.selectedPositions, this.selectedDelimiters, delimiterFile);
 
       if (modified_item !== null) {
         try {
@@ -276,10 +277,10 @@ export class SplitFieldItemsComponent implements OnInit {
     }
   }
 
-  private extractRowData(row: string[]): { mmsId: string; holdingId?: string; physicalId?: string; } {
-    return row.length === 3
-      ? { mmsId: row[0] }
-      : { mmsId: row[0], holdingId: row[1], physicalId: row[2] };
+  private extractRowData(row: string[]): { mmsId: string; holdingId?: string; physicalId?: string; delimiterFile: string} {
+    return row.length === 4
+      ? { mmsId: row[0], holdingId: row[1], physicalId: row[2], delimiterFile: row[3] }
+      : { mmsId: row[0], delimiterFile: row[1] };
   }
 
   private calculateUpdatedValue(
@@ -287,18 +288,19 @@ export class SplitFieldItemsComponent implements OnInit {
     selectedField: string,
     selectedFields: any,
     selectedPositions: any,
-    selectedDelimiters: any
+    selectedDelimiters: any,
+    delimiterFile: any
   ): string | null {
     const getFieldValue = (field: string) => {
       const value = item.item_data[field];
       return typeof value === 'object' ? value?.value : value;
     };
-      
+    console.log(delimiterFile);
     const fieldOriginValue = getFieldValue(selectedField)?.trim() || "";
     
     if (this.emptyField == true) { item.item_data[selectedField] = ""; }
 
-    const splitOriginValue = fieldOriginValue.split("#");
+    const splitOriginValue = fieldOriginValue.split(delimiterFile);
 
     // Check if the number of parts matches selectedFieldParts
     if (splitOriginValue.length !== this.selectedFieldParts) {
