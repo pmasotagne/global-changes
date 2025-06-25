@@ -158,30 +158,30 @@ export class ModifyHoldingsComponent implements OnInit {
 
   private async processRow(row: string[]): Promise<void> {
     try {
-      let holding : any = null;
-      let { mmsId, holdingId, field, subfield, textOriginal, textNou } = this.extractRowData(row);
-      
-      holding = await this.itemService.getHolding({mmsid: mmsId, holdingid: holdingId});
-      
-      let marcXML = holding.anies[0];
+      let holding : any;
 
-      const parser = new DOMParser();
+      const { mmsId, holdingId, field, subfield, textOriginal, textNou } = this.extractRowData(row);
 
-      const xmlDoc = parser.parseFromString(marcXML, "application/xml");
+      holding   = await this.itemService.getHolding({ mmsid: mmsId, holdingid: holdingId });
+      const marcXML   = holding.anies[0];
+      const xmlDoc    = new DOMParser().parseFromString(marcXML, "application/xml");
+      const datafields= Array.from(xmlDoc.getElementsByTagName("datafield"));
 
-      const datafields = Array.from(xmlDoc.getElementsByTagName("datafield"));
+      const normal = (s: string) =>
+        s.replace(/\u00A0/g, " ")
+        .trim()
+        .normalize("NFC");
 
       let matchCount = 0;
 
-      for (let df of datafields) {
+      for (const df of datafields) {
         if (df.getAttribute("tag") === field) {
-          const subfields = Array.from(df.getElementsByTagName("subfield"));
-          for (let sf of subfields) {
-            if (sf.getAttribute("code") === subfield) {
-              if(sf.textContent === textOriginal){
-                sf.textContent = textNou;
-                matchCount++;
-              }
+          for (const sf of Array.from(df.getElementsByTagName("subfield"))) {
+            if (sf.getAttribute("code") === subfield &&
+                normal(sf.textContent ?? "") === normal(textOriginal)) {
+
+              sf.textContent = textNou;
+              matchCount++;
             }
           }
         }
@@ -189,21 +189,18 @@ export class ModifyHoldingsComponent implements OnInit {
 
       if (matchCount > 0) {
         holding.anies = new XMLSerializer().serializeToString(xmlDoc.documentElement);
-
         const holding_record = `<holding>${holding.anies}</holding>`;
-        
+
         try {
-          const response = await this.itemService.updateHolding(mmsId, holdingId, holding_record).toPromise();
-          //console.log(`Update successful:`, response);
+          await this.itemService.updateHolding(mmsId, holdingId, holding_record).toPromise();
           this.updatedCount++;
-        }catch(updateError){
+        } catch {
           this.errorsCount++;
         }
-      }else{
+      } else {
         this.errorsCount++;
       }
-
-    } catch (error) {
+    } catch {
       this.errorsCount++;
     }
   }
