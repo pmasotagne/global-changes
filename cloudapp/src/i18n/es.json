@@ -1,12 +1,21 @@
 {
 	"clonePOLines": {
+		"checkboxModify": "Modificar campos antes de clonar",
+		"clear": "Limpiar",
+		"clone": "Clonar",
+		"clonedPOLines": "POLines clonadas",
+		"fail": "Error al clonar",
 		"modifyInfo": "Revise las modificaciones que se aplicarán a la línea de compra clonada para intentar establecer su estado a 'En revisión' (esto depende de la configuración del sistema).",
 		"modifyInfo1": "Eliminar el elemento 'number'",
 		"modifyInfo2": "Eliminar el elemento 'po_number'",
 		"modifyInfo3": "Eliminar el elemento 'status'",
 		"modifyInfo4": "Añadir el elemento 'link' vacío",
 		"modifyInfo5": "Añadir el elemento 'status_date' con la fecha actual",
-		"modifyInfo6": "Añadir el elemento 'created_date' con la fecha actual"
+		"modifyInfo6": "Añadir el elemento 'created_date' con la fecha actual",
+		"newValue": "Nuevo valor",
+		"reload": "Recargar lista",
+		"selectField": "Seleccionar campo",
+		"success": "Clonado correctamente"
 	},
 	"codeTables": {
 		"backTableList": "Volver al listado",
