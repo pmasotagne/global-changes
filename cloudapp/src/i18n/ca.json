@@ -1,12 +1,21 @@
 {
 	"clonePOLines": {
-		"modifyInfo": "Reviseu les modificacions que s'aplicaran a la línia de compra clonada per intentar establir el seu estat a 'En revisió' (això depèn de la configuració del sistema).",
+		"checkboxModify": "Modifica els camps abans de clonar",
+		"clear": "Neteja",
+		"clone": "Clona",
+		"clonedPOLines": "POLines clonades",
+		"fail": "No s'ha pogut clonar",
+		"modifyInfo": "Reviseu les modificacions que s'aplicaran a la línia PO clonada per intentar establir el seu estat a 'En revisió' (això depèn de la configuració del sistema).",
 		"modifyInfo1": "Eliminar l'element 'number'",
 		"modifyInfo2": "Eliminar l'element 'po_number'",
 		"modifyInfo3": "Eliminar l'element 'status'",
 		"modifyInfo4": "Afegir l'element 'link' buit",
 		"modifyInfo5": "Afegir l'element 'status_date' amb la data actual",
-		"modifyInfo6": "Afegir l'element 'created_date' amb la data actual"
+		"modifyInfo6": "Afegir l'element 'created_date' amb la data actual",
+		"newValue": "Nou valor",
+		"reload": "Recarregar llista",
+		"selectField": "Selecciona un camp",
+		"success": "S'ha clonat correctament"
 	},
 	"codeTables": {
 		"backTableList": "Tornar al llistat",
