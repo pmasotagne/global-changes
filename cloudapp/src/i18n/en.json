@@ -1,12 +1,21 @@
 {
 	"clonePOLines": {
+		"checkboxModify": "Modify fields before cloning",
+		"clear": "Clear",
+		"clone": "Clone",
+		"clonedPOLines": "Cloned PO Lines",
+		"fail": "Failed to Clone",
 		"modifyInfo": "Review the modifications that will be applied to the cloned PO Line in an attempt to set its status to 'In Review' (this depends on the system configuration).",
 		"modifyInfo1": "Remove the 'number' element",
 		"modifyInfo2": "Remove the 'po_number' element",
 		"modifyInfo3": "Remove the 'status' element",
 		"modifyInfo4": "Add an empty 'link' element",
 		"modifyInfo5": "Add 'status_date' element with today's date",
-		"modifyInfo6": "Add 'created_date' element with today's date"
+		"modifyInfo6": "Add 'created_date' element with today's date",
+		"newValue": "New value",
+		"reload": "Reload list",
+		"selectField": "Select field",
+		"success": "Successfully Cloned"
 	},
 	"codeTables": {
 		"backTableList": "Back to table list",
