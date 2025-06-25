@@ -22,58 +22,115 @@
     </section>
   </div>
   <div *ngIf="isModuleUserAllowed && !checkingUser">
-  <div class="button-container second-row" *ngIf="!(createdNumbers.length > 0)">
-    <button mat-flat-button color="primary" [disabled]="selectedEntities.length==0" (click)="cloneSelectedEntities()">
-      Clone
-    </button>
-    <button mat-flat-button color="secondary" [disabled]="selectedEntities.length==0" (click)="selectEntities.clear()">
-      Clear
-    </button>
-  </div>
-  <br>
-  <details class="example-details">
-    <summary class="example-summary">{{ 'clonePOLines.modifyInfo' | translate }}</summary>
-    <ul class="example-details">
-      <li><code class="small-code">{{ 'clonePOLines.modifyInfo1' | translate }}</code></li>
-      <li><code class="small-code">{{ 'clonePOLines.modifyInfo2' | translate }}</code></li>
-      <li><code class="small-code">{{ 'clonePOLines.modifyInfo3' | translate }}</code></li>
-      <li><code class="small-code">{{ 'clonePOLines.modifyInfo4' | translate }}</code></li>
-      <li><code class="small-code">{{ 'clonePOLines.modifyInfo5' | translate }}</code></li>
-      <li><code class="small-code">{{ 'clonePOLines.modifyInfo6' | translate }}</code></li>
-
-    </ul>
-  </details>
-  <br>
-
-  <p *ngIf="count != 0 && createdNumbers.length === 0">{{ 'POLine.aTotal' | translate }} <strong>{{ selectedEntities.length }}</strong> {{ 'POLine.itemsSelected' | translate }}</p>
-
-  <div *ngIf="count == 0 && createdNumbers.length === 0">{{ 'POLine.navigateToList' | translate }}</div>
-  <div *ngIf="error" class="error-message">
-    <p>{{ 'POLine.searchPOLines' | translate }}</p>
-  </div>
-
-  <!-- Show selection component only if no PO Lines have been created -->
-  <eca-select-entities #selectEntities 
-    [(selected)]="selectedEntities"
-    (count)="count=$event"
-    (selectedChange)="validateFirstEntity()"
-    (initialized)="validateFirstEntity()"
-    [hidden]="createdNumbers.length > 0">
-  </eca-select-entities>
-
-  <!-- Show created PO Line numbers and reload button when available -->
-  <div *ngIf="createdNumbers.length > 0" class="created-numbers">
-    <h3>Created PO Lines:</h3>
-    <ul>
-      <li *ngFor="let number of createdNumbers">{{ number }}</li>
-    </ul>
-    <div class="button-container reload">
-      <button mat-flat-button color="primary" (click)="reloadClone()">
-        Reload list
+    <div class="button-container second-row" *ngIf="clonedResults.length === 0">
+      <button mat-flat-button color="primary" [disabled]="selectedEntities.length==0" (click)="cloneSelectedEntities()">
+        {{ 'clonePOLines.clone' | translate }}
+      </button>
+      <button mat-flat-button color="secondary" [disabled]="selectedEntities.length==0" (click)="selectEntities.clear()">
+        {{ 'clonePOLines.clear' | translate }}
       </button>
     </div>
-  </div>
-  </div>
+    <br>
+    <details class="example-details">
+      <summary class="example-summary">{{ 'clonePOLines.modifyInfo' | translate }}</summary>
+      <ul class="example-details">
+        <li><code class="small-code">{{ 'clonePOLines.modifyInfo1' | translate }}</code></li>
+        <li><code class="small-code">{{ 'clonePOLines.modifyInfo2' | translate }}</code></li>
+        <li><code class="small-code">{{ 'clonePOLines.modifyInfo3' | translate }}</code></li>
+        <li><code class="small-code">{{ 'clonePOLines.modifyInfo4' | translate }}</code></li>
+        <li><code class="small-code">{{ 'clonePOLines.modifyInfo5' | translate }}</code></li>
+        <li><code class="small-code">{{ 'clonePOLines.modifyInfo6' | translate }}</code></li>
+
+      </ul>
+    </details>
+    <br>
+   
+    <p *ngIf="count != 0 && clonedResults.length === 0">{{ 'POLine.aTotal' | translate }} <strong>{{ selectedEntities.length }}</strong> {{ 'POLine.itemsSelected' | translate }}</p>
+
+    <div *ngIf="count == 0 && clonedResults.length === 0">{{ 'POLine.navigateToList' | translate }}</div>
+    <div *ngIf="error" class="error-message">
+      <p>{{ 'POLine.searchPOLines' | translate }}</p>
+    </div>
+
+     <!-- Checkbox to enable field override -->
+    <mat-checkbox *ngIf="clonedResults.length === 0" [(ngModel)]="enableFieldOverrides">
+      {{ 'clonePOLines.checkboxModify' | translate }}
+    </mat-checkbox>
+    <div *ngIf="enableFieldOverrides && clonedResults.length === 0" class="field-overrides-form">
+      <div *ngFor="let field of fieldOverrides; let i = index" class="field-row">
+        <mat-form-field appearance="fill" class="field-select">
+          <mat-label>{{ 'clonePOLines.selectField' | translate }}</mat-label>
+          <mat-select [(ngModel)]="field.field" name="field-{{i}}" required>
+            <mat-option
+              *ngFor="let option of getAvailableOptions(i)"
+              [value]="option.value">
+              {{ option.label | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="field-value">
+          <mat-label>{{ 'clonePOLines.newValue' | translate }}</mat-label>
+          <input matInput [(ngModel)]="field.value" name="value-{{i}}" required />
+        </mat-form-field>
+
+        <button mat-icon-button color="primary" (click)="addField()" *ngIf="i === fieldOverrides.length - 1" [disabled]="!hasAvailableOptions()">
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" (click)="removeField(i)" *ngIf="fieldOverrides.length > 1">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <hr *ngIf="clonedResults.length === 0">
+
+    <!-- Show selection component only if no PO Lines have been created -->
+    <eca-select-entities #selectEntities 
+      [(selected)]="selectedEntities"
+      (count)="count=$event"
+      (selectedChange)="validateFirstEntity()"
+      (initialized)="validateFirstEntity()"
+      [hidden]="clonedResults.length > 0">
+    </eca-select-entities>
+
+    <!-- Show created PO Line numbers and reload button when available -->
+    <div *ngIf="clonedResults.length > 0" class="created-numbers">
+      <h3><p>{{ 'clonePOLines.clonedPOLines' | translate }}:</p></h3>
+
+      <!-- Successful Clones -->
+      <div *ngIf="successfulClones.length > 0">
+        <h4><mat-icon color="primary">check_circle</mat-icon>
+           {{ 'clonePOLines.success' | translate }}
+        </h4>
+        <ul>
+          <li *ngFor="let result of successfulClones">
+            
+            {{ result.originalId }} → {{ result.newId }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Failed Clones -->
+      <div *ngIf="failedClones.length > 0">
+        <h4><mat-icon color="warn">cancel</mat-icon>
+          {{ 'clonePOLines.fail' | translate }}
+        </h4>
+        <ul>
+          <li *ngFor="let result of failedClones">
+            {{ result.originalId }} → API error: {{ result.error }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="button-container reload">
+        <button mat-flat-button color="primary" (click)="reloadClone()">
+          {{ 'clonePOLines.reload' | translate }}
+        </button>
+      </div>
+    </div>
+
 </div>
 
 <app-loader [loading]="loading" [processedCount]="processedCount" [totalCount]="totalRows"></app-loader>
