@@ -194,6 +194,8 @@
 			"permissionCheck": "No s'han pogut comprovar els permisos. Alma ha respost amb l'estat: '{{status}}'",
 			"validationAlert": "No s'ha pogut validar l'usuari. Alma ha respost amb l'estat: '{{status}}'"
 		},
+		"github1": "Has trobat un problema o tens una idea nova? Comparteix-la a",
+		"github2": "GitHub.",
 		"acquisitions": "Adquisicions",
 		"menuAcquisitions": {
 			"clonePO": "Clonar línies de compra",
@@ -219,6 +221,7 @@
 		"menuInformation": {
 			"config-tables": "Taules de codis"
 		},
+		"pin": "Utilitza el botó de pin per mantenir aquest panell obert mentre treballes a Alma.",
 		"resetButton": "Reiniciar",
 		"titleCloudApp": "Canvis globals",
 		"userIsNotAllowed": "Permís denegat",
