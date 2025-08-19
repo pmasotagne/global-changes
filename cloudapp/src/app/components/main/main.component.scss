@@ -25,3 +25,43 @@
 .eca-actions-button {
   text-align: right;
 }
+
+/* Info box container */
+.info-box {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #99cccc;
+  background-color: #e6f5f5;
+  font-size: 0.7rem;
+  color: #004d4d;
+  line-height: 1rem;
+}
+
+/* Each row */
+.info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0rem;
+}
+
+/* Icon style */
+.info-icon {
+  font-size: 1rem;
+  color: #007777;
+  margin-right: 0.2rem;
+  vertical-align: middle;
+  position: relative;
+  top: 4px;
+}
+
+/* Link style */
+.info-link {
+  text-decoration: underline;
+  color: #005555;
+  font-weight: 500;
+}
+
+.info-link:hover {
+  color: #003333;
+}
