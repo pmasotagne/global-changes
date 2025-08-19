@@ -194,6 +194,8 @@
 			"permissionCheck": "No se pudieron verificar los permisos. Alma respondió con estado: '{{status}}'",
 			"validationAlert": "No se pudo validar el usuario. Alma respondió con estado: '{{status}}'"
 		},
+		"github1": "¿Encontraste un problema o tienes una idea nueva? Compártela en",
+		"github2": "GitHub.",
 		"acquisitions": "Adquisiciones",
 		"menuAcquisitions": {
 			"clonePO": "Clonar líneas de compra",
@@ -219,6 +221,7 @@
 		"menuInformation": {
 			"config-tables": "Tablas de códigos"
 		},
+		"pin": "Usa el botón de pin para mantener este panel abierto mientras trabajas en Alma.",
 		"resetButton": "Reiniciar",
 		"titleCloudApp": "Cambios globales",
 		"userIsNotAllowed": "Permiso denegado",
