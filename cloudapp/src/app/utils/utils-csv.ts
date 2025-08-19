@@ -71,8 +71,10 @@ export async function validateFile(
     fileType: 'item' | 'optional' | 'holding' | 'user' | 'polines'
   ): Promise<FileValidationResult> {
     return new Promise((resolve) => {
-      const validFileTypes = ['text/csv'];
-      const maxFileSize = 2 * 1024 * 1024; // 2MB in bytes
+      const validFileTypes = ['text/csv', 'application/vnd.ms-excel', 'application/octet-stream'];
+      const isCsv = file.name.toLowerCase().endsWith('.csv');
+        
+      const maxFileSize = 2 * 1024 * 1024; // 2MB
   
       // Check file size
       if (file.size > maxFileSize) {
@@ -86,7 +88,7 @@ export async function validateFile(
       }
       
       // Check file type
-      if (!validFileTypes.includes(file.type)) {
+      if (!validFileTypes.includes(file.type) && !isCsv) {
         resolve({
           isValid: false,
           errorMessage: translate.instant('validateFile.error.invalidFileType'),
