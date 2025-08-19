@@ -39,6 +39,27 @@
   <!-- /checking permissions -->
   <div *ngIf="isUserAllowed && !checkingUser">
     <section>
+      <!-- Info Box -->
+      <div class="info-box">
+        <!-- Pin message -->
+        <div class="info-row">
+          <mat-icon class="info-icon">push_pin</mat-icon>
+          <span translate>main.pin</span>
+        </div>
+
+        <!-- GitHub message -->
+        <div class="info-row">
+          <mat-icon class="info-icon">code</mat-icon>
+          <span translate>
+            main.github1
+            <strong translate>
+              main.github2
+            </strong>.
+          </span>
+        </div>
+      </div>
+      
+      <!-- Menu -->
       <div>
         <menu-global-changes>
         </menu-global-changes>
