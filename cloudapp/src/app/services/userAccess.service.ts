@@ -89,40 +89,50 @@ export class UserAccessService {
 		return this.userDetails;
 	}
 
-	isModuleAccessAllowed(moduleName: keyof Configuration['moduleRestrictions']): Observable<boolean> {
-		return this.configService.get().pipe(
-		  map((config: Configuration) => {
-			// If no restrictions are set for the module, allow access
+	isModuleAccessAllowed(
+		moduleName: keyof Configuration['moduleRestrictions']
+		): Observable<boolean> {
+		return combineLatest([
+			this.configService.get(),
+			this.isUserAllowed()
+		]).pipe(
+			map(([config, globalAllowed]) => {
 			const moduleRestriction = config.moduleRestrictions?.[moduleName];
-			console.log(moduleRestriction);
-			if (!moduleRestriction || (!moduleRestriction.allowedRoles?.length && !moduleRestriction.allowedUsers?.length)) {
-				return true; 
+
+			// Determine if there are any module‐specific restrictions at all
+			const hasUserRestrictions = Array.isArray(moduleRestriction?.allowedUsers)
+				&& moduleRestriction.allowedUsers.length > 0;
+			const hasRoleRestrictions = Array.isArray(moduleRestriction?.allowedRoles)
+				&& moduleRestriction.allowedRoles.length > 0;
+			const hasAnyRestriction = hasUserRestrictions || hasRoleRestrictions;
+
+			// 1) If there are no restrictions for this module, defer to global access
+			if (!hasAnyRestriction) {
+				return globalAllowed;
 			}
 
-			// Get the current user details
+			// 2) If there are restrictions, the user must satisfy one of them
+			// Grab the current user snapshot
 			const currentUser: UserDetails = this.getUserDetails();
 			if (!currentUser) {
-			  return false;
-			}
-			
-			// Check if the user is explicitly allowed.
-			const allowedByUser = moduleRestriction.allowedUsers?.some(user =>
-			  user.primary_id === currentUser.primary_id
-			);
-
-			if (moduleRestriction.allowedUsers?.length) {
-				return allowedByUser;
+				return false;
 			}
 
-			// Check if any of the allowed roles for the module match an active role of the user.
-			const allowedByRole = moduleRestriction.allowedRoles?.some(roleId =>
+			// 2a) Explicit per‐user allow
+			if (hasUserRestrictions) {
+				return moduleRestriction.allowedUsers
+				.some(u => u.primary_id === currentUser.primary_id);
+			}
+
+			// 2b) Otherwise, explicit per‐role allow
+			return moduleRestriction.allowedRoles!
+				.some(roleId =>
 				currentUser.user_role.some(userRole =>
-				  parseInt(userRole.role_type.value) === roleId && userRole.status.value === 'ACTIVE'
+					parseInt(userRole.role_type.value, 10) === roleId
+					&& userRole.status.value === 'ACTIVE'
 				)
-			  );
-
-			return allowedByRole;
-		  })
+				);
+			})
 		);
 	}
 }
