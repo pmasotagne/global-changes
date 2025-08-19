@@ -194,6 +194,8 @@
 			"permissionCheck": "Could not check permissions, Alma responded with status: '{{status}}'",
 			"validationAlert": "Could not validate user, Alma respondend with status: '{{status}}'"
 		},
+		"github1": "Found an issue or have a new idea? Share it on",
+		"github2": "GitHub.",
 		"acquisitions": "Acquisitions",
 		"menuAcquisitions": {
 			"clonePO": "Clone POLines",
@@ -219,6 +221,7 @@
 		"menuInformation": {
 			"config-tables": "Code tables"
 		},
+		"pin": "Use the pin button to keep this panel open while working in Alma.",
 		"resetButton": "Reset",
 		"titleCloudApp": "Global Changes",
 		"userIsNotAllowed": "Permission denied",
