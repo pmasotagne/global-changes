@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core'
 import { ItemService } from '../../../services/item.service';
 import { MatDialog } from '@angular/material/dialog';
 import { fieldOptions, REQUIRED_COLUMN_HEADERS, ALLOWED_COLUMN_COUNTS } from './field-options';
-import { showAlert, showSummary } from '../../../utils/utils-alert';
+import { showAlert, showSummary, logError, ErrorLogEntry } from '../../../utils/utils-alert';
 import { FileValidationResult, parseCSV, validateColumns, validateFile } from '../../../utils/utils-csv';
 import { chunkArray } from '../../../utils/utils-misc';
 import { Timer } from '../../../utils/utils-timer';
@@ -46,6 +46,9 @@ export class ModifyHoldingsComponent implements OnInit {
   // User Validation
   checkingUser: boolean = false;
   isModuleUserAllowed: boolean = false;
+
+  // Logs
+  errorLog: ErrorLogEntry[] = [];
 
   constructor(
     private router: Router,
@@ -196,12 +199,15 @@ export class ModifyHoldingsComponent implements OnInit {
           this.updatedCount++;
         } catch {
           this.errorsCount++;
+          logError(this.errorLog, { holdingId }, this.translate.instant('resume.resumeErrors.item_update_failed', { error: updateError?.message || updateError }));
         }
       } else {
         this.errorsCount++;
+        logError(this.errorLog, { holdingId }, this.translate.instant('resume.resumeErrors.values_not_matching_or_subfield'));
       }
     } catch {
       this.errorsCount++;
+      logError(this.errorLog, { holdingId : undefined }, `${error?.message || error}`);
     }
   }
 
@@ -264,6 +270,7 @@ export class ModifyHoldingsComponent implements OnInit {
     null;
     null;
     this.processedCount = 0;
+    this.errorLog = [];
   }
 
   private showResults(): void {
@@ -287,7 +294,8 @@ export class ModifyHoldingsComponent implements OnInit {
       null,
       null,
       this.timer.elapsedMinutes,
-      this.timer.elapsedSeconds
+      this.timer.elapsedSeconds,
+      this.errorLog
     );
 
     const institutionCode = localStorage.getItem('institutionCode') || 'UNKNOWN_INSTITUTION';
