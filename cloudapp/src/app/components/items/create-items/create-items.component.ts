@@ -6,7 +6,7 @@ import { ItemService } from '../../../services/item.service';
 import { ConfigService } from '../../../services/configuration.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ALLOWED_COLUMN_COUNTS } from './field-options';
-import { showAlert, formatDate, showSummary } from '../../../utils/utils-alert';
+import { showAlert, formatDate, showSummary, logError, ErrorLogEntry } from '../../../utils/utils-alert';
 import { FileValidationResult, parseCSV, validateFile } from '../../../utils/utils-csv';
 import { chunkArray } from '../../../utils/utils-misc';
 import { createSet, addMembersToSet } from '../../../utils/utils-sets';
@@ -53,6 +53,9 @@ export class CreateItemsInBulk implements OnInit {
   // User Validation
   checkingUser: boolean = false;
   isModuleUserAllowed: boolean = false;
+
+  // Logs
+  errorLog: ErrorLogEntry[] = [];
 
   constructor(
     private router: Router,
@@ -222,6 +225,7 @@ export class CreateItemsInBulk implements OnInit {
       }
     } catch (error) {
       this.errorsCount++;
+      logError(this.errorLog, { mmsId, holdingId }, `${error?.message || error}`);
     }
     
   }
@@ -293,6 +297,7 @@ export class CreateItemsInBulk implements OnInit {
     this.setCreated = false;
     this.setId = null;
     this.processedCount = 0;
+    this.errorLog = [];
   }
 
   private showResults(): void {
@@ -330,7 +335,8 @@ export class CreateItemsInBulk implements OnInit {
       this.setId,
       null,
       this.timer.elapsedMinutes,
-      this.timer.elapsedSeconds
+      this.timer.elapsedSeconds,
+      this.errorLog
     );
 
     this.loaderStatusMessage = '';
