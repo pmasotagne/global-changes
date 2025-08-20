@@ -197,7 +197,7 @@ export class ModifyHoldingsComponent implements OnInit {
         try {
           await this.itemService.updateHolding(mmsId, holdingId, holding_record).toPromise();
           this.updatedCount++;
-        } catch {
+        } catch (updateError) {
           this.errorsCount++;
           logError(this.errorLog, { holdingId }, this.translate.instant('resume.resumeErrors.item_update_failed', { error: updateError?.message || updateError }));
         }
@@ -205,7 +205,7 @@ export class ModifyHoldingsComponent implements OnInit {
         this.errorsCount++;
         logError(this.errorLog, { holdingId }, this.translate.instant('resume.resumeErrors.values_not_matching_or_subfield'));
       }
-    } catch {
+    } catch (error) {
       this.errorsCount++;
       logError(this.errorLog, { holdingId : undefined }, `${error?.message || error}`);
     }
