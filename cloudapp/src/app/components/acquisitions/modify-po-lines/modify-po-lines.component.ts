@@ -6,7 +6,7 @@ import { AcquisitionService } from '../../../services/acquisition.service';
 import { ConfigService } from '../../../services/configuration.service';
 import { MatDialog } from '@angular/material/dialog';
 import { fieldOptions, REQUIRED_COLUMN_HEADERS, ALLOWED_COLUMN_COUNTS } from './field-options';
-import { showAlert, formatDate, showSummary } from '../../../utils/utils-alert';
+import { showAlert, formatDate, showSummary, logError, ErrorLogEntry } from '../../../utils/utils-alert';
 import { FileValidationResult, parseCSV, validateColumns, validateFile } from '../../../utils/utils-csv';
 import { chunkArray } from '../../../utils/utils-misc';
 import { createSet, addMembersToSet } from '../../../utils/utils-sets';
@@ -65,6 +65,9 @@ export class ModifyPOLinesComponent implements OnInit {
 
   // Options
   fieldOptions = fieldOptions;
+
+  // Logs
+  errorLog: ErrorLogEntry[] = [];
 
   constructor(
     private router: Router,
@@ -212,10 +215,12 @@ export class ModifyPOLinesComponent implements OnInit {
             if (this.createResultSets) { await this.addPhysicalIdToSet(poId, 'success'); }
           } catch (updateError) {
             this.errorsCount++;
+            logError(this.errorLog, { poId }, this.translate.instant('resume.resumeErrors.item_update_failed', { error: updateError?.message || updateError }));
             if (this.createResultSets) { await this.addPhysicalIdToSet(poId, 'error'); }
           }
         } else {
             this.errorsCount++;
+            logError(this.errorLog, { poId }, this.translate.instant('resume.resumeErrors.values_not_matching'));
             if (this.createResultSets) { await this.addPhysicalIdToSet(poId, 'error'); }
         }
       } else {
@@ -223,6 +228,7 @@ export class ModifyPOLinesComponent implements OnInit {
       }
     } catch (error) {
       this.errorsCount++;
+      logError(this.errorLog, { poId : undefined }, `${error?.message || error}`);
     }
   }
 
@@ -337,6 +343,7 @@ export class ModifyPOLinesComponent implements OnInit {
     this.setId = null;
     this.errorSetId = null;
     this.processedCount = 0;
+    this.errorLog = [];
   }
 
   private showResults(): void {
@@ -377,7 +384,8 @@ export class ModifyPOLinesComponent implements OnInit {
       this.setId,
       this.errorSetId,
       this.timer.elapsedMinutes,
-      this.timer.elapsedSeconds
+      this.timer.elapsedSeconds,
+      this.errorLog
     );
 
     const institutionCode = localStorage.getItem('institutionCode') || 'UNKNOWN_INSTITUTION';
