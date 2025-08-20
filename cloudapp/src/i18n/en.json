@@ -194,7 +194,7 @@
 			"permissionCheck": "Could not check permissions, Alma responded with status: '{{status}}'",
 			"validationAlert": "Could not validate user, Alma respondend with status: '{{status}}'"
 		},
-		"github1": "Found an issue or have a new idea? Share it on",
+		"github1": "Do you have any problem or question? Open an issue at"
 		"github2": "GitHub.",
 		"acquisitions": "Acquisitions",
 		"menuAcquisitions": {
@@ -377,7 +377,17 @@
 		"removedUsers": "Users removed",
 		"removedUsersErrors": "Users not removed",
 		"poLineCloned": "POL cloned",
-		"poLineClonedErrors": "POL not cloned"
+		"poLineClonedErrors": "POL not cloned",
+		"errorsDetail": "Errors detail",
+		"errorDisplayLimit": "Showing only the first '25' errors",
+		"resumeErrors": {
+			"field_not_found": "Field '{{field}}' not found in item data",
+  			"item_update_failed": "Item cannot be updated: {{error}}",
+  			"values_not_matching": "Existing value and value from CSV are not matching",
+			"values_not_matching_or_subfield": "Existing value and value from CSV are not matching or subfield doesn't exist",
+			"values_not_moved": "Fields can't be moved",
+			"parts_not_matching": "Expected parts doesn't match splitted field"
+		}
 	},
 	"roleSelect": {
 		"deselectAll": "Deselect all",
