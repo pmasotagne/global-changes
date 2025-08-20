@@ -3,6 +3,21 @@ import { MatDialog } from '@angular/material/dialog';
 import { ProcessSummaryModalComponent } from '../components/resume/resume.component';
 import { TranslateService } from '@ngx-translate/core';
 
+export interface ErrorLogEntry {
+  identifiers: { [key: string]: string | undefined };
+  error: string;
+}
+
+export function logError(
+  errorLog: ErrorLogEntry[],
+  identifiers: { [key: string]: string | undefined },
+  error: string
+): void {
+  if (errorLog.length < 25) {
+    errorLog.push({ identifiers, error });
+  }
+}
+
 export function showAlert(alertService: AlertService, translate: TranslateService, key: string, isError: boolean = true, isWarning: boolean = false, autoClose: boolean = false, timeout: number = 5000): void {
     const message = `${translate.instant(key)} - ${formatDate(new Date())}`;
     if (isWarning) {
@@ -41,7 +56,8 @@ export function showSummary(
     setId: string | null,
     setIdError: string | null,
     elapsedMinutes: number,
-    elapsedSeconds: number
+    elapsedSeconds: number,
+    errorLog?: ErrorLogEntry[]
 ): void {
     const dialogRef = dialog.open(ProcessSummaryModalComponent, {
         width: '500px',
@@ -52,7 +68,8 @@ export function showSummary(
             setId,
             setIdError,
             minutes: elapsedMinutes,
-            seconds: elapsedSeconds
+            seconds: elapsedSeconds,
+            errorLog
         }
     });
 }
