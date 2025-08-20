@@ -6,7 +6,7 @@ import { ItemService } from '../../../services/item.service';
 import { ConfigService } from '../../../services/configuration.service';
 import { MatDialog } from '@angular/material/dialog';
 import { fieldOptions, positionOptions, delimiterOptions, REQUIRED_COLUMN_HEADERS, ALLOWED_COLUMN_COUNTS } from './field-options';
-import { showAlert, formatDate, showSummary } from '../../../utils/utils-alert';
+import { showAlert, formatDate, showSummary, logError, ErrorLogEntry } from '../../../utils/utils-alert';
 import { FileValidationResult, parseCSV, validateColumns, validateFile } from '../../../utils/utils-csv';
 import { chunkArray } from '../../../utils/utils-misc';
 import { createSet, addMembersToSet } from '../../../utils/utils-sets';
@@ -73,6 +73,9 @@ export class SplitFieldItemsComponent implements OnInit {
   // User Validation
   checkingUser: boolean = false;
   isModuleUserAllowed: boolean = false;
+
+  // Logs
+  errorLog: ErrorLogEntry[] = [];
 
   constructor(
     private router: Router,
@@ -145,7 +148,7 @@ export class SplitFieldItemsComponent implements OnInit {
     this.selectedFields = this.selectedFields.slice(0, numParts);
     this.selectedPositions = this.selectedPositions.slice(0, numParts);
     this.selectedDelimiters = this.selectedDelimiters.slice(0, numParts);
-}
+  }
 
 
   onPositionChange(index: number): void {
@@ -249,6 +252,7 @@ export class SplitFieldItemsComponent implements OnInit {
 
       if (!item?.item_data || !item.item_data[this.selectedField]) {
         this.errorsCount++;
+        logError(this.errorLog, { physicalId }, this.translate.instant('resume.resumeErrors.field_not_found', { field: this.selectedField }));
         if (this.createResultSets) { await this.addPhysicalIdToSet(physicalId, 'error'); }
         return;
       }
@@ -266,14 +270,17 @@ export class SplitFieldItemsComponent implements OnInit {
           }
         } catch (updateError) {
           this.errorsCount++;
+          logError(this.errorLog, { physicalId }, this.translate.instant('resume.resumeErrors.item_update_failed', { error: updateError?.message || updateError }));
           if (this.createResultSets) { await this.addPhysicalIdToSet(physicalId, 'error'); }
         }
       } else {
         this.errorsCount++;
+        logError(this.errorLog, { physicalId }, this.translate.instant('resume.resumeErrors.parts_not_matching'));
         if (this.createResultSets) { await this.addPhysicalIdToSet(physicalId, 'error'); }
       }
     } catch (error) {
       this.errorsCount++;
+      logError(this.errorLog, { barcode : undefined }, `${error?.message || error}`);
     }
   }
 
@@ -446,6 +453,7 @@ export class SplitFieldItemsComponent implements OnInit {
     this.setId = null;
     this.errorSetId = null;
     this.processedCount = 0;
+    this.errorLog = [];
   }
 
   private showResults(): void {
@@ -485,7 +493,8 @@ export class SplitFieldItemsComponent implements OnInit {
       this.setId,
       this.errorSetId,
       this.timer.elapsedMinutes,
-      this.timer.elapsedSeconds
+      this.timer.elapsedSeconds,
+      this.errorLog
     );
 
     const institutionCode = localStorage.getItem('institutionCode') || 'UNKNOWN_INSTITUTION';
