@@ -6,6 +6,30 @@
   <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
   <p *ngIf="data.setId"><strong>{{'resume.setId' | translate}}:</strong> {{data.setId}}</p>
   <p *ngIf="data.setIdError"><strong>{{'resume.setIdError' | translate}}:</strong> {{data.setIdError}}</p>
+  <br>
+  <!-- Error log dropdown -->
+  <mat-accordion *ngIf="data.errorLog?.length" class="error-accordion">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'resume.errorsDetail' | translate}} ({{data.errorLog.length}})
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p class="error-info">
+        {{'resume.errorDisplayLimit' | translate}}
+      </p>
+      <ul class="error-list">
+        <li *ngFor="let e of data.errorLog" class="error-entry">
+          <span *ngFor="let key of (e.identifiers | keyvalue)">
+            <strong>{{ key.key }}: </strong>
+            {{ key.value }}
+          </span>
+          <br />
+          <em class="error-message">{{ e.error }}</em>
+        </li>
+      </ul>
+    </mat-expansion-panel>
+  </mat-accordion>
 </mat-dialog-content>
 
 <mat-dialog-content *ngIf="data.poline">
