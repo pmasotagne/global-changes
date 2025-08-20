@@ -194,7 +194,7 @@
 			"permissionCheck": "No s'han pogut comprovar els permisos. Alma ha respost amb l'estat: '{{status}}'",
 			"validationAlert": "No s'ha pogut validar l'usuari. Alma ha respost amb l'estat: '{{status}}'"
 		},
-		"github1": "Has trobat un problema o tens una idea nova? Comparteix-la a",
+		"github1": "Tens algun problema o dubte? Obre una issue a",
 		"github2": "GitHub.",
 		"acquisitions": "Adquisicions",
 		"menuAcquisitions": {
@@ -377,7 +377,17 @@
 		"removedUsers": "Usuaris eliminats",
 		"removedUsersErrors": "Usuaris no eliminats",
 		"poLineCloned": "Línies de compra clonades",
-		"poLineClonedErrors": "Línies de compra no clonades"
+		"poLineClonedErrors": "Línies de compra no clonades",
+		"errorsDetail": "Detall d'errors",
+		"errorDisplayLimit": "Mostrant només els primers '25' errors",
+		"resumeErrors": {
+		    "field_not_found": "Camp '{{field}}' no trobat en les dades de l'exemplar",
+		    "item_update_failed": "L'exemplar no es pot actualitzar: {{error}}",
+		    "values_not_matching": "El valor existent i el valor del CSV no coincideixen",
+		    "values_not_matching_or_subfield": "El valor existent i el valor del CSV no coincideixen o el subcamp no existeix",
+		    "values_not_moved": "Els camps no es poden moure",
+		    "parts_not_matching": "Les parts esperades no coincideixen amb les parts del camp dividit"
+		}
 	},
 	"roleSelect": {
 		"deselectAll": "Desselecciona-ho tot",
