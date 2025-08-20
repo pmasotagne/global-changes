@@ -4,25 +4,55 @@
     align-items: center;
     padding: 0 1rem;
     border-bottom: 1px solid #ccc;
-  
+    
     .dialog-title {
       font-size: 1.25rem;
       font-weight: bold;
     }
-  
+    
     .close-button {
       color: inherit;
       padding: 0;
       margin: 0;
       border: none;
     }
-  
+    
     .close-button mat-icon {
       font-size: 1.5rem;
     }
-  }
+}
   
-  .dialog-body {
+.dialog-body {
     padding: 1rem;
-  }
-  
+}
+
+// Error section
+.error-accordion {
+  margin-top: 1rem;
+}
+
+.error-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.error-entry {
+  padding: 0.5rem;
+  margin-bottom: 0.2rem;
+  background: #fafafa;
+  border-radius: 6px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+}
+
+.error-message {
+  color: #b00020;
+  font-size: 0.75rem;
+}
+
+.error-info {
+  font-size: 0.75em;
+  color: gray;
+  margin-bottom: 8px;
+}
