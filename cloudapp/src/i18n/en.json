@@ -194,7 +194,7 @@
 			"permissionCheck": "Could not check permissions, Alma responded with status: '{{status}}'",
 			"validationAlert": "Could not validate user, Alma respondend with status: '{{status}}'"
 		},
-		"github1": "Do you have any problem or question? Open an issue at"
+		"github1": "Do you have any problem or question? Open an issue at",
 		"github2": "GitHub.",
 		"acquisitions": "Acquisitions",
 		"menuAcquisitions": {
