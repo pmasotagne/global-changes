@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core'
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessSummaryModalComponent } from '../../resume/resume.component';
 import { REQUIRED_COLUMN_HEADERS, ALLOWED_COLUMN_COUNTS } from './field-options';
-import { showAlert } from '../../../utils/utils-alert';
+import { showAlert, logError, ErrorLogEntry } from '../../../utils/utils-alert';
 import { chunkArray } from '../../../utils/utils-misc';
 import { FileValidationResult, parseCSV, validateColumns, validateFile } from '../../../utils/utils-csv';
 import { Timer } from '../../../utils/utils-timer';
@@ -47,6 +47,9 @@ export class RemoveUsersComponent implements OnInit {
   // User Validation
   checkingUser: boolean = false;
   isModuleUserAllowed: boolean = false;
+
+  // Logs
+  errorLog: ErrorLogEntry[] = [];
 
   constructor(
     private userService: UserService,
@@ -164,6 +167,7 @@ export class RemoveUsersComponent implements OnInit {
       
     } catch (error) {
       this.errorsCount++;
+      logError(this.errorLog, { holdingId : undefined }, `${error?.message || error}`);
     }
   }
 
@@ -222,6 +226,7 @@ export class RemoveUsersComponent implements OnInit {
     this.removedCount = 0;
     this.errorsCount = 0;
     this.processedCount = 0;
+    this.errorLog = [];
   }
 
   openSummaryModal() {
@@ -232,6 +237,9 @@ export class RemoveUsersComponent implements OnInit {
         processedCount: this.processedCount,
         removedCount: this.removedCount,
         errorsCount: this.errorsCount,
+        minutes: this.timer.elapsedMinutes,
+        seconds: this.timer.elapsedSeconds,
+        errorLog: this.errorLog
       }
     });
   }
