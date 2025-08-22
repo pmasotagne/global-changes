@@ -17,6 +17,41 @@ export class ProcessSummaryModalComponent {
     private translate: TranslateService
   ) { }
 
+  ngOnInit(): void {
+    const allFlat: { key: string, value: any, error: string }[] = [];
+
+    this.data?.errorLog?.forEach((e: any) => {
+      allFlat.push(...this.flattenIdentifiers(e.identifiers, e.error));
+    });
+
+    // First 25
+    this.data.identifiersLimitedGlobal = allFlat.slice(0, 25);
+
+    console.log('Global identifiersLimited (max 25):', this.data.identifiersLimitedGlobal);
+  }
+
+  private flattenIdentifiers(obj: any, errorMessage: string, prefix = ''): { key: string, value: any, error: string }[] {
+    const result: { key: string, value: any, error: string }[] = [];
+
+    if (obj && typeof obj === 'object') {
+      if (Array.isArray(obj)) {
+        obj.forEach((v, i) => {
+          result.push(...this.flattenIdentifiers(v, errorMessage, `${prefix}[${i}]`));
+        });
+      } else {
+        Object.keys(obj).forEach(k => {
+          const v = obj[k];
+          const newKey = prefix ? `${prefix}.${k}` : k;
+          result.push(...this.flattenIdentifiers(v, errorMessage, newKey));
+        });
+      }
+    } else {
+      result.push({ key: prefix, value: obj, error: errorMessage });
+    }
+
+    return result;
+  }
+
   close() {
     this.dialogRef.close()
   }
