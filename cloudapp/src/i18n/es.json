@@ -387,7 +387,13 @@
 		    "values_not_matching_or_subfield": "El valor existente y el valor del CSV no coinciden o el subcampo no existe",
 		    "values_not_moved": "Los campos no se pueden mover",
 		    "parts_not_matching": "Las partes esperadas no coinciden con las partes del campo dividido"
-		}
+		},
+		"copiedToClipboard": "Copiado al portapapeles",
+  		"failedToCopy": "Error al copiar",
+		"idsCopied": "Todos los identificadores copiados",
+		"idsCopiedFailed": "Error al copiar todos los identificadores",
+		"downloadSuccess": "CSV de errores descargado correctamente",
+		"downloadFailed": "Error al descargar el CSV de errores"
 	},
 	"roleSelect": {
 		"deselectAll": "Desmarcar todo",
