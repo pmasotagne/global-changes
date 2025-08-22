@@ -367,9 +367,9 @@
 	},
 	"resume": {
 		"title": "Resume",
-		"itemsUpdated": "Items processed",
-		"errors": "Errors (not processed)",
-		"totalLinesProcessed": "Total lines processed",
+		"itemsUpdated": "Records processed",
+		"errors": "Errors",
+		"totalLinesProcessed": "File lines",
 		"setId": "Set ID",
 		"setIdError": "Set ID Errors",
 		"close": "Close",
