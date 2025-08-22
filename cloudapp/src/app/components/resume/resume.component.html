@@ -1,49 +1,97 @@
-<h2 mat-dialog-title>{{'resume.title' | translate}} <small align="right" *ngIf="data.minutes || data.seconds">{{data.minutes}}min {{data.seconds}}{{'resume.seconds' | translate}}</small></h2>
+<h2 mat-dialog-title class="dialog-header">
+  <span class="dialog-title">{{ 'resume.title' | translate }}</span>
+  <small *ngIf="data.minutes || data.seconds" class="dialog-timer">
+    {{ data.minutes }}min {{ data.seconds }}{{ 'resume.seconds' | translate }}
+  </small>
+</h2>
 
-<mat-dialog-content *ngIf="!data.poline && !data.users">
-  <p><strong>{{'resume.itemsUpdated' | translate}}:</strong> {{data.updatedCount}}</p>
-  <p><strong>{{'resume.errors' | translate}}:</strong> {{data.errorsCount}}</p>
-  <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
-  <p *ngIf="data.setId"><strong>{{'resume.setId' | translate}}:</strong> {{data.setId}}</p>
-  <p *ngIf="data.setIdError"><strong>{{'resume.setIdError' | translate}}:</strong> {{data.setIdError}}</p>
-  <br>
-  <!-- Error log dropdown -->
+<mat-dialog-content class="dialog-body">
+
+  <!-- Summary cards -->
+  <div class="summary-cards">
+
+    <!-- Total rows -->
+    <div class="summary-card">
+      <strong>{{ 'resume.totalLinesProcessed' | translate }}:</strong> {{ data.totalRows }}
+    </div>
+
+    <!-- Generic -->
+    <ng-container *ngIf="!data.poline && !data.users">
+      <div class="summary-card">
+        <strong>{{ 'resume.itemsUpdated' | translate }}:</strong> {{ data.updatedCount }}
+      </div>
+      <div class="summary-card error" *ngIf="data.errorsCount > 0">
+        <strong>{{ 'resume.errors' | translate }}:</strong> {{ data.errorsCount }}
+      </div>
+      <div class="summary-card" *ngIf="data.setId">
+        <strong>{{ 'resume.setId' | translate }}:</strong> {{ data.setId }}
+      </div>
+      <div class="summary-card error" *ngIf="data.setIdError">
+        <strong>{{ 'resume.setIdError' | translate }}:</strong> {{ data.setIdError }}
+      </div>
+    </ng-container>
+
+    <!-- PO line -->
+    <ng-container *ngIf="data.poline">
+      <div class="summary-card poline">
+        <strong>{{ 'resume.poLineCloned' | translate }}:</strong> {{ data.updatedCount }}
+      </div>
+      <div class="summary-card error" *ngIf="data.errorsCount > 0">
+        <strong>{{ 'resume.poLineClonedErrors' | translate }}:</strong> {{ data.errorsCount }}
+      </div>
+    </ng-container>
+
+    <!-- Users -->
+    <ng-container *ngIf="data.users">
+      <div class="summary-card users">
+        <strong>{{ 'resume.removedUsers' | translate }}:</strong> {{ data.removedCount }}
+      </div>
+      <div class="summary-card error" *ngIf="data.errorsCount > 0">
+        <strong>{{ 'resume.removedUsersErrors' | translate }}:</strong> {{ data.errorsCount }}
+      </div>
+    </ng-container>
+
+  </div>
+
+  <!-- Error log accordion -->
   <mat-accordion *ngIf="data.errorLog?.length" class="error-accordion">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{'resume.errorsDetail' | translate}} ({{data.errorLog.length}})
+          {{ 'resume.errorsDetail' | translate }} ({{ data.errorLog.length }})
         </mat-panel-title>
+        <mat-panel-description>
+          <button mat-icon-button class="copy-btn"
+                  (click)="copyAllIdentifiers(); $event.stopPropagation()"
+                  aria-label="Copy all identifiers">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </mat-panel-description>
       </mat-expansion-panel-header>
+
       <p class="error-info">
-        {{'resume.errorDisplayLimit' | translate}}
+        {{ 'resume.errorDisplayLimit' | translate }}
       </p>
+
       <ul class="error-list">
         <li *ngFor="let e of data.errorLog" class="error-entry">
-          <span *ngFor="let key of (e.identifiers | keyvalue)">
-            <strong>{{ key.key }}: </strong>
-            {{ key.value }}
-          </span>
-          <br />
-          <em class="error-message">{{ e.error }}</em>
+          <div class="error-identifiers">
+            <span *ngFor="let key of (e.identifiers | keyvalue)">
+              <strong>{{ key.key }}:</strong> {{ key.value }}
+              <button mat-icon-button class="copy-btn"
+                      (click)="copyToClipboard(key.value)"
+                      aria-label="Copy identifier">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            </span>
+          </div>
+          <div class="error-message">{{ e.error }}</div>
         </li>
       </ul>
     </mat-expansion-panel>
   </mat-accordion>
 </mat-dialog-content>
 
-<mat-dialog-content *ngIf="data.poline">
-  <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
-  <p><strong>{{'resume.poLineCloned' | translate}}:</strong> {{data.updatedCount}}</p>
-  <p><strong>{{'resume.poLineClonedErrors' | translate}}:</strong> {{data.errorsCount}}</p>
-</mat-dialog-content>
-
-<mat-dialog-content *ngIf="data.users">
-  <p><strong>{{'resume.totalLinesProcessed' | translate}}:</strong> {{data.totalRows}}</p>
-  <p><strong>{{'resume.removedUsers' | translate}}:</strong> {{data.removedCount}}</p>
-  <p><strong>{{'resume.removedUsersErrors' | translate}}:</strong> {{data.errorsCount}}</p>
-</mat-dialog-content>
-
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close (click)="close()">Close</button>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="close()">Close</button>
 </mat-dialog-actions>
