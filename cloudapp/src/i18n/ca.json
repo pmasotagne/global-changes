@@ -367,9 +367,9 @@
 	},
 	"resume": {
 		"title": "Resum",
-		"itemsUpdated": "Exemplars processats",
-		"errors": "Errors (no processats)",
-		"totalLinesProcessed": "Total de línies processades",
+		"itemsUpdated": "Registres processats",
+		"errors": "Errors",
+		"totalLinesProcessed": "Línies del fitxer",
 		"setId": "ID del conjunt",
 		"setIdError": "ID del conjunt d'errors",
 		"close": "Tanca",
