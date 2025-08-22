@@ -387,7 +387,13 @@
 			"values_not_matching_or_subfield": "Existing value and value from CSV are not matching or subfield doesn't exist",
 			"values_not_moved": "Fields can't be moved",
 			"parts_not_matching": "Expected parts doesn't match splitted field"
-		}
+		},
+		"copiedToClipboard": "Copied to clipboard",
+  		"failedToCopy": "Failed to copy",
+		"idsCopied": "All identifiers copied",
+		"idsCopiedFailed": "Failed to copy all identifiers",
+		"downloadSuccess": "Error log CSV downloaded successfully",
+		"downloadFailed": "Failed to download error log CSV"
 	},
 	"roleSelect": {
 		"deselectAll": "Deselect all",
