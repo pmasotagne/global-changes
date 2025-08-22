@@ -13,7 +13,7 @@ export function logError(
   identifiers: { [key: string]: string | undefined },
   error: string
 ): void {
-  if (errorLog.length < 25) {
+  if (errorLog.length < 5000) {
     errorLog.push({ identifiers, error });
   }
 }
