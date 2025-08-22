@@ -123,7 +123,7 @@ export class ProcessSummaryModalComponent {
     const day = String(now.getDate()).padStart(2, '0');
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const year = now.getFullYear();
-    const filename = `error-log-${year}-${month}-${day}.csv`;
+    const filename = `GlobalChanges-logs-${year}-${month}-${day}.csv`;
 
     const ok = this.downloadAsFile(filename, 'text/csv', csvContent);
 
