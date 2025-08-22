@@ -23,18 +23,22 @@ export class ProcessSummaryModalComponent {
 
   copyToClipboard(value: string) {
     navigator.clipboard.writeText(value).then(() => {
-      this.snackBar.open('Copied to clipboard!', 'Close', {
-        duration: 2000,
-        horizontalPosition: 'right',
-        verticalPosition: 'bottom',
-        panelClass: ['snackbar-success']
+      this.translate.get('resume.copiedToClipboard').subscribe((msg: string) => {
+        this.snackBar.open(msg, this.translate.instant('resume.copiedToClipboard'), {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'bottom',
+          panelClass: ['snackbar-success']
+        });
       });
     }).catch(() => {
-      this.snackBar.open('Failed to copy', 'Close', {
-        duration: 2000,
-        horizontalPosition: 'right',
-        verticalPosition: 'bottom',
-        panelClass: ['snackbar-error']
+      this.translate.get('resume.failedToCopy').subscribe((msg: string) => {
+        this.snackBar.open(msg, this.translate.instant('resume.failedToCopy'), {
+          duration: 2000,
+          horizontalPosition: 'right',
+          verticalPosition: 'bottom',
+          panelClass: ['snackbar-error']
+        });
       });
     });
   }
