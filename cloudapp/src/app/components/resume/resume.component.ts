@@ -24,7 +24,7 @@ export class ProcessSummaryModalComponent {
   copyToClipboard(value: string) {
     navigator.clipboard.writeText(value).then(() => {
       this.translate.get('resume.copiedToClipboard').subscribe((msg: string) => {
-        this.snackBar.open(msg, this.translate.instant('resume.copiedToClipboard'), {
+        this.snackBar.open(msg, this.translate.instant('resume.close'), {
           duration: 2000,
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
@@ -33,7 +33,7 @@ export class ProcessSummaryModalComponent {
       });
     }).catch(() => {
       this.translate.get('resume.failedToCopy').subscribe((msg: string) => {
-        this.snackBar.open(msg, this.translate.instant('resume.failedToCopy'), {
+        this.snackBar.open(msg, this.translate.instant('resume.close'), {
           duration: 2000,
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
@@ -52,7 +52,7 @@ export class ProcessSummaryModalComponent {
 
     navigator.clipboard.writeText(allIds).then(() => {
       this.translate.get('resume.idsCopied').subscribe((msg: string) => {
-        this.snackBar.open(msg, this.translate.instant('resume.idsCopied'), {
+        this.snackBar.open(msg, this.translate.instant('resume.close'), {
           duration: 2000,
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
@@ -61,7 +61,7 @@ export class ProcessSummaryModalComponent {
       });
     }).catch(() => {
       this.translate.get('resume.idsCopiedFailed').subscribe((msg: string) => {
-        this.snackBar.open(msg, this.translate.instant('resume.idsCopiedFailed'), {
+        this.snackBar.open(msg, this.translate.instant('resume.close'), {
           duration: 2000,
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
@@ -129,7 +129,7 @@ export class ProcessSummaryModalComponent {
 
     if (ok) {
       this.translate.get('resume.downloadSuccess').subscribe((msg: string) => {
-        this.snackBar.open(msg, this.translate.instant('resume.downloadSuccess'), {
+        this.snackBar.open(msg, this.translate.instant('resume.close'), {
           duration: 3000,
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
@@ -138,7 +138,7 @@ export class ProcessSummaryModalComponent {
       });
     } else {
       this.translate.get('resume.downloadFailed').subscribe((msg: string) => {
-        this.snackBar.open(msg, this.translate.instant('resume.downloadFailed'), {
+        this.snackBar.open(msg, this.translate.instant('resume.close'), {
           duration: 3000,
           horizontalPosition: 'right',
           verticalPosition: 'bottom',
@@ -147,5 +147,5 @@ export class ProcessSummaryModalComponent {
       });
     }
   }
-  
+
 }
