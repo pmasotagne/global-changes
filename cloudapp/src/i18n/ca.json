@@ -387,7 +387,13 @@
 		    "values_not_matching_or_subfield": "El valor existent i el valor del CSV no coincideixen o el subcamp no existeix",
 		    "values_not_moved": "Els camps no es poden moure",
 		    "parts_not_matching": "Les parts esperades no coincideixen amb les parts del camp dividit"
-		}
+		},
+		"copiedToClipboard": "Copiat al porta-retalls",
+  		"failedToCopy": "Error en copiar",
+		"idsCopied": "Tots els identificadors s'han copiat",
+  		"idsCopiedFailed": "Error en copiar tots els identificadors",
+  		"downloadSuccess": "CSV descarregat correctament",
+  		"downloadFailed": "Error en descarregar el CSV d'errors"
 	},
 	"roleSelect": {
 		"deselectAll": "Desselecciona-ho tot",
