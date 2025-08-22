@@ -76,12 +76,16 @@
       <ul class="error-list">
         <li *ngFor="let e of data.errorLog" class="error-entry">
           <div class="error-identifiers">
-            <span *ngFor="let key of (e.identifiers | keyvalue)">
+            <span *ngFor="let key of (e.identifiers | keyvalue | slice:0:25)">
               <strong>{{ key.key }}:</strong> {{ key.value }}
               <button mat-icon-button class="copy-btn"
                       (click)="copyToClipboard(key.value)"
                       aria-label="Copy identifier">
                 <mat-icon>content_copy</mat-icon>
+                <button mat-icon-button class="download-btn"
+                      (click)="downloadErrorsCsv(); $event.stopPropagation()"
+                      aria-label="Download errors as CSV">
+                <mat-icon>download</mat-icon>
               </button>
             </span>
           </div>
