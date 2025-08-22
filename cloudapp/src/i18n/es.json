@@ -367,9 +367,9 @@
 	},
 	"resume": {
 		"title": "Resumen",
-		"itemsUpdated": "Ejemplares procesados",
-		"errors": "Errores (no procesados)",
-		"totalLinesProcessed": "Total de líneas procesadas",
+		"itemsUpdated": "Registros procesados",
+		"errors": "Errores",
+		"totalLinesProcessed": "Líneas del fichero",
 		"setId": "ID del conjunto",
 		"setIdError": "ID del conjunto de errores",
 		"close": "Cerrar",
