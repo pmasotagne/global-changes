@@ -80,18 +80,17 @@
       </p>
 
       <ul class="error-list">
-        <li *ngFor="let e of data.errorLog" class="error-entry">
+        <li *ngFor="let item of data.identifiersLimitedGlobal; let i = index" class="error-entry">
+          <div class="error-title"><small>Error {{ i + 1 }}</small></div>
           <div class="error-identifiers">
-            <span *ngFor="let key of (e.identifiers | keyvalue | slice:0:25)">
-              <strong>{{ key.key }}:</strong> {{ key.value }}
-              <button mat-icon-button class="copy-btn"
-                      (click)="copyToClipboard(key.value)"
-                      aria-label="Copy identifier">
-                <mat-icon>content_copy</mat-icon>
-              </button>
-            </span>
+            <strong>{{ item.key }}:</strong> {{ item.value }}
+            <button mat-icon-button class="copy-btn"
+                    (click)="copyToClipboard(item.value)"
+                    aria-label="Copy identifier">
+              <mat-icon>content_copy</mat-icon>
+            </button>
           </div>
-          <div class="error-message">{{ e.error }}</div>
+          <div class="error-message">{{ item.error }}</div>
         </li>
       </ul>
     </mat-expansion-panel>
