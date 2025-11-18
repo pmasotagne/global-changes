@@ -64,6 +64,7 @@
 	"createItems": {
 		"title": "Crear exemplars per a registres de fons existents",
 		"createResultSets": "Crear conjunts de resultats",
+		"generateDescription": "Generar descripció",
 		"validHeaders": "Comprova les capçaleres vàlides",
 		"validationInfoHeader": "El fitxer es validarà segons les comprovacions següents:",
 		"validationInfoPoint1": "1. El fitxer ha d'estar en format CSV.",
