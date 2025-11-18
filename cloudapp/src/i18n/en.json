@@ -64,6 +64,7 @@
 	"createItems": {
 		"title": "Create Items to existent Holdings",
 		"createResultSets": "Create set of results",
+		"generateDescription": "Generate description",
 		"validHeaders": "Check for valid headers",
 		"validationInfoHeader": "The file will be validated for the following checks:",
 		"validationInfoPoint1": "1. The file must be in CSV format.",
