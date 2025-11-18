@@ -64,6 +64,7 @@
 	"createItems": {
 		"title": "Crear ejemplares para registros de fondos existentes",
 		"createResultSets": "Crear conjuntos de resultados",
+		"generateDescription": "Generar descripción",
 		"validHeaders": "Verificar cabeceras válidas",
 		"validationInfoHeader": "El archivo se validará según las siguientes comprobaciones:",
 		"validationInfoPoint1": "1. El archivo debe estar en formato CSV.",
