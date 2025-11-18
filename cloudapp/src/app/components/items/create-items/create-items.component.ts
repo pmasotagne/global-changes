@@ -26,6 +26,7 @@ const CHUNK_SIZE = 25;
 export class CreateItemsInBulk implements OnInit {
   // Form inputs
   createResultSets: boolean = false;
+  generateDescription: boolean = false;
   selectedFile: File | null = null;
 
   // File Validation
@@ -211,7 +212,7 @@ export class CreateItemsInBulk implements OnInit {
     const { mmsId, holdingId, xml } = this.generateXMLAndIdentifiers(itemData);
   
     try {
-      const response = (await this.itemService.createItem(mmsId, holdingId, xml).toPromise());
+      const response = (await this.itemService.createItem(mmsId, holdingId, xml, this.generateDescription).toPromise());
 
       this.createdCount++;
 
@@ -225,7 +226,7 @@ export class CreateItemsInBulk implements OnInit {
       }
     } catch (error) {
       this.errorsCount++;
-      logError(this.errorLog, { mmsId, holdingId }, `${error?.message || error}`);
+      logError(this.errorLog, { mmsId }, `${error?.message || error}`);
     }
     
   }
