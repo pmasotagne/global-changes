@@ -82,9 +82,9 @@ export class ItemService {
     return this.restService.call(request);
   }
 
-  createItem(mmsid: string, holdingid: string, itemData: any): Observable<Item> {
+  createItem(mmsid: string, holdingid: string, itemData: any, generateDescription: boolean): Observable<Item> {
     const request: Request = {
-      url: `/almaws/v1/bibs/${mmsid}/holdings/${holdingid}/items`,
+      url: `/almaws/v1/bibs/${mmsid}/holdings/${holdingid}/items?generate_description=${generateDescription}`,
       method: HttpMethod.POST,
       headers: {
         ...AppConfig.httpHeader,
